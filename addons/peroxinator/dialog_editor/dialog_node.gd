@@ -4,7 +4,7 @@ extends GraphNode
 signal id_change(node, old_id, new_id)
 
 var id:String setget set_id
-var text:String
+var text:String setget set_text
 
 const message_slot_color = Color(1,1,1,0.7)
 const reply_slot_color = Color(1, 0.4, 0.6, 0.7)
@@ -39,6 +39,9 @@ func set_id(val):
 	emit_signal("id_change", self, id, val)
 	$Label.text = val
 	id = val
+
+func set_text(val):
+	text = val
 
 func update_replies():
 	var i = 1

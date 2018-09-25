@@ -6,16 +6,32 @@ const DialogNode = preload("dialog_node.tscn")
 
 var dlg_nodes:Dictionary = {}
 
-onready var g:GraphEdit = $graph
+onready var g:GraphEdit = $split/graph
+onready var e:PanelContainer = $split/edit
+
+var edited_dlg:GraphNode
+
+func _input(event):
+	if event is InputEventMouseButton && event.is_pressed() && event.button_index == BUTTON_RIGHT:
+		var pos = g.get_local_mouse_position()
+		var nd = DialogNode.instance()
+		nd.id = nd.name+str(OS.get_ticks_msec())
+		nd.offset = pos
+		dlg_nodes[nd.id] = nd
+		g.add_child(nd)
 
 func _ready():
+	set_process_input(true)
 	$menu_bar/file.get_popup().add_item("Open File..")
+	$menu_bar/file.get_popup().add_item("Save")
 	$menu_bar/file.get_popup().add_item("Save As..")
 	$menu_bar/file.get_popup().connect("id_pressed", self, "act_on_file")
 	
 	g.connect("connection_request", self, "econnect")
 	g.connect("disconnection_request", self, "edisconnect")
-	g.connect("delete_nodes_request", self, "edelete")
+	g.connect("node_selected", self, "eselect")
+	
+	e.connect("node_deleted", self, "edelete")
 	set_dialog_source(dialog_source)
 	
 func _exit_tree():
@@ -27,7 +43,6 @@ func clear_graph():
 	for c in g.get_children():
 		if c is GraphNode:
 			g.remove_child(c)
-	print_debug("No kids!! Kid count: ", g.get_child_count())
 
 func set_dialog_source(val):
 	dialog_source = val
@@ -74,18 +89,25 @@ func edisconnect(from, fromslot, to, toslot):
 	from_node.disconnect_reply(fromslot)
 	g.disconnect_node(from, fromslot, to, toslot)
 
-func edelete():
-	pass
+func eselect(val:GraphNode):
+	e.select(val)
+
+func edelete(id:String):
+	g.remove_child(dlg_nodes[id])
+	dlg_nodes.erase(id)
 
 func act_on_file(id):
 	#saving
 	if id == 0:
 		$File.mode = FileDialog.MODE_OPEN_FILE
 		$File.connect("file_selected", self, "set_dialog_source", [], CONNECT_ONESHOT)
+		$File.popup()
 	elif id == 1:
+		save_to_file(dialog_source)
+	elif id == 2:
 		$File.mode = FileDialog.MODE_SAVE_FILE
 		$File.connect("file_selected", self, "save_to_file", [], CONNECT_ONESHOT)
-	$File.popup()
+		$File.popup()
 
 func save_to_file(src):
 	var f = File.new()
