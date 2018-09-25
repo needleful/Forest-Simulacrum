@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/models/foliage/tree1.dae" type="PackedScene" id=1]
+[ext_resource path="res://scripts/actables/tree.gd" type="Script" id=2]
+[ext_resource path="res://scripts/actables/item.gd" type="Script" id=3]
+[ext_resource path="res://addons/gradient_shader/gradient.tres" type="Material" id=4]
+
+[sub_resource type="CylinderShape" id=1]
+
+margin = 0.04
+radius = 2.0
+height = 70.0
+
+[node name="small_tree" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+body_path = NodePath("StaticBody")
+size = "Small"
+
+[node name="StaticBody" type="StaticBody" parent="." index="0"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 3
+collision_mask = 3
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+ac_name = "Tree_Small"
+action_type = "saw"
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33.0347, -0.917767 )
+shape = SubResource( 1 )
+disabled = false
+_sections_unfolded = [ "shape" ]
+
+[node name="Cube" parent="." index="1"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+material/0 = ExtResource( 4 )
+_sections_unfolded = [ "Material", "Transform" ]
+

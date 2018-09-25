@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/models/foliage/rose.dae" type="PackedScene" id=1]
+[ext_resource path="res://scripts/actables/item.gd" type="Script" id=2]
+[ext_resource path="res://addons/gradient_shader/gradient.tres" type="Material" id=3]
+
+
+
+
+[sub_resource type="SphereShape" id=1]
+
+margin = 0.04
+radius = 1.0
+
+[node name="rose" index="0" instance=ExtResource( 1 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="StaticBody" type="StaticBody" parent="." index="0"]
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 2
+collision_mask = 2
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Collision" ]
+ac_name = "Flower"
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.678221, 0 )
+shape = SubResource( 1 )
+disabled = false
+_sections_unfolded = [ "shape" ]
+
+[node name="Cube" parent="." index="1"]
+material/0 = ExtResource( 3 )
+_sections_unfolded = [ "Material" ]
+
+[connection signal="exit" from="StaticBody" to="." method="queue_free"]

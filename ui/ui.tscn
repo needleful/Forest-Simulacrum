@@ -1,0 +1,92 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://addons/gradient_shader/ui_theme.theme" type="Theme" id=1]
+[ext_resource path="res://scripts/ui/ui.gd" type="Script" id=2]
+[ext_resource path="res://ui/Action_Context.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/peroxinator/dialog_viewer/viewer.gd" type="Script" id=4]
+[ext_resource path="res://addons/peroxinator/dialog_viewer/node_icon.png" type="Texture" id=5]
+[ext_resource path="res://ui/pause_menu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/ui/input.gd" type="Script" id=7]
+
+
+[node name="ui" type="Control"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Material", "Theme", "material" ]
+__meta__ = {
+"_edit_lock_": true
+}
+fadeout_alpha = 0.0
+
+[node name="action_context" parent="." instance=ExtResource( 3 )]
+use_parent_material = true
+_sections_unfolded = [ "Custom Constants", "Custom Fonts", "Material", "Theme", "custom_fonts/font" ]
+
+[node name="DialogViewer" type="Control" parent="."]
+visible = false
+use_parent_material = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -167.0
+margin_right = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 4 )
+_sections_unfolded = [ "theme" ]
+__meta__ = {
+"_editor_icon": ExtResource( 5 )
+}
+entry = "Home"
+text_speed = 2.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -80.0
+margin_top = -80.0
+margin_right = 80.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+_sections_unfolded = [ "Margin" ]
+
+[node name="pause_menu" parent="." instance=ExtResource( 6 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -109.0
+margin_top = -132.0
+margin_right = 109.0
+margin_bottom = 68.0
+_sections_unfolded = [ "Anchor", "Margin", "Material", "Pause", "Theme" ]
+
+[node name="input_handler" type="Node" parent="."]
+script = ExtResource( 7 )
+

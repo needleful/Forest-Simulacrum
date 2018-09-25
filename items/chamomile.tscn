@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/models/foliage/chamomile.dae" type="PackedScene" id=1]
+[ext_resource path="res://addons/gradient_shader/gradient.tres" type="Material" id=2]
+[ext_resource path="res://scripts/actables/item.gd" type="Script" id=3]
+
+
+
+
+[sub_resource type="BoxShape" id=1]
+
+extents = Vector3( 1, 1, 1 )
+
+[node name="chamomile" instance=ExtResource( 1 )]
+
+[node name="Cube" parent="." index="0"]
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Material" ]
+
+[node name="StaticBody" type="StaticBody" parent="Cube" index="0"]
+editor/display_folded = true
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 3
+collision_mask = 3
+friction = 1.0
+bounce = 0.0
+physics_material_override = null
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+ac_name = "Chamomile"
+
+[node name="CollisionShape" type="CollisionShape" parent="Cube/StaticBody" index="0"]
+shape = SubResource( 1 )
+disabled = false
+
+[connection signal="exit" from="Cube/StaticBody" to="." method="queue_free"]

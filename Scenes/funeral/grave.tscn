@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/models/funeral/grave.dae" type="PackedScene" id=1]
+[ext_resource path="res://addons/gradient_shader/gradient.tres" type="Material" id=2]
+[ext_resource path="res://scripts/actables/talkable.gd" type="Script" id=3]
+
+
+
+
+
+
+
+[sub_resource type="BoxShape" id=1]
+
+margin = 0.04
+extents = Vector3( 0.48, 4.54086, 3.02 )
+
+[node name="grave" index="0" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Cube" parent="." index="0"]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0 )
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="StaticBody" type="StaticBody" parent="Cube" index="0"]
+transform = Transform( 1, 0, -7.10543e-15, 0, 1, 0, -5.32907e-15, 0, 1, 0, 0, 0 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 3
+collision_mask = 3
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision", "Transform" ]
+ac_name = "grave"
+dialog_source = "res://Scenes/viewables.json"
+dialog_entry = "view_grave"
+action_type = "view"
+
+[node name="CollisionShape" type="CollisionShape" parent="Cube/StaticBody" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, -1.77636e-15, 0, 1, 0, 3.34165, 0 )
+shape = SubResource( 1 )
+disabled = false
+_sections_unfolded = [ "Transform", "shape" ]
+

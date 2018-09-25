@@ -1,0 +1,419 @@
+{
+  "S2-Died": {
+    "id": "S2-Died",
+    "text": "Everyone.\n\n...",
+    "_editor_x": 402.0,
+    "_editor_y": 322.0,
+    "replies": [],
+    "mood": []
+  },
+  "Q-Trust": {
+    "id": "Q-Trust",
+    "text": "Well, that will come with time.\n\nJust get the flowers.\nFour, please.",
+    "_editor_x": 325.0,
+    "_editor_y": 671.0,
+    "replies": [],
+    "mood": []
+  },
+  "Q-Questions": {
+    "id": "Q-Questions",
+    "text": "Oh nonononono\n\nWe\u0027ll be here all day if you keep asking questions!\n\nAll we need is four flowers for the funeral, and maybe some chamomile if you can find any.\n\nI know what you want to ask:\n\n\"Where am I?\"\n\"Who are you?\"\n\"Why am I here?\"\n\"Why is everything the same color?\"\n\nJust enjoy the moment, and accept that I don\u0027t know the answers to any of your questions.",
+    "_editor_x": 317.0,
+    "_editor_y": 557.0,
+    "replies": [
+      {
+        "text": "But...",
+        "id": "Q-Bye",
+        "type": "Spade"
+      },
+      {
+        "text": "Alright, I\u0027ll get the flowers.",
+        "type": "Circle"
+      }
+    ],
+    "mood": []
+  },
+  "S4D2-Talking": {
+    "id": "S4D2-Talking",
+    "text": ". . .\n\n.  .  .  .  .\n\nOk, fair enough.\n\nJust find the flowers, please.  My small mammalian brain can only handle so much conversation.",
+    "_editor_x": 1192.0,
+    "_editor_y": 304.0,
+    "replies": [],
+    "mood": []
+  },
+  "S4-Brought": {
+    "id": "S4-Brought",
+    "text": "Oh, no.\n\nAbsolutely not.\n\nWhat I meant was..\n\nthe GENERAL sense of \"brought\".\n\nOne can bring oneself to a location using their own power, and they were still \"brought\" there.\n\nBut part of not knowing how you were brought here means I also don\u0027t know if you were brought by yourself or brought by others.\n\nSo maybe you WERE \"brought\" here.\n\nBut I wouldn\u0027t know.",
+    "_editor_x": 759.0,
+    "_editor_y": 213.0,
+    "replies": [
+      {
+        "text": "Okay, I\u0027m just going to go look for the flowers.",
+        "id": "S4C-Looking",
+        "type": "Club"
+      },
+      {
+        "text": "You\u0027re sounding more and more suspicious with every sentence.",
+        "id": "S4D-Suspicion",
+        "type": "Diamond"
+      }
+    ],
+    "mood": []
+  },
+  "S4D-Suspicion": {
+    "id": "S4D-Suspicion",
+    "text": "Look.\n\nLevel with me.\n\nWe\u0027ve been at this back and forth for what, five, six hours?\n\nAren\u0027t you getting tired of arguing with me?  Can\u0027t we just reach a point of stability and cooperate on a rather minor task?",
+    "_editor_x": 902.0,
+    "_editor_y": 285.0,
+    "replies": [
+      {
+        "text": "We haven\u0027t been talking for nearly that long.",
+        "id": "S4D2-Talking",
+        "type": "Diamond"
+      },
+      {
+        "text": "Alright, you have a point.  We should cooperate if we want to enjoy ourselves.",
+        "id": "S3H-Fair",
+        "type": "Heart"
+      }
+    ],
+    "mood": []
+  },
+  "H-OnIt": {
+    "id": "H-OnIt",
+    "text": "Great.\nFour flowers should be enough.\n\nOne for the world.\n\nOne for God.\n\n[anim Sneeze]And two for me and you.\n",
+    "_editor_x": 423.0,
+    "_editor_y": 228.0,
+    "replies": [],
+    "mood": []
+  },
+  "SDC-Point": {
+    "id": "SDC-Point",
+    "text": "The most excellent of points.",
+    "_editor_x": 685.0,
+    "_editor_y": -59.0,
+    "replies": [
+      {
+        "text": "Indubitably.  There are no points more excellent than mine.",
+        "id": "Indubitably",
+        "type": "Club"
+      },
+      {
+        "text": "Ok but seriously answer the question.",
+        "id": "SD2-ActualAnswer",
+        "type": "Diamond"
+      }
+    ],
+    "mood": []
+  },
+  "S1-Wreath": {
+    "id": "S1-Wreath",
+    "text": "To honor the dead, naturally.",
+    "_editor_x": 223.0,
+    "_editor_y": 270.0,
+    "replies": [
+      {
+        "text": "Alright, I\u0027ll get the flowers.",
+        "id": "H-OnIt",
+        "type": "Heart"
+      },
+      {
+        "text": "Who died?",
+        "id": "S2-Died",
+        "type": "Spade"
+      }
+    ],
+    "mood": []
+  },
+  "Q-Bye": {
+    "id": "Q-Bye",
+    "text": "Not hearing it!\n\nGood bye!",
+    "_editor_x": 468.0,
+    "_editor_y": 583.0,
+    "replies": [],
+    "mood": []
+  },
+  "Questions": {
+    "id": "Questions",
+    "text": "Hello again.\nDo you need help finding the flowers?",
+    "_editor_x": 129.0,
+    "_editor_y": 491.0,
+    "replies": [
+      {
+        "text": "Flowers?",
+        "id": "Q-Task",
+        "type": "Spade"
+      },
+      {
+        "text": "Yeah, I\u0027m having trouble finding anything.  Or really seeing anything.",
+        "id": "Q-Finding",
+        "type": "Spade"
+      },
+      {
+        "text": "Okay, I just have a few more questions...",
+        "id": "Q-Questions",
+        "type": "Spade"
+      },
+      {
+        "text": "I still don\u0027t trust you.",
+        "id": "Q-Trust",
+        "type": "Diamond"
+      }
+    ],
+    "mood": []
+  },
+  "Chamomile": {
+    "id": "Chamomile",
+    "text": "Ah, great idea.",
+    "_editor_x": 302.0,
+    "_editor_y": 748.0,
+    "replies": [],
+    "mood": []
+  },
+  "Home": {
+    "id": "Home",
+    "text": "Oh good, you\u0027re awake.\n\n[anim Sneeze]Could you get us some flowers?\nI want to make a wreath.\n\nAnd if you find some chamomile, I\u0027ll whip us up some tea.",
+    "_editor_x": -18.0,
+    "_editor_y": 161.0,
+    "replies": [
+      {
+        "text": "Sure, I\u0027ll get on it.",
+        "id": "H-OnIt",
+        "type": "Heart"
+      },
+      {
+        "text": "What?  Where am I?",
+        "id": "S-Where",
+        "type": "Spade"
+      },
+      {
+        "text": "It wouldn\u0027t kill you to say \"Please\".",
+        "id": "D1-Kill",
+        "type": "Diamond"
+      },
+      {
+        "text": "A wreath for what?",
+        "id": "S1-Wreath",
+        "type": "Spade"
+      }
+    ],
+    "mood": []
+  },
+  "RequirementsMet": {
+    "id": "RequirementsMet",
+    "text": "[anim Sneeze]Oh good, you found the flowers.\n\nLet\u0027s hold the funeral.",
+    "_editor_x": 132.0,
+    "_editor_y": 697.0,
+    "replies": [
+      {
+        "text": "Let\u0027s go [event funeral]",
+        "type": "Heart"
+      },
+      {
+        "text": "Actually, I\u0027m going to look for that chamomile.",
+        "id": "Chamomile",
+        "type": "Club"
+      }
+    ],
+    "mood": []
+  },
+  "Optional": {
+    "id": "Optional",
+    "text": "Oh, splendid!\n\nYou even found the tea!\n\n[defer event tea_party][give tea]We\u0027ll have a wonderful tea party with this.",
+    "_editor_x": 134.0,
+    "_editor_y": 827.0,
+    "replies": [],
+    "mood": []
+  },
+  "S-Where": {
+    "id": "S-Where",
+    "text": "You\u0027re in a simulated environment.\n\nIt\u0027s low-stress.\n\nIt\u0027s gluten-free.\n\nIt\u0027s everything you\u0027d need.\nMore or less...",
+    "_editor_x": 358.0,
+    "_editor_y": 57.0,
+    "replies": [
+      {
+        "text": "That\u0027s not much of an answer.",
+        "id": "SD-Answer",
+        "type": "Diamond"
+      },
+      {
+        "text": "How did I get here?",
+        "id": "S3-From",
+        "type": "Spade"
+      }
+    ],
+    "mood": []
+  },
+  "S3DS-Arrived": {
+    "id": "S3DS-Arrived",
+    "text": ". . .\n\nYes, as a matter of fact.\n\nI have no idea how I got here,\n\nor how you got here,\n\nor how anyone or anything got here.\n\nSo let\u0027s just cut this chat short and look for some flowers.  We\u0027re holding a funeral this afternoon and I don\u0027t want to attend without a wreath for the grave.",
+    "_editor_x": 1149.0,
+    "_editor_y": 95.0,
+    "replies": [],
+    "mood": []
+  },
+  "Indubitably": {
+    "id": "Indubitably",
+    "text": "Indubitably.",
+    "_editor_x": 900.0,
+    "_editor_y": -49.0,
+    "replies": [
+      {
+        "text": "Indubitably.",
+        "id": "Indubitably",
+        "type": "Club"
+      },
+      {
+        "text": "Okay I\u0027m gonna go find the flowers or whatever.",
+        "id": "S4C-Looking",
+        "type": "Club"
+      }
+    ],
+    "mood": []
+  },
+  "SD2-ActualAnswer": {
+    "id": "SD2-ActualAnswer",
+    "text": "I would if I could, but I can\u0027t.",
+    "_editor_x": 813.0,
+    "_editor_y": -196.0,
+    "replies": [
+      {
+        "text": "Alright.  I\u0027ll drop it for now and just look for the flowers.",
+        "id": "S4C-Looking",
+        "type": "Heart"
+      },
+      {
+        "text": "Why the hell not?!",
+        "id": "S3D-HorseShit",
+        "type": "Diamond"
+      }
+    ],
+    "mood": []
+  },
+  "S3D-HorseShit": {
+    "id": "S3D-HorseShit",
+    "text": "There\u0027s no need for such language.\n\nI know you\u0027re confused, but I\u0027m here, as well, aren\u0027t I?  Have you even considered the possibility that I just suddenly found my self here the same way you did?",
+    "_editor_x": 794.0,
+    "_editor_y": 52.0,
+    "replies": [
+      {
+        "text": "That\u0027s a good point...",
+        "id": "S3H-Fair",
+        "type": "Heart"
+      },
+      {
+        "text": "Did you?",
+        "id": "S3DS-Arrived",
+        "type": "Spade"
+      }
+    ],
+    "mood": []
+  },
+  "Q-Finding": {
+    "id": "Q-Finding",
+    "text": "It\u0027s easy to miss things, especially when they\u0027re near walls or low to the ground.\n\nYou\u0027ll have a much clearer view of the area from up high or down low.",
+    "_editor_x": 318.0,
+    "_editor_y": 494.0,
+    "replies": [],
+    "mood": []
+  },
+  "S4C-Looking": {
+    "id": "S4C-Looking",
+    "text": "Please do.\n\nOh, and some chamomile if you can find any.",
+    "_editor_x": 1176.0,
+    "_editor_y": 175.0,
+    "replies": [],
+    "mood": []
+  },
+  "Q-Task": {
+    "id": "Q-Task",
+    "text": "[anim Sneeze]You\u0027re completely hopeless\n\nI need four flowers to make a wreath because we\u0027re having a funeral.\n\nThey should be around here somewhere.\nThey wouldn\u0027t call this a forest if there weren\u0027t any flowers.  That\u0027s against the rules.\n\nOh, and some chamomile would be lovely, but don\u0027t trouble yourself too much if you can\u0027t find any.",
+    "_editor_x": 321.0,
+    "_editor_y": 437.0,
+    "replies": [],
+    "mood": []
+  },
+  "S3C-Smarter": {
+    "id": "S3C-Smarter",
+    "text": "Why thank you.\n\nBut flattery won\u0027t get you anywhere.\nAll I want are some flowers for the funeral.\n\nHow could I possibly grieve without flowers?  It would be a mockery of the ritual.",
+    "_editor_x": 833.0,
+    "_editor_y": 153.0,
+    "replies": [],
+    "mood": []
+  },
+  "D1-Kill": {
+    "id": "D1-Kill",
+    "text": "You don\u0027t know that, and I\u0027m not about to find out.",
+    "_editor_x": 221.0,
+    "_editor_y": 161.0,
+    "replies": [
+      {
+        "text": "Whatever, I\u0027ll get the flowers.",
+        "id": "H-OnIt",
+        "type": "Heart"
+      },
+      {
+        "text": "Okay... Where am I, anyway?",
+        "id": "S-Where",
+        "type": "Spade"
+      }
+    ],
+    "mood": []
+  },
+  "SD-Answer": {
+    "id": "SD-Answer",
+    "text": "Excellent point.",
+    "_editor_x": 530.0,
+    "_editor_y": -99.0,
+    "replies": [
+      {
+        "text": "So are you going to give an actual answer?",
+        "id": "SD2-ActualAnswer",
+        "type": "Diamond"
+      },
+      {
+        "text": "Yes.  It really is an excellent point.",
+        "id": "SDC-Point",
+        "type": "Club"
+      }
+    ],
+    "mood": []
+  },
+  "S3H-Fair": {
+    "id": "S3H-Fair",
+    "text": "Yes\nExactly\nThank you for being agreeable\n\nSo how about we cut this chat short and look for flowers?\n\nI\u0027d like to have this funeral concluded before the sun sets.",
+    "_editor_x": 1165.0,
+    "_editor_y": 7.0,
+    "replies": [],
+    "mood": []
+  },
+  "S3-From": {
+    "id": "S3-From",
+    "text": "How would I know?  I\u0027m just a deer.\n\nTHE deer, I mean.\n\nThere aren\u0027t any other deer, but if there were, I can assure you I would have average intelligence among a representative sample, and thus neither know nor could articulate the means by which you were brought here.",
+    "_editor_x": 519.0,
+    "_editor_y": 50.0,
+    "replies": [
+      {
+        "text": "That\u0027s fair.",
+        "id": "S3H-Fair",
+        "type": "Heart"
+      },
+      {
+        "text": "That\u0027s horse shit.",
+        "id": "S3D-HorseShit",
+        "type": "Diamond"
+      },
+      {
+        "text": "I suspect you\u0027re a bit smarter than the average deer.",
+        "id": "S3C-Smarter",
+        "type": "Club"
+      },
+      {
+        "text": "I was brought here?",
+        "id": "S4-Brought",
+        "type": "Spade"
+      }
+    ],
+    "mood": []
+  }
+}

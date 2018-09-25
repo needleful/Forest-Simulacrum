@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/models/external/lowpolydeer/deer.dae" type="PackedScene" id=1]
+[ext_resource path="res://scripts/actables/deer.gd" type="Script" id=2]
+[ext_resource path="res://addons/gradient_shader/gradient.tres" type="Material" id=3]
+[ext_resource path="res://scripts/actables/talkable.gd" type="Script" id=4]
+
+
+[sub_resource type="BoxShape" id=1]
+
+margin = 0.04
+extents = Vector3( 1.56345, 1.00226, 0.537752 )
+
+[sub_resource type="SphereShape" id=2]
+
+margin = 0.04
+radius = 1.0
+
+[sub_resource type="CapsuleShape" id=3]
+
+margin = 0.04
+radius = 0.696106
+height = 0.661797
+
+[node name="deer" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+_sections_unfolded = [ "Matrix", "Transform" ]
+
+[node name="Armature" parent="." index="0"]
+editor/display_folded = true
+
+[node name="deer" parent="Armature/Skeleton" index="0"]
+material/0 = ExtResource( 3 )
+_sections_unfolded = [ "Material" ]
+
+[node name="AnimationPlayer" parent="." index="1"]
+editor/display_folded = true
+
+[node name="AnimationTreePlayer" type="AnimationTreePlayer" parent="AnimationPlayer" index="0"]
+playback_process_mode = 1
+master_player = NodePath("")
+base_path = NodePath("..")
+active = false
+data = {
+"active": false,
+"connections": [  ],
+"master": NodePath(""),
+"nodes": [ {
+"id": "mix",
+"mix": 5.22642e-23,
+"position": Vector2( 324, 25 ),
+"type": "mix"
+}, {
+"id": "out",
+"position": Vector2( 542, 97 ),
+"type": "output"
+}, {
+"animation": null,
+"filter": [  ],
+"id": "anim",
+"position": Vector2( 71, 54 ),
+"type": "animation"
+}, {
+"animation": null,
+"filter": [  ],
+"id": "anim 2",
+"position": Vector2( 83, 173 ),
+"type": "animation"
+} ]
+}
+
+[node name="body" type="KinematicBody" parent="." index="2"]
+transform = Transform( -3.93403e-08, 0, 0.9, 0, 0.9, 0, -0.9, 0, -3.93403e-08, 7.50299e-08, 0, -0.728998 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 3
+collision_mask = 3
+move_lock_x = false
+move_lock_y = false
+move_lock_z = false
+collision/safe_margin = 0.001
+script = ExtResource( 4 )
+_sections_unfolded = [ "Collision", "Transform", "required_items" ]
+ac_name = "Deer"
+dialog_source = "res://characters/dialog/test.json"
+dialog_entry = "Home"
+action_type = "talk"
+
+[node name="bodybox" type="CollisionShape" parent="body" index="0"]
+transform = Transform( 0.939425, -0.342754, 0, 0.342754, 0.939425, 0, 0, 0, 1, -0.816003, 2.39786, 0 )
+shape = SubResource( 1 )
+disabled = false
+
+[node name="feetcapsule" type="CollisionShape" parent="body" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13779, 0.990436, 0 )
+shape = SubResource( 2 )
+disabled = false
+
+[node name="headbox" type="CollisionShape" parent="body" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.871959, 3.73297, 0 )
+shape = SubResource( 3 )
+disabled = false
+

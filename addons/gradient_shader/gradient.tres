@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://addons/gradient_shader/shaders/gradient.shader" type="Shader" id=1]
+[ext_resource path="res://addons/gradient_shader/shaders/noise.png" type="Texture" id=2]
+
+[resource]
+
+render_priority = 0
+shader = ExtResource( 1 )
+shader_param/color_light = Color( 1, 1, 1, 1 )
+shader_param/color_dark = Color( 0, 0, 0, 1 )
+shader_param/noise_weight = 0.015
+shader_param/y_top = 1
+shader_param/y_scale = 1
+shader_param/noise = ExtResource( 2 )
+_sections_unfolded = [ "Resource", "Shader Param", "shader_param" ]
+

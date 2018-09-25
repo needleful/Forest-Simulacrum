@@ -1,0 +1,42 @@
+{
+  "view_barrier": {
+    "id": "view_barrier",
+    "text": "A strange force compells you NOT to jump into the incomprehensible void before you.\n\nMuch to your disappointment.",
+    "_editor_x": 135.0,
+    "_editor_y": 370.0,
+    "replies": [],
+    "mood": []
+  },
+  "view_teapot": {
+    "id": "view_teapot",
+    "text": "You and the deer drank all the tea.\n\nHe may be a jerk, but that deer really can make a cup of tea.",
+    "_editor_x": 134.0,
+    "_editor_y": 224.0,
+    "replies": [],
+    "mood": []
+  },
+  "view_teacup": {
+    "id": "view_teacup",
+    "text": "An empty teacup.\n\nYou can barely see it, but it\u0027s definitely there.",
+    "_editor_x": 136.0,
+    "_editor_y": 299.0,
+    "replies": [],
+    "mood": []
+  },
+  "Home": {
+    "id": "Home",
+    "text": "If you\u0027re reading this, something was improperly configured!",
+    "_editor_x": -68.0,
+    "_editor_y": 152.0,
+    "replies": [],
+    "mood": []
+  },
+  "view_grave": {
+    "id": "view_grave",
+    "text": "Here lies all of humanity.\n\nWhen They came, the battle had already ended.",
+    "_editor_x": 135.0,
+    "_editor_y": 152.0,
+    "replies": [],
+    "mood": []
+  }
+}
