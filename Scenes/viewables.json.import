@@ -1,0 +1,11 @@
+[remap]
+
+importer="peroxinator.dlg"
+type="DialogTree"
+valid=false
+
+[deps]
+
+source_file="res://Scenes/viewables.json"
+[params]
+

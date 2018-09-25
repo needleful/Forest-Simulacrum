@@ -1,0 +1,12 @@
+[remap]
+
+importer="peroxinator.dlg"
+type="Resource"
+valid=false
+
+[deps]
+
+source_file="res://characters/dialog/deer-2.json"
+[params]
+
+my_option=false

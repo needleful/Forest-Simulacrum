@@ -1,0 +1,11 @@
+[remap]
+
+importer="peroxinator.dlg"
+type="DialogTree"
+valid=false
+
+[deps]
+
+source_file="res://characters/dialog/frame-1.json"
+[params]
+
