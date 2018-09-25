@@ -28,8 +28,6 @@ func _ready():
 		print("got phase: ", str(i))
 		house.remove_child(phase)
 		house_parts.push_back(phase)
-	#Disabling trees so they can be enabled
-	get_tree().call_group("Tree_Small", "set_active", false)
 	
 func on_house_entry(body):
 	print_debug("Entered house")

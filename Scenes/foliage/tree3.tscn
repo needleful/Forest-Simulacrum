@@ -1,41 +1,80 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/models/foliage/tree3.dae" type="PackedScene" id=1]
-[ext_resource path="res://addons/gradient_shader/gradient.tres" type="Material" id=2]
+[ext_resource path="res://scripts/actables/tree.gd" type="Script" id=2]
+[ext_resource path="res://assets/models/foliage/Material.material" type="Material" id=3]
+[ext_resource path="res://addons/gradient_shader/gradient.tres" type="Material" id=4]
+[ext_resource path="res://scripts/actables/item.gd" type="Script" id=5]
 
+[sub_resource type="ArrayMesh" id=1]
 
+resource_name = "Cube"
+blend_shape_mode = 1
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+surfaces/0 = {
+"aabb": AABB( -0.822537, -1.01826, -0.247551, 1.42836, 3.40556, 1.42832 ),
+"array_data": PoolByteArray( 88, 22, 27, 63, 64, 86, 130, 191, 32, 128, 124, 190, 0, 129, 0, 0, 144, 213, 26, 63, 64, 86, 130, 191, 96, 35, 151, 63, 0, 129, 0, 0, 204, 145, 82, 191, 128, 68, 130, 191, 128, 2, 151, 63, 0, 129, 0, 0, 252, 77, 82, 191, 224, 71, 130, 191, 32, 126, 125, 190, 0, 129, 0, 0, 7, 242, 66, 191, 0, 205, 222, 63, 57, 98, 142, 63, 223, 119, 26, 0, 8, 198, 3, 63, 62, 131, 6, 64, 118, 76, 143, 63, 223, 119, 26, 0, 253, 26, 6, 63, 164, 201, 24, 64, 107, 14, 15, 190, 223, 119, 26, 0, 200, 60, 61, 191, 73, 50, 2, 64, 200, 101, 42, 190, 223, 119, 26, 0, 253, 26, 6, 63, 164, 201, 24, 64, 107, 14, 15, 190, 0, 3, 130, 0, 88, 22, 27, 63, 64, 86, 130, 191, 32, 128, 124, 190, 0, 3, 130, 0, 252, 77, 82, 191, 224, 71, 130, 191, 32, 126, 125, 190, 0, 3, 130, 0, 200, 60, 61, 191, 73, 50, 2, 64, 200, 101, 42, 190, 0, 3, 130, 0, 204, 145, 82, 191, 128, 68, 130, 191, 128, 2, 151, 63, 130, 3, 0, 0, 7, 242, 66, 191, 0, 205, 222, 63, 57, 98, 142, 63, 130, 3, 0, 0, 200, 60, 61, 191, 73, 50, 2, 64, 200, 101, 42, 190, 130, 3, 0, 0, 252, 77, 82, 191, 224, 71, 130, 191, 32, 126, 125, 190, 130, 3, 0, 0, 144, 213, 26, 63, 64, 86, 130, 191, 96, 35, 151, 63, 0, 2, 126, 0, 8, 198, 3, 63, 62, 131, 6, 64, 118, 76, 143, 63, 0, 2, 126, 0, 7, 242, 66, 191, 0, 205, 222, 63, 57, 98, 142, 63, 0, 2, 126, 0, 204, 145, 82, 191, 128, 68, 130, 191, 128, 2, 151, 63, 0, 2, 126, 0, 88, 22, 27, 63, 64, 86, 130, 191, 32, 128, 124, 190, 126, 3, 0, 0, 253, 26, 6, 63, 164, 201, 24, 64, 107, 14, 15, 190, 126, 3, 0, 0, 8, 198, 3, 63, 62, 131, 6, 64, 118, 76, 143, 63, 126, 3, 0, 0, 144, 213, 26, 63, 64, 86, 130, 191, 96, 35, 151, 63, 126, 3, 0, 0 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0, 4, 0, 6, 0, 5, 0, 4, 0, 7, 0, 6, 0, 8, 0, 10, 0, 9, 0, 8, 0, 11, 0, 10, 0, 12, 0, 14, 0, 13, 0, 12, 0, 15, 0, 14, 0, 16, 0, 18, 0, 17, 0, 16, 0, 19, 0, 18, 0, 20, 0, 22, 0, 21, 0, 20, 0, 23, 0, 22, 0 ),
+"blend_shape_data": [  ],
+"format": 97539,
+"index_count": 36,
+"material": ExtResource( 3 ),
+"name": "Material",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 24
+}
 
+[sub_resource type="CylinderShape" id=2]
 
-
-
-
-
-[sub_resource type="CylinderShape" id=1]
-
+margin = 0.04
 radius = 0.532766
 height = 8.10469
 
-[node name="tree" instance=ExtResource( 1 )]
+[node name="tree" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
+body_path = "StaticBody"
+chopped_path = "chopped"
+mesh_path = "Cube"
+size = "Large"
 
-[node name="Cube" parent="." index="0"]
+[node name="chopped" type="MeshInstance" parent="." index="0"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
-material/0 = ExtResource( 2 )
+visible = false
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = true
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 4 )
+_sections_unfolded = [ "Transform", "material" ]
+
+[node name="Cube" parent="." index="1"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+material/0 = ExtResource( 4 )
 _sections_unfolded = [ "Material", "Transform" ]
 
-[node name="StaticBody" type="StaticBody" parent="." index="2"]
+[node name="StaticBody" type="StaticBody" parent="." index="3"]
+editor/display_folded = true
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1
 collision_mask = 1
-friction = 1.0
-bounce = 0.0
-physics_material_override = null
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
+script = ExtResource( 5 )
+ac_name = "Item"
+action_type = "take"
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.63018, 0.246753 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 disabled = false
 

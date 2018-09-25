@@ -2,8 +2,8 @@
   "S-ToDo": {
     "id": "S-ToDo",
     "text": "Hm...\nI know!  We should build a house!\n\nWell, YOU should build a house.",
-    "_editor_x": 246.0,
-    "_editor_y": 76.0,
+    "_editor_x": 287.0,
+    "_editor_y": 50.0,
     "replies": [
       {
         "text": "Aw come on, why do I have to do it?",
@@ -24,8 +24,8 @@
   "S-Everyone": {
     "id": "S-Everyone",
     "text": "Oh, I wouldn\u0027t know.\n\nThey were here one day, and gone the next.\n\nI didn\u0027t keep track of humanity\u0027s affairs, what with my being a deer.",
-    "_editor_x": 244.0,
-    "_editor_y": 276.0,
+    "_editor_x": 294.0,
+    "_editor_y": 268.0,
     "replies": [
       {
         "text": "I feel like you know more than you\u0027re letting on.",
@@ -38,11 +38,24 @@
     ],
     "mood": []
   },
+  "C-Something": {
+    "id": "C-Something",
+    "text": "Um, , ,\n\nWho, exactly?",
+    "_editor_x": 286.0,
+    "_editor_y": 466.0,
+    "replies": [
+      {
+        "text": "I\u0027m not sure.  It was a little face in the corner of the room.",
+        "type": "Spade"
+      }
+    ],
+    "mood": []
+  },
   "Home": {
     "id": "Home",
-    "text": "Well, this is sufficiently tragic.\n\nThat\u0027s life, I suppose.",
-    "_editor_x": 86.0,
-    "_editor_y": 78.0,
+    "text": "Well, this is sufficiently tragic.",
+    "_editor_x": 82.0,
+    "_editor_y": 58.0,
     "replies": [
       {
         "text": "So with that taken care of, what should we do now?",
@@ -52,6 +65,11 @@
       {
         "text": "Any more chores you\u0027re going to have me do?",
         "type": "Diamond"
+      },
+      {
+        "text": "What happened to everyone?",
+        "id": "S-Everyone",
+        "type": "Spade"
       }
     ],
     "mood": []
@@ -59,8 +77,8 @@
   "TeaTime": {
     "id": "TeaTime",
     "text": "[give tea]I thought the funeral was going to be a miserable affair, but this was quite enjoyable!\n\nWhat a lovely way to send everyone off.\n\nNot with tears or sorrow, but a peaceful little tea party.",
-    "_editor_x": 87.0,
-    "_editor_y": 213.0,
+    "_editor_x": 85.0,
+    "_editor_y": 244.0,
     "replies": [
       {
         "text": "So what should we do now?",
@@ -75,11 +93,35 @@
     ],
     "mood": []
   },
+  "TeaTime-Portrait": {
+    "id": "TeaTime-Portrait",
+    "text": "[give tea]I thought the funeral was going to be a miserable affair, but this was quite enjoyable!\n\nWhat a lovely way to send everyone off.\n\nNot with tears or sorrow, but a peaceful little tea party.",
+    "_editor_x": 81.0,
+    "_editor_y": 367.0,
+    "replies": [
+      {
+        "text": "So what should we do now?",
+        "id": "S-ToDo",
+        "type": "Spade"
+      },
+      {
+        "text": "What exactly happened to everyone?",
+        "id": "S-Everyone",
+        "type": "Spade"
+      },
+      {
+        "text": "I met something in that house across the riverbed.",
+        "id": "C-Something",
+        "type": "Circle"
+      }
+    ],
+    "mood": []
+  },
   "SD-Hands": {
     "id": "SD-Hands",
     "text": "Uh\n\nBecause I don\u0027t have hands?",
-    "_editor_x": 408.0,
-    "_editor_y": 75.0,
+    "_editor_x": 537.0,
+    "_editor_y": 38.0,
     "replies": [],
     "mood": []
   }
