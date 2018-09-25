@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Spade.svg-f135da7b4debef9409994551dc427674.stex"
+path="res://.import/Club.svg-525d5839461053ea7ee70048a39a7b12.stex"
 
 [deps]
 
-source_file="res://assets/icons/replies/Spade.svg"
-dest_files=[ "res://.import/Spade.svg-f135da7b4debef9409994551dc427674.stex" ]
+source_file="res://addons/peroxinator/dialog_editor/icons/replies/Club.svg"
+dest_files=[ "res://.import/Club.svg-525d5839461053ea7ee70048a39a7b12.stex" ]
 
 [params]
 
@@ -28,4 +28,4 @@ process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true
-svg/scale=1.0
+svg/scale=0.5

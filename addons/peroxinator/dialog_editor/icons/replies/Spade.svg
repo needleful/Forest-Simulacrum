@@ -9,13 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="200mm"
-   height="200mm"
-   viewBox="0 0 744.09449 1052.3622"
+   width="32"
+   height="32"
+   viewBox="0 0 31.5 44.549999"
    id="svg2"
    version="1.1"
-   inkscape:version="0.91 r13725"
-   sodipodi:docname="S.svg">
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="Spade.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="233.06437"
-     inkscape:cy="347.76432"
+     inkscape:zoom="3.959798"
+     inkscape:cx="-9.5958389"
+     inkscape:cy="37.886195"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -38,7 +38,8 @@
      inkscape:window-height="706"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
-     inkscape:window-maximized="1">
+     inkscape:window-maximized="1"
+     units="px">
     <inkscape:grid
        type="xygrid"
        id="grid3351" />
@@ -47,17 +48,20 @@
        orientation="1,0"
        id="guide3355"
        inkscape:label=""
-       inkscape:color="rgb(0,0,255)" />
+       inkscape:color="rgb(0,0,255)"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="372.04723,526.18108"
        orientation="0,1"
        id="guide3357"
        inkscape:label=""
-       inkscape:color="rgb(0,0,255)" />
+       inkscape:color="rgb(0,0,255)"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="512.99999,1011.9214"
        orientation="0,1"
-       id="guide3398" />
+       id="guide3398"
+       inkscape:locked="false" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -67,18 +71,19 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(0,-1007.8122)">
     <path
        id="use3386"
-       style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:6.48772764;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 375.76835,41.718257 C 369.40768,199.71222 822.06452,267.7397 820.80801,568.34565 c 2.58603,206.05461 -231.92882,320.59974 -399.35855,199.17442 0,0 12.21918,228.93298 206.54773,261.44323 l -257.93817,0.5642 z m -2.75314,-2.121428 C 379.37588,197.59079 -73.280951,267.7397 -72.024441,568.34565 -74.61047,774.40026 159.90438,888.94539 327.33411,767.52007 c 0,0 -12.21918,228.93298 -206.54773,261.44323 l 249.45246,0.5642 z"
+       style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.26247117;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 15.963489,1009.578 c -0.257331,6.392 18.055609,9.144 18.004776,21.3055 0.104622,8.3362 -9.383043,12.9704 -16.156673,8.0579 0,0 0.494342,9.262 8.356209,10.5772 l -10.435292,0.022 z m -0.111382,-0.085 c 0.25733,6.3919 -18.0556115,9.2298 -18.0047751,21.3913 -0.1046222,8.3362 9.3830427,12.9704 16.1566721,8.0579 0,0 -0.494346,9.2619 -8.3562085,10.5772 l 10.0919875,0.022 z"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccccccccccc" />
   </g>
