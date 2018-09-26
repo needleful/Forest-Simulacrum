@@ -76,11 +76,8 @@ func add_reply_slots(reply, slot=-1):
 		Color.black, true, TYPE_STRING, reply_slot_color)
 
 func remove_reply(reply:Reply):
-	var idx = -1
-	for r in replies:
-		idx += 1
-		if r == reply:
-			break
+	#Get index of reply to remove
+	var idx = replies.find(reply)
 	if idx < 0:
 		print_debug("Tried to delete nonexistant reply!  Possible bug")
 		return
@@ -113,8 +110,13 @@ func export_data():
 		replies = []
 	}
 	for reply in replies:
+		var id
+		if reply.next != null:
+			id = reply.next.id
+		else:
+			id = null
 		data.replies.push_back({
-			id = reply.next.id,
+			id = id,
 			text = reply.text,
 			type = reply.type
 		})

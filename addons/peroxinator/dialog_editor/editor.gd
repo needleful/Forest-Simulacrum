@@ -6,8 +6,11 @@ const DialogNode = preload("dialog_node.tscn")
 
 var dlg_nodes:Dictionary = {}
 
-onready var g:GraphEdit = $split/graph
+onready var g:GraphEdit = $split/tabs/graph
 onready var e:PanelContainer = $split/edit
+
+var current_tab:int = 0
+const max_tab_title_len:int = 20
 
 var edited_dlg:GraphNode
 
@@ -21,6 +24,9 @@ func _input(event):
 		nd.offset = pos
 		dlg_nodes[nd.id] = nd
 		g.add_child(nd)
+
+func _enter_tree():
+	pass
 
 func _ready():
 	set_process_input(true)
@@ -81,6 +87,9 @@ func set_dialog_source(val):
 			if rep.next != null:
 				econnect(dn.name, slot, rep.next.name, 0)
 			slot += 1
+	#minimize tab title
+	
+	$split/tabs.set_tab_title(current_tab, dialog_source)
 
 func on_id_change(node:GraphNode, old_id:String, new_id:String):
 	dlg_nodes.erase(old_id)
