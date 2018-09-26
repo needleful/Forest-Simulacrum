@@ -4,7 +4,7 @@ signal exit
 signal enter
 
 export(String) var ac_name
-export(String, FILE, "*.json") var dialog_source = "res://Scenes/viewables.json"
+export(String, FILE) var dialog_source = "res://Scenes/viewables.json"
 export(String) var dialog_entry = "Home"
 export(String, "talk", "view", "take") var action_type = "talk"
 

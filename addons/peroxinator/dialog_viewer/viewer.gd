@@ -52,6 +52,7 @@ func _enter_tree():
 	add_child(viewer)
 	add_child(timer)
 	textbox = viewer.get_node("margin/scroll/text")
+	textbox.get_parent().remove_child(textbox)
 	reply_box = viewer.get_node("margin/replies")
 	reply_box.get_parent().remove_child(reply_box)
 	
@@ -93,7 +94,7 @@ func on_timeout():
 
 func show_replies_or_exit():
 	var replies = dialog_tree.get_replies(text_id)
-	if replies.size() == 0:
+	if replies == null || replies.size() == 0:
 		dlg_exit()
 	else:
 		set_state(DLG_VIEW_REPLIES)
@@ -133,16 +134,20 @@ func set_speed(val):
 	timer.wait_time = 0.1/val
 
 func set_state(next):
+	if state == next:
+		return
 	emit_signal("view_state_changed", state, next)
 	match(next):
 		DLG_WRITING:
 			scrollbox.scroll_vertical = 0
-			scrollbox.remove_child(reply_box)
-			scrollbox.add_child(textbox)
+			if textbox.get_parent() != scrollbox:
+				scrollbox.remove_child(reply_box)
+				scrollbox.add_child(textbox)
 		DLG_VIEW_REPLIES:
 			scrollbox.scroll_vertical = 0
-			scrollbox.remove_child(textbox)
-			scrollbox.add_child(reply_box)
+			if reply_box.get_parent() != scrollbox:
+				scrollbox.remove_child(textbox)
+				scrollbox.add_child(reply_box)
 	state = next
 	
 func set_source(src:String):

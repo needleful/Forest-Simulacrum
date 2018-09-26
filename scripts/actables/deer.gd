@@ -29,7 +29,7 @@ func on_enter():
 func on_phase_change(old_phase, new_phase):
 	match new_phase:
 		G.HOUSE:
-			b.dialog_source = "res://characters/dialog/deer-2.json"
+			b.dialog_source = "res://scripts/dialog/deer-2.dlg"
 			if G.has_item("tea"):
 				b.dialog_entry = "TeaTime"
 			else:

@@ -12,7 +12,8 @@ func _ready():
 	pass
 
 func set_name(new_name):
-	remove_from_group(ac_name)
+	if is_in_group(ac_name):
+		remove_from_group(ac_name)
 	add_to_group(new_name)
 	ac_name = new_name
 

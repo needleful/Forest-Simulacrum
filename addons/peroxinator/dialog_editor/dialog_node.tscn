@@ -24,10 +24,10 @@ comment = false
 overlay = 0
 slot/0/left_enabled = true
 slot/0/left_type = 4
-slot/0/left_color = Color( 0.94, 0.97, 1, 1 )
-slot/0/right_enabled = false
+slot/0/left_color = Color( 1, 1, 1, 0.7 )
+slot/0/right_enabled = true
 slot/0/right_type = 0
-slot/0/right_color = Color( 0, 0, 0, 1 )
+slot/0/right_color = Color( 0, 0, 0, 0 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Size Flags" ]
 

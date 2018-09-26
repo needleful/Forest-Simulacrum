@@ -1,3 +1,10 @@
+# This is a class that contains wrappers for calling 
+# into dialog data from a JSON file.  It's specifically
+# for DialogViewer, as DialogEditor does reads the JSON
+# and does its own thing with it.
+# You'd think having one data class that both communicate
+# to would be more efficient, but in the immediate future
+# this separation was far more efficient.
 extends Object
 
 var _data: Dictionary
@@ -23,19 +30,20 @@ class Command:
 
 func _init(source):
 	commands_regex = RegEx.new()
+	# Matches commands, which are strings of text between square brackets
 	commands_regex.compile("\\[([^\\[\\]]+)\\]")
 	var f = File.new()
 	var res = f.open(source, File.READ)
 	if res != OK:
-		print_debug("Bad: Missing file "+ source)
+		print_debug("Bad!! Missing file: ", source)
 		return res
 	var json = f.get_as_text()
 	_data = parse_json(json)
 	
 	if(typeof(_data) != TYPE_DICTIONARY):
-		print_debug("Bad: Unexpected type of JSON")
+		print_debug("Bad!! Unexpected type of JSON: ", typeof(_data))
 		return ERR_PARSE_ERROR
-		
+
 func get_text(index) -> Message:
 	var t:String = _data[index]['text']
 	var lines = t.split("\n\n")
@@ -45,14 +53,14 @@ func get_text(index) -> Message:
 		p.text = populate_commands(page_text, p.commands)
 		m.pages.push_back(p)
 	return m
-	
-func get_replies(index):
+
+func get_replies(index) -> Array:
 	var d = _data[index]
 	var replies = []
 	for val in d['replies']:
 		var r:Reply = Reply.new()
 		r.text = populate_commands(val['text'], r.commands)
-		if val.has('id'):
+		if val.has('id') && val['id'] != null:
 			r.next = val['id']
 		else:
 			r.next = ""
@@ -60,11 +68,14 @@ func get_replies(index):
 		replies.push_back(r)
 	return replies
 
+# Search for replies in a string of text (denoted by square brackets)
 func populate_commands(text:String, command_array: Array) -> String:
 	var matches = commands_regex.search_all(text)
 	for command in matches:
 		var com = Command.new()
 		var c:PoolStringArray = command.get_string(1).split(" ")
+		# Fun fact: arrays of strings are not of type Array,
+		# and as a result they don't have the pop_front method
 		com.command = c[0]
 		c.remove(0)
 		com.args = c

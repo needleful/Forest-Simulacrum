@@ -78,23 +78,22 @@ func add_reply_slots(reply, slot=-1):
 		Color.black, true, TYPE_STRING, reply_slot_color)
 
 func remove_reply(reply:Reply):
-	#Get index of reply to remove
 	var idx = replies.find(reply)
 	if idx < 0:
 		print_debug("Tried to delete nonexistant reply!  Possible bug")
 		return
+	#Move all connections up one slot
 	for slot in range(idx + 1, replies.size()+1):
 		var next = replies[slot-1].next
 		if next != null:
-			print("Removing %d->%s" % [slot, next.name])
 			emit_signal("reply_disconnect", slot, next.name)
 			if slot > idx+1:
 				emit_signal("reply_connect", slot-1, next.name)
+	#Clear final slot and remove children
+	clear_slot(replies.size()+1)
 	remove_child(reply._label)
 	replies.remove(idx)
-	clear_slot(replies.size()+1)
 	#TODO: Resize container
-	queue_sort()
 
 func disconnect_from_node(node:GraphNode):
 	for reply in replies:

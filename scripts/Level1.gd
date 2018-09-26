@@ -63,7 +63,7 @@ func event_tea_party():
 
 func event_get_saw():
 	G.add_item("Saw")
-	get_tree().call_group("SmallTree", "set_active", true)
+	get_tree().call_group("Tree_Small", "set_active", true)
 
 func event_build_house():
 	if house_phase+1 > house_parts.size():

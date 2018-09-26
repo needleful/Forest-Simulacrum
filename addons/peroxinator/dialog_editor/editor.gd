@@ -16,13 +16,13 @@ var edited_dlg:GraphNode
 
 func _input(event):
 	if event is InputEventMouseButton && event.is_pressed() && event.button_index == BUTTON_RIGHT:
-		var pos = g.get_global_mouse_position()
+		var pos = get_global_mouse_position()+g.scroll_offset - Vector2(0, 60)
 		var nd = DialogNode.instance()
 		nd.connect("reply_disconnect", self, "on_reply_disconnect", [nd])
 		nd.connect("reply_connect", self, "on_reply_connect", [nd])
 		nd.connect("id_change", self, "on_id_change")
 		nd.id = nd.name+str(OS.get_ticks_msec())
-		nd.offset = pos
+		nd.offset = pos 
 		dlg_nodes[nd.id] = nd
 		g.add_child(nd)
 
