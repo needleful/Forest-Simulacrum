@@ -61,4 +61,5 @@ func add_reply():
 	var red = ReplyEditor.instance()
 	$v/replies.add_child(red)
 	red.bind_reply(reply)
+	red.connect("reply_deleted", self, "delete_reply")
 	

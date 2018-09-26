@@ -1,6 +1,6 @@
 extends Control
 
-export(String, FILE, "*.json") var dialog_source = null setget set_dialog_source
+export(String, FILE, "*.json") var dialog_source:String = "" setget set_dialog_source
 
 const DialogNode = preload("dialog_node.tscn")
 
@@ -19,6 +19,7 @@ func _input(event):
 		var pos = g.get_global_mouse_position()
 		var nd = DialogNode.instance()
 		nd.connect("reply_disconnect", self, "on_reply_disconnect", [nd])
+		nd.connect("reply_connect", self, "on_reply_connect", [nd])
 		nd.connect("id_change", self, "on_id_change")
 		nd.id = nd.name+str(OS.get_ticks_msec())
 		nd.offset = pos
@@ -51,12 +52,13 @@ func clear_graph():
 	for c in g.get_children():
 		if c is GraphNode:
 			c.disconnect("reply_disconnect", self, "on_reply_disconnect")
+			c.disconnect("reply_connect", self, "on_reply_connect")
 			c.disconnect("id_change", self, "on_id_change")
 			g.remove_child(c)
 
 func set_dialog_source(val):
 	dialog_source = val
-	if g == null || val == null:
+	if g == null || val == "" || val == null:
 		return
 	clear_graph()
 	var f = File.new()
@@ -75,6 +77,7 @@ func set_dialog_source(val):
 		var dn = DialogNode.instance()
 		dn.set_node_data(data[key])
 		dn.connect("reply_disconnect", self, "on_reply_disconnect", [dn])
+		dn.connect("reply_connect", self, "on_reply_connect", [dn])
 		dn.connect("id_change", self, "on_id_change")
 		g.add_child(dn)
 		dlg_nodes[key] = dn
@@ -88,12 +91,22 @@ func set_dialog_source(val):
 				econnect(dn.name, slot, rep.next.name, 0)
 			slot += 1
 	#minimize tab title
-	
-	$split/tabs.set_tab_title(current_tab, dialog_source)
+	var tab_title = dialog_source.replace("res://", "")
+	$split/tabs.set_tab_title(current_tab, tab_title)
 
 func on_id_change(node:GraphNode, old_id:String, new_id:String):
-	dlg_nodes.erase(old_id)
-	dlg_nodes[new_id] = node
+	if dlg_nodes.has(new_id):
+		#do nothing for now
+		node.add_color_override("font_color", Color.red)
+	else:
+		#whoa some fucky stuff
+		if old_id != null and (!dlg_nodes.has(old_id) or dlg_nodes[old_id] != node):
+			for key in dlg_nodes.keys():
+				if dlg_nodes[key] == node:
+					old_id = key
+					break
+		dlg_nodes.erase(old_id)
+		dlg_nodes[new_id] = node
 
 func econnect(from:String, fromslot:int, to:String, toslot:int):
 	var from_node:GraphNode = g.get_node(from)
@@ -112,13 +125,20 @@ func eselect(val:GraphNode):
 
 func edelete(id:String):
 	var dn = dlg_nodes[id]
+	for node in dlg_nodes.values():
+		node.disconnect_from_node(dn)
 	g.remove_child(dn)
 	dlg_nodes.erase(id)
 	dn.disconnect("reply_disconnect", self, "on_reply_disconnect")
+	dn.disconnect("reply_connect", self, "on_reply_connect")
+	dn.disconnect("id_change", self, "on_id_change")
 
 func on_reply_disconnect(from_slot:int, to:String, message:GraphNode):
 	#TODO work this
 	g.disconnect_node(message.name, from_slot, to, 0)
+
+func on_reply_connect(from_slot:int, to:String, message:GraphNode):
+	g.connect_node(message.name, from_slot, to, 0)
 
 func act_on_file(id:int):
 	#saving

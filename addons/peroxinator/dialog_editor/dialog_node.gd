@@ -3,6 +3,7 @@ extends GraphNode
 
 signal id_change(node, old_id, new_id)
 signal reply_disconnect(from_slot, to)
+signal reply_connect(from_slot, to)
 
 var id:String setget set_id
 var text:String setget set_text
@@ -46,9 +47,10 @@ func set_replies(nd:Dictionary, dlg_nodes:Dictionary):
 	update_replies()
 
 func set_id(val):
-	emit_signal("id_change", self, id, val)
-	$Label.text = val
-	id = val
+	if val != null and val != "":
+		id = val
+		$Label.text = val
+		emit_signal("id_change", self, id, val)
 
 func set_text(val):
 	text = val
@@ -81,11 +83,23 @@ func remove_reply(reply:Reply):
 	if idx < 0:
 		print_debug("Tried to delete nonexistant reply!  Possible bug")
 		return
-	var slot = idx + 1
+	for slot in range(idx + 1, replies.size()+1):
+		var next = replies[slot-1].next
+		if next != null:
+			print("Removing %d->%s" % [slot, next.name])
+			emit_signal("reply_disconnect", slot, next.name)
+			if slot > idx+1:
+				emit_signal("reply_connect", slot-1, next.name)
 	remove_child(reply._label)
 	replies.remove(idx)
-	clear_slot(slot)
-	emit_signal("reply_disconnect", slot, reply.next.name)
+	clear_slot(replies.size()+1)
+	#TODO: Resize container
+	queue_sort()
+
+func disconnect_from_node(node:GraphNode):
+	for reply in replies:
+		if reply.next == node:
+			reply.next = null
 
 func connect_reply(message:GraphNode, connection:String, slot:int):
 	var reply = replies[slot-1]
