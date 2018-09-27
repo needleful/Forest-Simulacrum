@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://scripts/Level1.gd" type="Script" id=1]
 [ext_resource path="res://ui/ui.tscn" type="PackedScene" id=2]
@@ -31,6 +31,8 @@
 [ext_resource path="res://scripts/actables/talkable.gd" type="Script" id=29]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=30]
 [ext_resource path="res://characters/deer.tscn" type="PackedScene" id=31]
+[ext_resource path="res://addons/peroxinator/dialog_source.gd" type="Script" id=32]
+[ext_resource path="res://addons/peroxinator/dialog_viewer/node_icon.png" type="Texture" id=33]
 
 [sub_resource type="Environment" id=1]
 
@@ -1696,4 +1698,11 @@ blend_times = [  ]
 
 [node name="deer" parent="." instance=ExtResource( 31 )]
 transform = Transform( -0.95516, 0, -0.296092, 0, 1, 0, 0.296092, 0, -0.95516, 0, 1.75336, -27.67 )
+
+[node name="viewables" type="Node" parent="."]
+script = ExtResource( 32 )
+__meta__ = {
+"_editor_icon": ExtResource( 33 )
+}
+source_path = "res://scripts/dialog/viewables.dlg"
 

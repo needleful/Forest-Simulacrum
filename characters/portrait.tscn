@@ -118,5 +118,5 @@ script = ExtResource( 6 )
 __meta__ = {
 "_editor_icon": ExtResource( 7 )
 }
-source_path = ""
+source_path = "res://scripts/dialog/frame-2.dlg"
 
