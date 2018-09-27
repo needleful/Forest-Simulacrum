@@ -7,7 +7,7 @@ const DialogNode = preload("dialog_node.tscn")
 
 var dlg_nodes:Dictionary = {}
 
-onready var g:GraphEdit = $split/tabs/graph
+onready var g:GraphEdit = $split/graph
 onready var e:PanelContainer = $split/edit
 
 var current_tab:int = 0
@@ -28,9 +28,6 @@ func _input(event):
 		g.add_child(nd)
 
 func _enter_tree():
-	pass
-
-func _ready():
 	set_process_input(true)
 	$menu_bar/file.get_popup().add_item("Open File..")
 	$menu_bar/file.get_popup().add_item("Save")
@@ -42,6 +39,8 @@ func _ready():
 	g.connect("node_selected", self, "eselect")
 	
 	e.connect("node_deleted", self, "edelete")
+
+func _ready():
 	set_dialog_source(dialog_source)
 	
 func _exit_tree():

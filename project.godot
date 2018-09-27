@@ -10,11 +10,17 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
+"class": "DialogSource",
+"language": "GDScript",
+"path": "res://addons/peroxinator/dialog_source.gd"
+}, {
+"base": "Node",
 "class": "Talkable",
 "language": "GDScript",
 "path": "res://scripts/actables/talkable.gd"
 } ]
 _global_script_class_icons={
+"DialogSource": "",
 "Talkable": ""
 }
 

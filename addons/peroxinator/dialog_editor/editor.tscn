@@ -12,10 +12,11 @@ rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
 alignment = 0
 script = ExtResource( 1 )
+_sections_unfolded = [ "Size Flags" ]
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
@@ -59,7 +60,7 @@ group = null
 text = "File"
 flat = true
 align = 1
-items = [  ]
+items = [ "Open File..", null, 0, false, false, -1, 0, null, "", false, "Save", null, 0, false, false, -1, 0, null, "", false, "Save As..", null, 0, false, false, -1, 0, null, "", false, "Open File..", null, 0, false, false, -1, 0, null, "", false, "Save", null, 0, false, false, -1, 0, null, "", false, "Save As..", null, 0, false, false, -1, 0, null, "", false ]
 
 [node name="split" type="HSplitContainer" parent="."]
 anchor_left = 0.0
@@ -80,32 +81,13 @@ collapsed = false
 dragger_visibility = 0
 _sections_unfolded = [ "Size Flags" ]
 
-[node name="tabs" type="TabContainer" parent="split"]
+[node name="graph" type="GraphEdit" parent="split"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 848.0
 margin_bottom = 576.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-tab_align = 0
-tabs_visible = true
-drag_to_rearrange_enabled = true
-
-[node name="graph" type="GraphEdit" parent="split/tabs"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 focus_mode = 2

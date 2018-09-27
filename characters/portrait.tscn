@@ -6,11 +6,6 @@
 [ext_resource path="res://assets/materials/black.tres" type="Material" id=4]
 [ext_resource path="res://assets/models/mouth.dae" type="PackedScene" id=5]
 
-
-
-
-
-
 [sub_resource type="CubeMesh" id=1]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
@@ -64,8 +59,9 @@ constant_angular_velocity = Vector3( 0, 0, 0 )
 script = ExtResource( 3 )
 _sections_unfolded = [ "Collision" ]
 ac_name = "???"
-dialog_source = "res://characters/dialog/frame-1.json"
+dialog_source = "res://scripts/dialog/frame-1.dlg"
 dialog_entry = "Home"
+action_type = "talk"
 
 [node name="CollisionShape" type="CollisionShape" parent="Panel/body"]
 shape = SubResource( 2 )
