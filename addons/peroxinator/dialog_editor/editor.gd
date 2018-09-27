@@ -70,7 +70,7 @@ func set_dialog_source(val):
 	var json = f.get_as_text()
 	var data = parse_json(json)
 	if(typeof(data) != TYPE_DICTIONARY):
-		print_debug("Bad: Unexpected type of JSON")
+		print_debug("Bad: Unexpected type of JSON:", typeof(data))
 		return ERR_PARSE_ERROR
 	
 	for key in data.keys():
@@ -91,8 +91,17 @@ func set_dialog_source(val):
 				econnect(dn.name, slot, rep.next.name, 0)
 			slot += 1
 	#minimize tab title
-	var tab_title = dialog_source.replace("res://", "")
+	var tab_title:String = dialog_source.replace("res://", "")
+	while tab_title.length() > max_tab_title_len:
+		var idx = tab_title.find('/')
+		if idx < 0:
+			#Just leave the file name if we can't get it 
+			#less than the length
+			break
+		else:
+			tab_title = tab_title.substr(idx, tab_title.length())
 	$split/tabs.set_tab_title(current_tab, tab_title)
+	$split/tabs.update()
 
 func on_id_change(node:GraphNode, old_id:String, new_id:String):
 	if dlg_nodes.has(new_id):
@@ -158,7 +167,9 @@ func save_to_file(src):
 	var err = f.open(src, File.WRITE)
 	if err != OK:
 		print_debug("Saving to %s failed with error code %s" % [src, err])
+		return
 	var dict = {}
 	for key in dlg_nodes.keys():
 		dict[key] = dlg_nodes[key].export_data()
 	f.store_string(to_json(dict))
+	call_deferred("set_dialog_source", src)
