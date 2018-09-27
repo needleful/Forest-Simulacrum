@@ -1,3 +1,4 @@
+tool
 extends HBoxContainer
 
 signal reply_deleted(reply)

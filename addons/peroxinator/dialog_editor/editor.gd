@@ -1,3 +1,4 @@
+tool
 extends Control
 
 export(String, FILE, "*.json") var dialog_source:String = "" setget set_dialog_source
@@ -162,7 +163,7 @@ func act_on_file(id:int):
 		$File.connect("file_selected", self, "save_to_file", [], CONNECT_ONESHOT)
 		$File.popup()
 
-func save_to_file(src):
+func save_to_file(src=dialog_source):
 	var f = File.new()
 	var err = f.open(src, File.WRITE)
 	if err != OK:
