@@ -50,15 +50,15 @@ data = {
 "position": Vector2( 324, 25 ),
 "type": "mix"
 }, {
-"id": "out",
-"position": Vector2( 542, 97 ),
-"type": "output"
-}, {
 "animation": null,
 "filter": [  ],
 "id": "anim",
 "position": Vector2( 71, 54 ),
 "type": "animation"
+}, {
+"id": "out",
+"position": Vector2( 542, 97 ),
+"type": "output"
 }, {
 "animation": null,
 "filter": [  ],
@@ -81,7 +81,7 @@ collision/safe_margin = 0.001
 script = ExtResource( 4 )
 _sections_unfolded = [ "Collision", "Transform", "required_items" ]
 ac_name = "Deer"
-dialog_source = "res://characters/dialog/test.json"
+dialog_source = "res://scripts/dialog/deer-1.dlg"
 dialog_entry = "Home"
 action_type = "talk"
 

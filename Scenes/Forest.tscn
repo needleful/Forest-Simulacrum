@@ -1652,7 +1652,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 script = ExtResource( 29 )
 ac_name = null
-dialog_source = "res://Scenes/viewables.json"
+dialog_source = "res://scripts/dialog/viewables.dlg"
 dialog_entry = "view_barrier"
 action_type = "view"
 

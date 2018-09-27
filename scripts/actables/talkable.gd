@@ -1,10 +1,11 @@
 extends Node
+class_name Talkable
 
 signal exit
 signal enter
 
 export(String) var ac_name
-export(String, FILE) var dialog_source = "res://Scenes/viewables.json"
+export(String, FILE, "*.dlg") var dialog_source = "res://scripts/dialog/viewables.dlg"
 export(String) var dialog_entry = "Home"
 export(String, "talk", "view", "take") var action_type = "talk"
 

@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "Talkable",
+"language": "GDScript",
+"path": "res://scripts/actables/talkable.gd"
+} ]
 _global_script_class_icons={
-
+"Talkable": ""
 }
 
 [application]

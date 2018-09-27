@@ -1,8 +1,7 @@
 extends Spatial
 
-
 onready var G = get_node("/root/global")
-onready var b = $body
+onready var b:Talkable = $body
 
 var required_items = {'Flower':4}
 var optional_items = {'Flower':4, 'Chamomile':1}
@@ -27,10 +26,13 @@ func on_enter():
 			b.dialog_entry = "Questions"
 
 func on_phase_change(old_phase, new_phase):
+	$body.talked = false
 	match new_phase:
 		G.HOUSE:
 			b.dialog_source = "res://scripts/dialog/deer-2.dlg"
-			if G.has_item("tea"):
+			if G.has_item("forbidden_knowledge"):
+				b.dialog_entry = "TeaTime-Portrait"
+			elif G.has_item("tea"):
 				b.dialog_entry = "TeaTime"
 			else:
 				b.dialog_entry = "Home"
