@@ -92,16 +92,6 @@ func set_dialog_source(val):
 			slot += 1
 	#minimize tab title
 	var tab_title:String = dialog_source.replace("res://", "")
-	while tab_title.length() > max_tab_title_len:
-		var idx = tab_title.find('/')
-		if idx < 0:
-			#Just leave the file name if we can't get it 
-			#less than the length
-			break
-		else:
-			tab_title = tab_title.substr(idx, tab_title.length())
-	$split/tabs.set_tab_title(current_tab, tab_title)
-	$split/tabs.update()
 
 func on_id_change(node:GraphNode, old_id:String, new_id:String):
 	if dlg_nodes.has(new_id):
@@ -163,6 +153,8 @@ func act_on_file(id:int):
 		$File.popup()
 
 func save_to_file(src=dialog_source):
+	if src == null || src == "":
+		return
 	var f = File.new()
 	var err = f.open(src, File.WRITE)
 	if err != OK:

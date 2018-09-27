@@ -35,6 +35,8 @@ func make_visible(visible):
 	if visible:
 		dialog_editor.show()
 	else:
+		clear()
+		dialog_editor.set_dialog_source("")
 		dialog_editor.hide()
 
 func apply_changes():

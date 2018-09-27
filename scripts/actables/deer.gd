@@ -29,7 +29,7 @@ func on_phase_change(old_phase, new_phase):
 	$body.talked = false
 	match new_phase:
 		G.HOUSE:
-			b.dialog_source = "res://scripts/dialog/deer-2.dlg"
+			b.dialog_source = $dlg_phase_2.source_path
 			if G.has_item("forbidden_knowledge"):
 				b.dialog_entry = "TeaTime-Portrait"
 			elif G.has_item("tea"):
