@@ -33,17 +33,18 @@ func _enter_tree():
 	$menu_bar/file.get_popup().add_item("Save")
 	$menu_bar/file.get_popup().add_item("Save As..")
 	$menu_bar/file.get_popup().connect("id_pressed", self, "act_on_file")
-	
+
+func _ready():
 	g.connect("connection_request", self, "econnect")
 	g.connect("disconnection_request", self, "edisconnect")
 	g.connect("node_selected", self, "eselect")
 	
 	e.connect("node_deleted", self, "edelete")
 
-func _ready():
 	set_dialog_source(dialog_source)
 	
 func _exit_tree():
+	$menu_bar/file.get_popup().clear()
 	clear_graph()
 
 func clear_graph():

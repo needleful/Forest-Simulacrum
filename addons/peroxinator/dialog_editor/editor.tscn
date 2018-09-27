@@ -60,7 +60,7 @@ group = null
 text = "File"
 flat = true
 align = 1
-items = [ "Open File..", null, 0, false, false, -1, 0, null, "", false, "Save", null, 0, false, false, -1, 0, null, "", false, "Save As..", null, 0, false, false, -1, 0, null, "", false, "Open File..", null, 0, false, false, -1, 0, null, "", false, "Save", null, 0, false, false, -1, 0, null, "", false, "Save As..", null, 0, false, false, -1, 0, null, "", false ]
+items = [ "Open File..", null, 0, false, false, -1, 0, null, "", false, "Save", null, 0, false, false, -1, 0, null, "", false, "Save As..", null, 0, false, false, -1, 0, null, "", false, "Open File..", null, 0, false, false, -1, 0, null, "", false, "Save", null, 0, false, false, -1, 0, null, "", false, "Save As..", null, 0, false, false, -1, 0, null, "", false, "Open File..", null, 0, false, false, -1, 0, null, "", false, "Save", null, 0, false, false, -1, 0, null, "", false, "Save As..", null, 0, false, false, -1, 0, null, "", false ]
 
 [node name="split" type="HSplitContainer" parent="."]
 anchor_left = 0.0
