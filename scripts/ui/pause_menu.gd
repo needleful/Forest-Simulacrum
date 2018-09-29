@@ -3,6 +3,9 @@ extends Panel
 var paused = false
 var mouse_capture
 
+var tex_checked:Texture = load("res://addons/gradient_shader/ui/icons/checked.svg")
+var tex_unchecked:Texture = load("res://addons/gradient_shader/ui/icons/unchecked.svg")
+
 func _input(event):
 	if !paused && event.is_action_pressed("gm_pause"):
 		pause()
@@ -11,7 +14,7 @@ func _input(event):
 
 func _ready():
 	hide()
-	$buttons/Fullscreen.pressed = OS.window_fullscreen
+	set_fullscreen(OS.window_fullscreen)
 	set_process_input(true)
 
 func pause():
@@ -30,5 +33,12 @@ func _on_resume():
 func _on_exit():
 	get_tree().quit()
 
-func _on_fullscreen_toggled(fullscreen):
+func set_fullscreen(fullscreen):
 	OS.set_window_fullscreen(fullscreen)
+	if fullscreen:
+		$buttons/Fullscreen/Icon.texture = tex_checked
+	else:
+		$buttons/Fullscreen/Icon.texture = tex_unchecked
+
+func _on_fullscreen_pressed():
+	set_fullscreen(!OS.window_fullscreen)
