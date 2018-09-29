@@ -25,7 +25,6 @@ func _ready():
 	var house = $house_building
 	for i in range(1,4):
 		var phase = house.get_node("phase_"+str(i))
-		print("got phase: ", str(i))
 		house.remove_child(phase)
 		house_parts.push_back(phase)
 	
@@ -78,6 +77,6 @@ func event_build_house():
 	house_phase += 1
 	if house_phase == 2:
 		anim.play("Nightfall")
-	elif house_phase == 3 && G.events.count("tea_party") > 0:
+	elif house_phase == 3 && G.has_item("tea"):
 		anim.play("TeaParty_To_House")
 		

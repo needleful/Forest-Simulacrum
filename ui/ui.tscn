@@ -8,7 +8,6 @@
 [ext_resource path="res://ui/pause_menu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scripts/ui/input.gd" type="Script" id=7]
 
-
 [node name="ui" type="Control"]
 anchor_left = 0.0
 anchor_top = 0.0
@@ -76,7 +75,6 @@ color = Color( 0, 0, 0, 1 )
 _sections_unfolded = [ "Margin" ]
 
 [node name="pause_menu" parent="." instance=ExtResource( 6 )]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

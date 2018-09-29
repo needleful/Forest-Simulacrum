@@ -40,8 +40,7 @@ func set_dark(val):
 	for name in text_classes:
 		ui_theme.set_color("font_color_focus", name, color_dark)
 		ui_theme.set_color("font_color_hover", name, color_dark)
-		ui_theme.set_color("font_color_pressed", name, color_mid)
-	
+		ui_theme.set_color("font_color_pressed", name, color_dark)
 
 func set_light(val):
 	material.set_shader_param("color_light", color_light)
@@ -54,7 +53,6 @@ func set_light(val):
 	box_scroll.bg_color = color_mid
 	for name in text_classes:
 		ui_theme.set_color("font_color", name, color_light)
-		ui_theme.set_color("font_color_pressed", name, color_mid)
 	
 func set_scale(val):
 	material.set_shader_param("y_scale", scale)

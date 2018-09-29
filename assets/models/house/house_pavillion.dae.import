@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/house_1.dae-5317830a895be61d09c3b06af59d79f9.scn"
+path="res://.import/house_pavillion.dae-9a4b6d5f7d581dc4ecc945634ea7a411.scn"
 
 [deps]
 
-source_file="res://assets/models/house/house_1.dae"
-dest_files=[ "res://.import/house_1.dae-5317830a895be61d09c3b06af59d79f9.scn" ]
+source_file="res://assets/models/house/house_pavillion.dae"
+dest_files=[ "res://.import/house_pavillion.dae-9a4b6d5f7d581dc4ecc945634ea7a411.scn" ]
 
 [params]
 

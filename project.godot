@@ -186,15 +186,25 @@ debug_event_phase_increment={
 [rendering]
 
 quality/intended_usage/framebuffer_allocation=3
+quality/directional_shadow/size=0
+quality/directional_shadow/size.mobile=0
+quality/shadow_atlas/size=256
+quality/shadow_atlas/size.mobile=256
+quality/shadow_atlas/quadrant_0_subdiv=0
+quality/shadow_atlas/quadrant_1_subdiv=0
+quality/shadow_atlas/quadrant_2_subdiv=0
+quality/shadow_atlas/quadrant_3_subdiv=0
+quality/shadows/filter_mode=0
 quality/reflections/texture_array_reflections=false
 quality/reflections/high_quality_ggx=false
-quality/shading/force_vertex_shading=true
 quality/depth_prepass/enable=false
 quality/subsurface_scattering/quality=0
 quality/subsurface_scattering/scale=0
 quality/subsurface_scattering/weight_samples=false
 quality/voxel_cone_tracing/high_quality=false
 environment/default_clear_color=Color( 0.301961, 0.301961, 0.301961, 1 )
+quality/reflections/atlas_size=0
+quality/reflections/atlas_subdiv=0
 quality/filters/msaa=2
 quality/depth/hdr=false
 quality/dynamic_fonts/use_oversampling=false

@@ -4,13 +4,11 @@
 [ext_resource path="res://scripts/actables/item.gd" type="Script" id=2]
 [ext_resource path="res://addons/gradient_shader/gradient.tres" type="Material" id=3]
 
-
-
-
-[sub_resource type="SphereShape" id=1]
+[sub_resource type="CylinderShape" id=1]
 
 margin = 0.04
-radius = 1.0
+radius = 0.35134
+height = 1.5
 
 [node name="rose" index="0" instance=ExtResource( 1 )]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
@@ -26,9 +24,10 @@ constant_angular_velocity = Vector3( 0, 0, 0 )
 script = ExtResource( 2 )
 _sections_unfolded = [ "Collision" ]
 ac_name = "Flower"
+action_type = "take"
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.678221, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.80835, 0 )
 shape = SubResource( 1 )
 disabled = false
 _sections_unfolded = [ "shape" ]

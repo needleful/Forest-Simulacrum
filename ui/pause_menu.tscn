@@ -2,7 +2,6 @@
 
 [ext_resource path="res://scripts/ui/pause_menu.gd" type="Script" id=1]
 
-
 [node name="pause_menu" type="Panel"]
 pause_mode = 2
 use_parent_material = true
@@ -110,7 +109,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Margin", "Material" ]
 
-[node name="Fullscreen" type="CheckButton" parent="buttons"]
+[node name="Fullscreen" type="CheckBox" parent="buttons"]
 use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
@@ -118,7 +117,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 48.0
 margin_right = 184.0
-margin_bottom = 88.0
+margin_bottom = 72.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
