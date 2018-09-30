@@ -33,7 +33,10 @@ func get_camera_movement()->Vector2:
 	cam_delta.x = 0
 	cam_delta.y = 0
 	return cam
-	
+
+func is_jumping()->bool:
+	return Input.is_action_just_pressed("mv_jump")
+
 func get_direction(basis:Basis)->Vector3:
 	var l = Input.get_action_strength("mv_left")
 	var r = Input.get_action_strength("mv_right")

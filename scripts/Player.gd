@@ -2,8 +2,8 @@ extends KinematicBody
 
 #constants
 const speed = 4
-const jump_vel = 4
-const gravity = -9.8
+const jump_vel = 3
+const gravity = -10
 const accel = 12
 const deaccel = 24
 onready var height_correction = $Body/Leggy.cast_to.length()/2
@@ -18,6 +18,7 @@ var velocity = Vector3(0,0,0)
 var paused = false
 var can_move = true
 var cam_angle = 0
+var in_air = false
 
 #Camera Sway
 const cam_speed_base = Vector3(.8, .9, .8)
@@ -60,13 +61,23 @@ func _physics_process(delta) -> void:
 	
 	var vcorrection : float = 0
 	if $Body/Leggy.is_colliding():
-		velocity.y = 0
 		var rel_pos = $Body/Leggy.global_transform.origin-$Body/Leggy.get_collision_point()
 		vcorrection = height_correction-rel_pos.y
 	else:
+		in_air = true
+	if in_air:
+		if velocity.y < 1 and vcorrection >= 0.1:
+			in_air = false
 		velocity.y += gravity*delta
+	else:
+		velocity.y = 0
+		if G.inp.is_jumping():
+			velocity.y = jump_vel
+			in_air = true
 	velocity = move_and_slide(velocity,Vector3())
-	translate(Vector3(0,vcorrection*delta*height_rate,0))
+	if !in_air:
+		translate(Vector3(0,vcorrection*delta*height_rate,0))
+
 
 func _process(delta) -> void:
 	look(G.inp.get_camera_movement())

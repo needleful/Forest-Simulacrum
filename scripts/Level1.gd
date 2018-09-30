@@ -44,9 +44,9 @@ func on_registered_event(name):
 
 func event_funeral(name = "Funeral"):
 	G.remove_item("Flower", 4)
-	anim.play("TeaTime_Fadeout")
+	anim.queue("TeaTime_Fadeout")
 	anim.queue("FuneralSunset")
-	$Player/Anim.play("Screen_Fadeout")
+	$Player/Anim.queue("Screen_Fadeout")
 	$Player/Anim.queue(name+"_Transport")
 	$Player/Anim.queue("Screen_FadeIn")
 	add_child(funeral)
@@ -76,7 +76,7 @@ func event_build_house():
 	house.add_child(phase)
 	house_phase += 1
 	if house_phase == 2:
-		anim.play("Nightfall")
+		anim.queue("Nightfall")
 	elif house_phase == 3 && G.has_item("tea"):
-		anim.play("TeaParty_To_House")
+		anim.queue("TeaParty_To_House")
 		

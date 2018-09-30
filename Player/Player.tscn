@@ -2,7 +2,6 @@
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 
-
 [sub_resource type="CapsuleMesh" id=1]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
@@ -14,6 +13,7 @@ rings = 8
 
 [sub_resource type="CylinderShape" id=2]
 
+margin = 0.04
 radius = 0.6
 height = 0.8
 
@@ -28,21 +28,18 @@ subdivide_depth = 0
 
 [sub_resource type="CapsuleShape" id=4]
 
+margin = 0.04
 radius = 0.6
 height = 0.6
 
 [node name="Player" type="KinematicBody"]
-editor/display_folded = true
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 5
 collision_mask = 5
-axis_lock_linear_x = false
-axis_lock_linear_y = false
-axis_lock_linear_z = false
-axis_lock_angular_x = false
-axis_lock_angular_y = false
-axis_lock_angular_z = false
+move_lock_x = false
+move_lock_y = false
+move_lock_z = false
 collision/safe_margin = 0.001
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
@@ -110,6 +107,8 @@ enabled = true
 exclude_parent = true
 cast_to = Vector3( 0, 0, -3 )
 collision_mask = 3
+collide_with_areas = false
+collide_with_bodies = true
 
 [node name="Body" type="CollisionShape" parent="."]
 editor/display_folded = true
@@ -124,5 +123,7 @@ enabled = true
 exclude_parent = true
 cast_to = Vector3( 0, -2, 0 )
 collision_mask = 1
+collide_with_areas = false
+collide_with_bodies = true
 _sections_unfolded = [ "Transform", "Visibility" ]
 
