@@ -4,6 +4,7 @@ signal registered_event(name)
 signal phase_change(old_phase, new_phase)
 
 var inventory: Dictionary = {}
+var ui: Control
 
 const InputController = preload("res://scripts/ui/input.gd")
 var inp : InputController
