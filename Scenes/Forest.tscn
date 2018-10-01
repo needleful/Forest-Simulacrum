@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://scripts/Level1.gd" type="Script" id=1]
 [ext_resource path="res://ui/ui.tscn" type="PackedScene" id=2]
@@ -15,31 +15,33 @@
 [ext_resource path="res://Scenes/house/house_pavillion.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/house/house_stairs.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/house/house_wall.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/house/house_roof.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scenes/components/house.tscn" type="PackedScene" id=17]
-[ext_resource path="res://addons/gradient_shader/gradient.tres" type="Material" id=18]
-[ext_resource path="res://characters/portrait.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Scenes/components/terrain.tscn" type="PackedScene" id=20]
-[ext_resource path="res://items/rose.tscn" type="PackedScene" id=21]
-[ext_resource path="res://items/chamomile.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Scenes/components/Wall.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Scenes/foliage/tree_master.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Scenes/foliage/tree1.tscn" type="PackedScene" id=25]
-[ext_resource path="res://Scenes/foliage/tree2.tscn" type="PackedScene" id=26]
-[ext_resource path="res://items/fallen_tree.tscn" type="PackedScene" id=27]
-[ext_resource path="res://Scenes/foliage/tree3.tscn" type="PackedScene" id=28]
-[ext_resource path="res://Scenes/foliage/tree4.tscn" type="PackedScene" id=29]
-[ext_resource path="res://scripts/actables/talkable.gd" type="Script" id=30]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=31]
-[ext_resource path="res://characters/deer.tscn" type="PackedScene" id=32]
-[ext_resource path="res://addons/peroxinator/dialog_source.gd" type="Script" id=33]
-[ext_resource path="res://addons/peroxinator/dialog_viewer/node_icon.png" type="Texture" id=34]
+[ext_resource path="res://Scenes/house/house_window.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/house/house_column.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/house/house_roof.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/components/house.tscn" type="PackedScene" id=19]
+[ext_resource path="res://addons/gradient_shader/gradient.tres" type="Material" id=20]
+[ext_resource path="res://Scenes/components/terrain.tscn" type="PackedScene" id=21]
+[ext_resource path="res://items/rose.tscn" type="PackedScene" id=22]
+[ext_resource path="res://items/chamomile.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/components/Wall.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/foliage/tree_master.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Scenes/foliage/tree1.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Scenes/foliage/tree2.tscn" type="PackedScene" id=27]
+[ext_resource path="res://items/fallen_tree.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Scenes/foliage/tree3.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Scenes/foliage/tree4.tscn" type="PackedScene" id=30]
+[ext_resource path="res://scripts/actables/talkable.gd" type="Script" id=31]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=32]
+[ext_resource path="res://characters/portrait.tscn" type="PackedScene" id=33]
+[ext_resource path="res://characters/deer.tscn" type="PackedScene" id=34]
+[ext_resource path="res://addons/peroxinator/dialog_source.gd" type="Script" id=35]
+[ext_resource path="res://addons/peroxinator/dialog_viewer/node_icon.png" type="Texture" id=36]
 
 [sub_resource type="Environment" id=1]
 
 background_mode = 1
 background_sky_custom_fov = 0.0
-background_color = Color( 0.988235, 0.988235, 0.929412, 1 )
+background_color = Color( 0, 0, 0, 1 )
 background_energy = 0.0
 background_canvas_max_layer = 0
 ambient_light_color = Color( 0, 0, 0, 1 )
@@ -117,7 +119,140 @@ _sections_unfolded = [ "Background", "Tonemap" ]
 
 [sub_resource type="Animation" id=2]
 
-resource_name = "FuneralSunset"
+resource_name = "Doom"
+length = 60.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("GradientProperties:color_dark")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.364706, 0.109804, 0.733333, 1 ), Color( 0.733333, 0.109804, 0.329412, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GradientProperties:color_light")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.968627, 0.819608, 0.690196, 1 ), Color( 0.811765, 0.968627, 0.690196, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GradientProperties:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 33.4 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("GradientProperties:top")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 33.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("WorldEnvironment:environment:background_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.913725, 0.752941, 1 ), Color( 0.913725, 0.584314, 0.584314, 1 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+
+resource_name = "Doom_Death"
+length = 22.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("GradientProperties:color_light")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10.4, 17.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.811765, 0.968627, 0.690196, 1 ), Color( 0.34902, 0.8, 0, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GradientProperties:color_dark")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 9, 16.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.733333, 0.109804, 0.329412, 1 ), Color( 0.282353, 0.00392157, 0.00392157, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GradientProperties:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 33.4 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("GradientProperties:top")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 33.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("WorldEnvironment:environment:background_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 16.8, 20 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.913725, 0.584314, 0.584314, 1 ), Color( 0.776471, 0.00784314, 0.00784314, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+
 length = 30.0
 loop = false
 step = 0.1
@@ -182,9 +317,8 @@ tracks/4/keys = {
 "values": [ 33.0 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
-resource_name = "Nightfall"
 length = 90.0
 loop = false
 step = 0.1
@@ -249,7 +383,7 @@ tracks/4/keys = {
 "values": [ Color( 1, 0.913725, 0.752941, 1 ), Color( 0.584314, 0.372549, 0.584314, 1 ), Color( 0.121569, 0.12549, 0.254902, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 
 length = 0.5
 loop = false
@@ -279,7 +413,7 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 
 length = 5.0
 loop = false
@@ -333,12 +467,12 @@ tracks/3/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="BoxShape" id=6]
+[sub_resource type="BoxShape" id=7]
 
 margin = 0.04
 extents = Vector3( 3.57506, 2.47061, 3.54228 )
 
-[sub_resource type="CubeMesh" id=7]
+[sub_resource type="CubeMesh" id=8]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 flip_faces = false
@@ -346,11 +480,6 @@ size = Vector3( 2, 2, 2 )
 subdivide_width = 0
 subdivide_height = 0
 subdivide_depth = 0
-
-[sub_resource type="ConvexPolygonShape" id=8]
-
-margin = 0.04
-points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1 )
 
 [sub_resource type="ConvexPolygonShape" id=9]
 
@@ -367,7 +496,12 @@ points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1,
 margin = 0.04
 points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1 )
 
-[sub_resource type="CubeMesh" id=12]
+[sub_resource type="ConvexPolygonShape" id=12]
+
+margin = 0.04
+points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1 )
+
+[sub_resource type="CubeMesh" id=13]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 flip_faces = false
@@ -376,32 +510,32 @@ subdivide_width = 0
 subdivide_height = 0
 subdivide_depth = 0
 
-[sub_resource type="ConvexPolygonShape" id=13]
+[sub_resource type="ConvexPolygonShape" id=14]
 
 margin = 0.04
 points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1 )
 
-[sub_resource type="BoxShape" id=14]
+[sub_resource type="BoxShape" id=15]
 
 margin = 0.04
 extents = Vector3( 1, 17.1834, 15.5802 )
 
-[sub_resource type="BoxShape" id=15]
+[sub_resource type="BoxShape" id=16]
 
 margin = 0.04
 extents = Vector3( 1, 15.9394, 16.3976 )
 
-[sub_resource type="BoxShape" id=16]
+[sub_resource type="BoxShape" id=17]
 
 margin = 0.04
 extents = Vector3( 1, 22.9052, 12.2687 )
 
-[sub_resource type="BoxShape" id=17]
+[sub_resource type="BoxShape" id=18]
 
 margin = 0.04
 extents = Vector3( 1, 8.7924, 7.394 )
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=19]
 
 length = 0.5
 loop = false
@@ -469,7 +603,7 @@ tracks/4/keys = {
 "values": [ Vector3( 0, -162.777, 0 ), Vector3( 0, 143.927, 0 ) ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=20]
 
 length = 1.5
 loop = false
@@ -487,7 +621,7 @@ tracks/0/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=21]
 
 length = 1.5
 loop = false
@@ -505,7 +639,7 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=22]
 
 length = 0.5
 loop = false
@@ -588,10 +722,12 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/FuneralSunset = SubResource( 2 )
-anims/Nightfall = SubResource( 3 )
-anims/TeaParty_To_House = SubResource( 4 )
-anims/TeaTime_Fadeout = SubResource( 5 )
+anims/Doom = SubResource( 2 )
+anims/Doom_Death = SubResource( 23 )
+anims/FuneralSunset = SubResource( 3 )
+anims/Nightfall = SubResource( 4 )
+anims/TeaParty_To_House = SubResource( 5 )
+anims/TeaTime_Fadeout = SubResource( 6 )
 blend_times = [  ]
 
 [node name="GradientProperties" type="Node" parent="."]
@@ -600,8 +736,8 @@ _sections_unfolded = [ "ui_theme" ]
 __meta__ = {
 "_editor_icon": ExtResource( 5 )
 }
-color_light = Color( 0.996078, 0.972549, 0.843137, 1 )
-color_dark = Color( 0.129412, 0.105882, 0.894118, 1 )
+color_light = Color( 0, 0, 0, 1 )
+color_dark = Color( 0, 0, 0, 1 )
 scale = 33.4
 top = 33.0
 
@@ -610,7 +746,7 @@ pause_mode = 2
 stream = ExtResource( 6 )
 volume_db = 0.0
 pitch_scale = 1.0
-autoplay = true
+autoplay = false
 stream_paused = false
 mix_target = 0
 bus = "Master"
@@ -649,7 +785,6 @@ editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 6.70512, 9 )
 
 [node name="phase_1" parent="house_building" instance=ExtResource( 12 )]
-editor/display_folded = true
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.29488, 0 )
 
 [node name="to_remove" type="Spatial" parent="house_building/phase_1"]
@@ -662,14 +797,13 @@ transform = Transform( 0.997305, 0, 0.0733643, 0, 1, 0, -0.0733643, 0, 0.997305,
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1.50901, 3.84442 )
 
 [node name="phase_2" type="Spatial" parent="house_building"]
-editor/display_folded = true
 
 [node name="house_floor" parent="house_building/phase_2" instance=ExtResource( 12 )]
 editor/display_folded = true
 transform = Transform( -0.0228112, 0, -0.99974, 0, 1, 0, 0.99974, 0, -0.0228112, 5.44921, 0.101721, 0.0935116 )
 
 [node name="house_floor2" parent="house_building/phase_2/house_floor" instance=ExtResource( 12 )]
-transform = Transform( -0.999992, 0, -0.00407428, 0, 1, 0, 0.00407428, 0, -0.999992, 4.90708, 9.53674e-07, -0.0844879 )
+transform = Transform( -0.999992, 0, -0.00407427, 0, 1, 0, 0.00407427, 0, -0.999992, 4.90708, 9.53674e-07, -0.0844879 )
 
 [node name="house_floor3" parent="house_building/phase_2/house_floor" instance=ExtResource( 12 )]
 transform = Transform( 0.0239338, 0, -0.999714, 0, 1, 0, 0.999714, 0, 0.0239338, 5.19935, 9.53674e-07, 5.32904 )
@@ -677,9 +811,6 @@ transform = Transform( 0.0239338, 0, -0.999714, 0, 1, 0, 0.999714, 0, 0.0239338,
 [node name="house_wall" parent="house_building/phase_2" instance=ExtResource( 15 )]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.03006, 1.32847, 5.32153 )
-
-[node name="house_wall3" parent="house_building/phase_2/house_wall" instance=ExtResource( 15 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.76857, 0, 2.57007 )
 
 [node name="house_wall4" parent="house_building/phase_2/house_wall" instance=ExtResource( 15 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, -1, 0, 1, 0, -4.37114e-08, -7.93943, 3.92784, 2.47248 )
@@ -693,13 +824,20 @@ _sections_unfolded = [ "Transform" ]
 transform = Transform( 1, 0, 0, 0, -1, 0, 0, 0, 1, 0, 3.89551, -5.23695 )
 _sections_unfolded = [ "Transform" ]
 
+[node name="house_window" parent="house_building/phase_2/house_wall" instance=ExtResource( 16 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.54956, 0.0218334, 2.32332 )
+
 [node name="to_remove" type="Spatial" parent="house_building/phase_2"]
 editor/display_folded = true
 
 [node name="house_wall5" parent="house_building/phase_2/to_remove" instance=ExtResource( 15 )]
 transform = Transform( -0.999761, 0, 0.0218741, 0, 1, 0, -0.0218741, 0, -0.999761, -2.59374, 1.34229, 4.9607 )
 
+[node name="house_column" parent="house_building/phase_2" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21536, 1.43049, 2 )
+
 [node name="phase_3" type="Spatial" parent="house_building"]
+editor/display_folded = true
 
 [node name="house_floor" parent="house_building/phase_3" instance=ExtResource( 12 )]
 editor/display_folded = true
@@ -734,76 +872,74 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.85508
 [node name="house_stairs2" parent="house_building/phase_3/house_stairs2" instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0561409, 1.53137, 2.01012 )
 
-[node name="house_roof" parent="house_building/phase_3" instance=ExtResource( 16 )]
-editor/display_folded = true
+[node name="house_roof" parent="house_building/phase_3" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.22812, 5.39235, 0.306679 )
 
-[node name="house_roof2" parent="house_building/phase_3/house_roof" instance=ExtResource( 16 )]
+[node name="house_roof2" parent="house_building/phase_3/house_roof" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.79771 )
 
-[node name="house_roof3" parent="house_building/phase_3/house_roof" instance=ExtResource( 16 )]
+[node name="house_roof3" parent="house_building/phase_3/house_roof" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.72519, 0, 4.79771 )
 
-[node name="house_roof11" parent="house_building/phase_3/house_roof" instance=ExtResource( 16 )]
+[node name="house_roof11" parent="house_building/phase_3/house_roof" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.72519, 0, -0.0958681 )
 
-[node name="house_roof4" parent="house_building/phase_3/house_roof" instance=ExtResource( 16 )]
+[node name="house_roof4" parent="house_building/phase_3/house_roof" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4969, 0, 4.79771 )
 
-[node name="house_roof6" parent="house_building/phase_3/house_roof" instance=ExtResource( 16 )]
+[node name="house_roof6" parent="house_building/phase_3/house_roof" instance=ExtResource( 18 )]
 transform = Transform( 0.0227009, 0, 0.999742, 0, 1, 0, -0.999742, 0, 0.0227009, -15.6358, 0, 4.79771 )
 
-[node name="house_roof8" parent="house_building/phase_3/house_roof" instance=ExtResource( 16 )]
+[node name="house_roof8" parent="house_building/phase_3/house_roof" instance=ExtResource( 18 )]
 transform = Transform( 0.0227009, 0, 0.999742, 0, 1, 0, -0.999742, 0, 0.0227009, -15.6358, 0, -0.641522 )
 
-[node name="house_roof9" parent="house_building/phase_3/house_roof" instance=ExtResource( 16 )]
+[node name="house_roof9" parent="house_building/phase_3/house_roof" instance=ExtResource( 18 )]
 transform = Transform( -0.999448, 0, 0.0332152, 0, 1, 0, -0.0332152, 0, -0.999448, -15.3696, 0, -5.78027 )
 
-[node name="house_roof10" parent="house_building/phase_3/house_roof" instance=ExtResource( 16 )]
+[node name="house_roof10" parent="house_building/phase_3/house_roof" instance=ExtResource( 18 )]
 transform = Transform( -0.00569291, 0, -0.999984, 0, 1, 0, 0.999984, 0, -0.00569291, -10.429, 0, -8.3104 )
 
-[node name="house_roof7" parent="house_building/phase_3/house_roof" instance=ExtResource( 16 )]
+[node name="house_roof7" parent="house_building/phase_3/house_roof" instance=ExtResource( 18 )]
 transform = Transform( 0.0227009, 0, 0.999742, 0, 1, 0, -0.999742, 0, 0.0227009, -15.6358, 0, 4.79771 )
 
-[node name="house_roof5" parent="house_building/phase_3/house_roof" instance=ExtResource( 16 )]
+[node name="house_roof5" parent="house_building/phase_3/house_roof" instance=ExtResource( 18 )]
 transform = Transform( -0.999995, 0, -0.00327856, 0, 1, 0, 0.00327856, 0, -0.999995, -10.4969, 0, 2.15457 )
 
 [node name="roofs" type="Spatial" parent="house_building/phase_3"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.22812, 9.71197, 0.306679 )
 
-[node name="house_roof3" parent="house_building/phase_3/roofs" instance=ExtResource( 16 )]
+[node name="house_roof3" parent="house_building/phase_3/roofs" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.79771 )
 
-[node name="house_roof4" parent="house_building/phase_3/roofs" instance=ExtResource( 16 )]
+[node name="house_roof4" parent="house_building/phase_3/roofs" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.72519, 0, 4.79771 )
 
-[node name="house_roof5" parent="house_building/phase_3/roofs" instance=ExtResource( 16 )]
+[node name="house_roof5" parent="house_building/phase_3/roofs" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4969, 0, 4.79771 )
 
-[node name="house_roof6" parent="house_building/phase_3/roofs" instance=ExtResource( 16 )]
+[node name="house_roof6" parent="house_building/phase_3/roofs" instance=ExtResource( 18 )]
 transform = Transform( 0.0227009, 0, 0.999742, 0, 1, 0, -0.999742, 0, 0.0227009, -15.6358, 0, 4.79771 )
 
-[node name="house_roof8" parent="house_building/phase_3/roofs" instance=ExtResource( 16 )]
+[node name="house_roof8" parent="house_building/phase_3/roofs" instance=ExtResource( 18 )]
 transform = Transform( 0.0227009, 0, 0.999742, 0, 1, 0, -0.999742, 0, 0.0227009, -15.6358, 0, -0.641522 )
 
-[node name="house_roof9" parent="house_building/phase_3/roofs" instance=ExtResource( 16 )]
+[node name="house_roof9" parent="house_building/phase_3/roofs" instance=ExtResource( 18 )]
 transform = Transform( -0.999448, 0, 0.0332152, 0, 1, 0, -0.0332152, 0, -0.999448, -15.3696, 0, -5.78027 )
 
-[node name="house_roof10" parent="house_building/phase_3/roofs" instance=ExtResource( 16 )]
+[node name="house_roof10" parent="house_building/phase_3/roofs" instance=ExtResource( 18 )]
 transform = Transform( 0.00983663, 0, -0.999952, 0, 1, 0, 0.999952, 0, 0.00983663, -10.429, 0, -5.45375 )
 
-[node name="house_roof7" parent="house_building/phase_3/roofs" instance=ExtResource( 16 )]
+[node name="house_roof7" parent="house_building/phase_3/roofs" instance=ExtResource( 18 )]
 transform = Transform( 0.0227009, 0, 0.999742, 0, 1, 0, -0.999742, 0, 0.0227009, -15.6358, 0, 4.79771 )
 
-[node name="house_roof11" parent="house_building/phase_3/roofs" instance=ExtResource( 16 )]
+[node name="house_roof11" parent="house_building/phase_3/roofs" instance=ExtResource( 18 )]
 transform = Transform( -0.998716, 0, 0.0506689, 0, 1, 0, -0.0506689, 0, -0.998716, -10.4969, 0, -0.427379 )
 
-[node name="house_roof2" parent="house_building/phase_3/roofs" instance=ExtResource( 16 )]
+[node name="house_roof2" parent="house_building/phase_3/roofs" instance=ExtResource( 18 )]
 transform = Transform( 0.03353, 0, 0.999438, 0, 1, 0, -0.999438, 0, 0.03353, 0.590061, 0, 0 )
 
 [node name="house_wall2" parent="house_building/phase_3" instance=ExtResource( 15 )]
-editor/display_folded = true
 transform = Transform( -1, 0, -9.68575e-08, 0, 1, 0, 9.68575e-08, 0, -1, -12.3638, 5.88906, -5.50445 )
 
 [node name="house_wall3" parent="house_building/phase_3/house_wall2" instance=ExtResource( 15 )]
@@ -815,23 +951,14 @@ transform = Transform( 1, -4.42689e-10, 1.00897e-12, 4.42689e-10, 0.99999, -0.00
 [node name="house_wall5" parent="house_building/phase_3/house_wall2" instance=ExtResource( 15 )]
 transform = Transform( 2.37425e-07, -0.0045706, -0.99999, -4.42702e-10, -0.99999, 0.0045706, -1, -6.42481e-10, -2.37425e-07, -2.6256, 3.59776, -13.1294 )
 
-[node name="house_wall6" parent="house_building/phase_3/house_wall2" instance=ExtResource( 15 )]
-transform = Transform( -4.37104e-08, 0.00457069, 0.99999, 4.42714e-10, 0.99999, -0.00457069, -1, 2.42922e-10, -4.37119e-08, -7.94941, -0.168501, -13.1294 )
-
 [node name="house_wall7" parent="house_building/phase_3/house_wall2" instance=ExtResource( 15 )]
 transform = Transform( -4.37104e-08, 0.00457069, 0.99999, 4.42714e-10, 0.99999, -0.00457069, -1, 2.42922e-10, -4.37119e-08, -12.6053, -0.215891, -13.1294 )
 
 [node name="house_wall11" parent="house_building/phase_3/house_wall2" instance=ExtResource( 15 )]
 transform = Transform( 1.31133e-07, -0.00457069, -0.99999, 4.42714e-10, 0.99999, -0.00457069, 1, 1.5666e-10, 1.31134e-07, -17.5912, -0.0662498, -3.56773 )
 
-[node name="house_wall12" parent="house_building/phase_3/house_wall2" instance=ExtResource( 15 )]
-transform = Transform( 1.31133e-07, -0.00457069, -0.99999, 4.42714e-10, 0.99999, -0.00457069, 1, 1.5666e-10, 1.31134e-07, -12.4723, -0.0662498, -3.56773 )
-
 [node name="house_wall13" parent="house_building/phase_3/house_wall2" instance=ExtResource( 15 )]
 transform = Transform( -0.996195, -0.000398369, -0.087155, -0.00583841, 0.998048, 0.062172, 0.0869602, 0.0624443, -0.994253, -9.85717, -0.349107, -0.875648 )
-
-[node name="house_wall14" parent="house_building/phase_3/house_wall2" instance=ExtResource( 15 )]
-transform = Transform( 0.00756508, -0.00457056, -0.999961, 4.42714e-10, 0.99999, -0.00457069, 0.999972, 3.45772e-05, 0.00756501, -7.16446, -0.349107, 1.97055 )
 
 [node name="house_wall15" parent="house_building/phase_3/house_wall2" instance=ExtResource( 15 )]
 transform = Transform( 0.00755824, -0.0470701, -0.998863, 0.000321552, 0.998892, -0.0470691, 0.999972, 3.45731e-05, 0.00756501, -2.17796, -0.349106, 2.0472 )
@@ -844,6 +971,15 @@ transform = Transform( -0.999906, 6.27855e-05, 0.0137363, 7.58176e-10, -0.99999,
 
 [node name="house_wall9" parent="house_building/phase_3/house_wall2" instance=ExtResource( 15 )]
 transform = Transform( -1, 4.3131e-11, -8.74229e-08, 4.42714e-10, 0.99999, -0.00457069, 8.74218e-08, -0.00457069, -0.99999, -20.2035, -0.215891, -10.9432 )
+
+[node name="house_window" parent="house_building/phase_3/house_wall2" instance=ExtResource( 16 )]
+transform = Transform( -0.00247405, 0, -0.999997, 0, 1, 0, 0.999997, 0, -0.00247405, -12.7449, -0.0915403, -3.27093 )
+
+[node name="house_wall" parent="house_building/phase_3/house_wall2" instance=ExtResource( 15 )]
+transform = Transform( -2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, -7.27161, -0.144321, 0.104933 )
+
+[node name="house_window2" parent="house_building/phase_3/house_wall2" instance=ExtResource( 16 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.13486, -0.423263, -13.0526 )
 
 [node name="house_pavillion" parent="house_building/phase_3" instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3419, 10.2949, 1 )
@@ -870,19 +1006,20 @@ _sections_unfolded = [ "Matrix", "Transform" ]
 transform = Transform( -1, 2.61329e-05, -0.00074967, 0, 0.999393, 0.0348381, -0.000750125, -0.0348381, 0.999393, -9.98664, -0.181836, -0.12428 )
 _sections_unfolded = [ "Matrix", "Transform" ]
 
-[node name="house_wall8" parent="house_building/phase_3/house_wall" instance=ExtResource( 15 )]
-transform = Transform( 0.000750169, 0.0348381, -0.999393, 0, 0.999393, 0.0348381, -1, 2.61344e-05, -0.000749713, -7.30591, -0.312757, -2.6785 )
-_sections_unfolded = [ "Matrix", "Transform" ]
-
-[node name="house_wall9" parent="house_building/phase_3/house_wall" instance=ExtResource( 15 )]
-transform = Transform( 0.000749003, -0.0209239, -0.999781, 4.18157e-05, 0.999781, -0.0209239, -1, 2.61344e-05, -0.000749713, -2.30591, -0.312757, -2.6785 )
-_sections_unfolded = [ "Matrix", "Transform" ]
-
 [node name="house_wall6" parent="house_building/phase_3/house_wall" instance=ExtResource( 15 )]
 transform = Transform( -1, -2.60456e-05, 0.000749673, 3.25416e-05, -0.999963, 0.00866637, 0.000749419, 0.0086664, 0.999962, -9.98664, 3.65645, 5.2537 )
 _sections_unfolded = [ "Matrix", "Transform" ]
 
-[node name="house" parent="." instance=ExtResource( 17 )]
+[node name="house_window" parent="house_building/phase_3/house_wall" instance=ExtResource( 16 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.7846, 0.0933733, -2.37675 )
+
+[node name="house_window2" parent="house_building/phase_3/house_wall" instance=ExtResource( 16 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.85409, 0.0933733, -2.37675 )
+
+[node name="house_wall" parent="house_building/phase_3/house_wall" instance=ExtResource( 15 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.33226, 0, 5.66026 )
+
+[node name="house" parent="." instance=ExtResource( 19 )]
 editor/display_folded = true
 transform = Transform( 0.996195, 0, 0.0871557, 0, 1, 0, -0.0871557, 0, 0.996195, 24, 17.558, -89.5843 )
 _sections_unfolded = [ "Transform" ]
@@ -913,7 +1050,7 @@ _sections_unfolded = [ "Collision", "Reverb Bus" ]
 
 [node name="House" type="CollisionShape" parent="house/area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95159, 0 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 disabled = false
 
 [node name="Stairs_Front" type="Spatial" parent="house"]
@@ -931,9 +1068,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 7 )
+mesh = SubResource( 8 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 18 )
+material/0 = ExtResource( 20 )
 _sections_unfolded = [ "Material", "Transform" ]
 
 [node name="StaticBody" type="StaticBody" parent="house/Stairs_Front/MeshInstance5"]
@@ -945,7 +1082,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="house/Stairs_Front/MeshInstance5/StaticBody"]
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 disabled = false
 
 [node name="MeshInstance6" type="MeshInstance" parent="house/Stairs_Front"]
@@ -960,9 +1097,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 7 )
+mesh = SubResource( 8 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 18 )
+material/0 = ExtResource( 20 )
 _sections_unfolded = [ "Material", "Transform" ]
 
 [node name="StaticBody" type="StaticBody" parent="house/Stairs_Front/MeshInstance6"]
@@ -974,7 +1111,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="house/Stairs_Front/MeshInstance6/StaticBody"]
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 disabled = false
 
 [node name="MeshInstance7" type="MeshInstance" parent="house/Stairs_Front"]
@@ -989,9 +1126,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 7 )
+mesh = SubResource( 8 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 18 )
+material/0 = ExtResource( 20 )
 _sections_unfolded = [ "Material", "Transform" ]
 
 [node name="StaticBody" type="StaticBody" parent="house/Stairs_Front/MeshInstance7"]
@@ -1003,7 +1140,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="house/Stairs_Front/MeshInstance7/StaticBody"]
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 disabled = false
 
 [node name="MeshInstance8" type="MeshInstance" parent="house/Stairs_Front"]
@@ -1018,9 +1155,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 7 )
+mesh = SubResource( 8 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 18 )
+material/0 = ExtResource( 20 )
 _sections_unfolded = [ "Material", "Transform" ]
 
 [node name="StaticBody" type="StaticBody" parent="house/Stairs_Front/MeshInstance8"]
@@ -1032,7 +1169,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="house/Stairs_Front/MeshInstance8/StaticBody"]
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 disabled = false
 
 [node name="Stairs_Porch" type="Spatial" parent="house"]
@@ -1050,9 +1187,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 7 )
+mesh = SubResource( 8 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 18 )
+material/0 = ExtResource( 20 )
 _sections_unfolded = [ "Material", "Transform" ]
 
 [node name="StaticBody" type="StaticBody" parent="house/Stairs_Porch/MeshInstance11"]
@@ -1064,7 +1201,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="house/Stairs_Porch/MeshInstance11/StaticBody"]
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 disabled = false
 
 [node name="MeshInstance12" type="MeshInstance" parent="house/Stairs_Porch"]
@@ -1079,9 +1216,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 7 )
+mesh = SubResource( 8 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 18 )
+material/0 = ExtResource( 20 )
 _sections_unfolded = [ "Material", "Transform" ]
 
 [node name="StaticBody" type="StaticBody" parent="house/Stairs_Porch/MeshInstance12"]
@@ -1093,7 +1230,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="house/Stairs_Porch/MeshInstance12/StaticBody"]
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 disabled = false
 
 [node name="MeshInstance9" type="MeshInstance" parent="house/Stairs_Porch"]
@@ -1108,9 +1245,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 7 )
+mesh = SubResource( 8 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 18 )
+material/0 = ExtResource( 20 )
 _sections_unfolded = [ "Material", "Transform" ]
 
 [node name="StaticBody" type="StaticBody" parent="house/Stairs_Porch/MeshInstance9"]
@@ -1122,7 +1259,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="house/Stairs_Porch/MeshInstance9/StaticBody"]
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 disabled = false
 
 [node name="MeshInstance10" type="MeshInstance" parent="house/Stairs_Porch"]
@@ -1137,9 +1274,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 7 )
+mesh = SubResource( 8 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 18 )
+material/0 = ExtResource( 20 )
 _sections_unfolded = [ "Material", "Transform" ]
 
 [node name="StaticBody" type="StaticBody" parent="house/Stairs_Porch/MeshInstance10"]
@@ -1151,7 +1288,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="house/Stairs_Porch/MeshInstance10/StaticBody"]
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 disabled = false
 
 [node name="MeshInstance13" type="MeshInstance" parent="house/Stairs_Porch"]
@@ -1166,9 +1303,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 7 )
+mesh = SubResource( 8 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 18 )
+material/0 = ExtResource( 20 )
 _sections_unfolded = [ "Material", "Transform" ]
 
 [node name="StaticBody" type="StaticBody" parent="house/Stairs_Porch/MeshInstance13"]
@@ -1180,7 +1317,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="house/Stairs_Porch/MeshInstance13/StaticBody"]
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 disabled = false
 
 [node name="MeshInstance14" type="MeshInstance" parent="house/Stairs_Porch"]
@@ -1195,9 +1332,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 7 )
+mesh = SubResource( 8 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 18 )
+material/0 = ExtResource( 20 )
 _sections_unfolded = [ "Material", "Transform" ]
 
 [node name="StaticBody" type="StaticBody" parent="house/Stairs_Porch/MeshInstance14"]
@@ -1209,7 +1346,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="house/Stairs_Porch/MeshInstance14/StaticBody"]
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 disabled = false
 
 [node name="Porch" type="MeshInstance" parent="house"]
@@ -1224,9 +1361,9 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 12 )
+mesh = SubResource( 13 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 18 )
+material/0 = ExtResource( 20 )
 _sections_unfolded = [ "Material", "Transform" ]
 
 [node name="StaticBody" type="StaticBody" parent="house/Porch"]
@@ -1238,327 +1375,325 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="house/Porch/StaticBody"]
-shape = SubResource( 13 )
+shape = SubResource( 14 )
 disabled = false
 
-[node name="portrait" parent="house" instance=ExtResource( 19 )]
-transform = Transform( 0.924875, 0.147194, -0.350629, -0.0282321, 0.946082, 0.322695, 0.379223, -0.288553, 0.879163, 2.33195, 1.08887, -2.66448 )
-
-[node name="terrain" parent="." instance=ExtResource( 20 )]
+[node name="terrain" parent="." instance=ExtResource( 21 )]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0345, 6.66627, -19.4719 )
 
 [node name="cheating" type="Node" parent="terrain"]
 editor/display_folded = true
 
-[node name="rose4" parent="terrain/cheating" instance=ExtResource( 21 )]
+[node name="rose4" parent="terrain/cheating" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 6.3343, -1.74359 )
 
-[node name="rose5" parent="terrain/cheating" instance=ExtResource( 21 )]
+[node name="rose5" parent="terrain/cheating" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 6.3343, -2.77563 )
 
-[node name="rose6" parent="terrain/cheating" instance=ExtResource( 21 )]
+[node name="rose6" parent="terrain/cheating" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 6.3343, -4.20057 )
 
-[node name="rose7" parent="terrain/cheating" instance=ExtResource( 21 )]
+[node name="rose7" parent="terrain/cheating" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 6.3343, -6.03065 )
 
-[node name="chamomile" parent="terrain/cheating" instance=ExtResource( 22 )]
+[node name="chamomile" parent="terrain/cheating" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.891, 6.255, -4.97 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="roses" type="Node" parent="terrain"]
 
-[node name="rose1" parent="terrain/roses" instance=ExtResource( 21 )]
+[node name="rose1" parent="terrain/roses" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 6.3343, 0 )
 
-[node name="rose" parent="terrain/roses" instance=ExtResource( 21 )]
+[node name="rose" parent="terrain/roses" instance=ExtResource( 22 )]
 transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 47, 6.12438, -14 )
 
-[node name="rose2" parent="terrain/roses" instance=ExtResource( 21 )]
+[node name="rose2" parent="terrain/roses" instance=ExtResource( 22 )]
 transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 20.8501, 14.5707, -75.0964 )
 
-[node name="rose3" parent="terrain/roses" instance=ExtResource( 21 )]
+[node name="rose3" parent="terrain/roses" instance=ExtResource( 22 )]
 transform = Transform( -0.932135, 0, -0.36211, 0, 1, 0, 0.36211, 0, -0.932135, 19.9888, 2.42052, -36.2672 )
 
-[node name="chamomile" parent="terrain/roses" instance=ExtResource( 22 )]
+[node name="chamomile" parent="terrain/roses" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5559, 14.2207, -81 )
 
-[node name="rose4" parent="terrain/roses" instance=ExtResource( 21 )]
+[node name="rose4" parent="terrain/roses" instance=ExtResource( 22 )]
 transform = Transform( -0.995008, 0, 0.0997888, 0, 1, 0, -0.0997888, 0, -0.995008, -16.3681, 10.9776, -61.7877 )
 
-[node name="rose5" parent="terrain/roses" instance=ExtResource( 21 )]
+[node name="rose5" parent="terrain/roses" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 91.3877, 17.3008, -77.597 )
 
 [node name="Walls" type="Spatial" parent="terrain"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9248, -6.66627, 19.5008 )
 
-[node name="Wall" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67, 36, 25 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall25" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall25" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -71, 36, 33 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall26" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall26" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -63, 36, 39 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall27" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall27" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -68, 35, 40.1149 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall28" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall28" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59, 34, 46.1149 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall29" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall29" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 33, 48.1149 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall30" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall30" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52, 32, 54.1149 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall31" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall31" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -38, 32, 54.1149 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall32" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall32" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -24, 32, 54.1149 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall33" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall33" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10, 32, 54.1149 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall34" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall34" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 32, 54.1149 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall35" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall35" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 18, 32, 54.1149 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall36" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall36" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 32, 32, 54.1149 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall37" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall37" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 46, 32, 54.1149 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall38" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall38" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 60, 32, 54.1149 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall39" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall39" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 74, 32, 54.1149 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall40" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall40" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 88, 32, 54.1149 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall41" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall41" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 96, 32, 48.1149 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall42" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall42" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 96, 33, 34.1149 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall43" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall43" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 96, 33, 20.1149 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall44" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall44" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 96, 32, 6.1149 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall45" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall45" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 97, 31, -7.8851 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall46" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall46" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 97, 30, -16.8851 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall2" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall2" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67, 36, 11 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall3" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall3" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67, 36, -3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall4" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall4" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67, 36, -17 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall5" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall5" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67, 36, -31 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall6" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall6" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67, 36, -45 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall7" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall7" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67, 36, -59 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall8" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall8" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67, 36, -59 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall9" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall9" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -68, 36, -71 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall10" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall10" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -68, 36, -85 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall11" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall11" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -69, 36, -93 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall12" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall12" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -61, 36, -99 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall13" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall13" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -48, 35, -100 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall14" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall14" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -40, 34, -100 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall15" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall15" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -34, 32, -100 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall16" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall16" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -28, 30, -100 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall17" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall17" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 30, -100 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall18" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall18" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 30, -100 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall19" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall19" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14, 29, -100 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall20" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall20" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 28, 29, -100 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall21" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall21" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 42, 29, -100 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall22" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall22" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 56, 29, -100 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall23" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall23" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 70, 29, -100 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall24" parent="terrain/Walls" instance=ExtResource( 23 )]
+[node name="Wall24" parent="terrain/Walls" instance=ExtResource( 24 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 82, 28, -100 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree_master" parent="terrain" instance=ExtResource( 24 )]
+[node name="tree_master" parent="terrain" instance=ExtResource( 25 )]
 transform = Transform( 1.65424, 0, 1.12405, 0, 2, 0, -1.12405, 0, 1.65424, 12.2866, 0.15419, 25.5864 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Little Trees" parent="terrain" instance=ExtResource( 25 )]
+[node name="Little Trees" parent="terrain" instance=ExtResource( 26 )]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.52486, -1.03021, 9.13391 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="trees2" parent="terrain/Little Trees" instance=ExtResource( 25 )]
+[node name="trees2" parent="terrain/Little Trees" instance=ExtResource( 26 )]
 transform = Transform( 0.144522, 0, -0.752355, 0, 1.32441, 0, 0.752355, 0, 0.144522, 0.51403, -2.12779, -15.6369 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="trees19" parent="terrain/Little Trees" instance=ExtResource( 25 )]
+[node name="trees19" parent="terrain/Little Trees" instance=ExtResource( 26 )]
 transform = Transform( 0.934368, 0, 0.356308, 0, 1.32441, 0, -0.356308, 0, 0.934368, 35.514, -1.95079, -18.6369 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="trees20" parent="terrain/Little Trees" instance=ExtResource( 25 )]
+[node name="trees20" parent="terrain/Little Trees" instance=ExtResource( 26 )]
 transform = Transform( -0.65016, 0.00526888, 0.759787, 0, 1.32439, -0.00523598, -0.759798, -0.00450859, -0.650151, 69.514, 1.04921, -23.6369 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="trees16" parent="terrain/Little Trees" instance=ExtResource( 25 )]
+[node name="trees16" parent="terrain/Little Trees" instance=ExtResource( 26 )]
 transform = Transform( 0.385448, 0, 0.922729, 0, 1, 0, -0.922729, 0, 0.385448, -18.7541, 10.9333, -69.2292 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="trees17" parent="terrain/Little Trees" instance=ExtResource( 25 )]
+[node name="trees17" parent="terrain/Little Trees" instance=ExtResource( 26 )]
 transform = Transform( -0.893103, 0, -0.449851, 0, 1, 0, 0.449851, 0, -0.893103, -34.6165, 10.8025, -63.1568 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="trees18" parent="terrain/Little Trees" instance=ExtResource( 25 )]
+[node name="trees18" parent="terrain/Little Trees" instance=ExtResource( 26 )]
 transform = Transform( 0.979875, 0, -0.199611, 0, 1, 0, 0.199611, 0, 0.979875, -28.5061, 4.65845, -49.4422 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="trees13" parent="terrain/Little Trees" instance=ExtResource( 25 )]
+[node name="trees13" parent="terrain/Little Trees" instance=ExtResource( 26 )]
 transform = Transform( -0.429803, 0, -0.634188, 0, 1.32441, 0, 0.634188, 0, -0.429803, 73.7293, 3.34614, -50.1054 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="trees11" parent="terrain/Little Trees" instance=ExtResource( 25 )]
+[node name="trees11" parent="terrain/Little Trees" instance=ExtResource( 26 )]
 transform = Transform( 0.669234, 0, -0.372894, 0, 1.32441, 0, 0.372894, 0, 0.669234, 0.514027, 8.87221, -74.6369 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="trees12" parent="terrain/Little Trees" instance=ExtResource( 25 )]
+[node name="trees12" parent="terrain/Little Trees" instance=ExtResource( 26 )]
 transform = Transform( 0.669234, 0, -0.372894, 0, 1.32441, 0, 0.372894, 0, 0.669234, 31.7531, 7.63443, -72.6369 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="trees10" parent="terrain/Little Trees" instance=ExtResource( 25 )]
+[node name="trees10" parent="terrain/Little Trees" instance=ExtResource( 26 )]
 transform = Transform( 0.594315, 0, -0.48344, 0, 1.32441, 0, 0.48344, 0, 0.594315, 53.514, 1.87221, -15.6369 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="trees3" parent="terrain/Little Trees" instance=ExtResource( 25 )]
+[node name="trees3" parent="terrain/Little Trees" instance=ExtResource( 26 )]
 transform = Transform( 0.188644, 0, -0.982046, 0, 1, 0, 0.982046, 0, 0.188644, -51.2547, 1.64098, -5.86755 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="trees4" parent="terrain/Little Trees" instance=ExtResource( 25 )]
+[node name="trees4" parent="terrain/Little Trees" instance=ExtResource( 26 )]
 transform = Transform( 1.39881, 0, -0.14775, 0, 1.14278, 0, 0.14775, 0, 1.39881, -34.2664, -6.17997, 8.76539 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="trees5" parent="terrain/Little Trees" instance=ExtResource( 25 )]
+[node name="trees5" parent="terrain/Little Trees" instance=ExtResource( 26 )]
 transform = Transform( 1.51835, 0, -0.21825, 0, 1, 0, 0.21825, 0, 1.51835, -42.0544, -4.08717, -15.3546 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="trees14" parent="terrain/Little Trees" instance=ExtResource( 25 )]
+[node name="trees14" parent="terrain/Little Trees" instance=ExtResource( 26 )]
 transform = Transform( 1.68908, 0, 1.07099, 0, 2, 0, -1.07099, 0, 1.68908, -72.0544, 20.9128, -13.3546 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="trees15" parent="terrain/Little Trees" instance=ExtResource( 25 )]
+[node name="trees15" parent="terrain/Little Trees" instance=ExtResource( 26 )]
 transform = Transform( -0.911479, 0.486421, 1.71248, 0.0664678, 1.93185, -0.513353, -1.77899, -0.177043, -0.896587, 4.94559, 3.35428, -63.2967 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="trees6" parent="terrain/Little Trees" instance=ExtResource( 25 )]
+[node name="trees6" parent="terrain/Little Trees" instance=ExtResource( 26 )]
 transform = Transform( 0.653679, 0, 0.756772, 0, 1, 0, -0.756772, 0, 0.653679, -43.1972, 2.01636, 29.8404 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="trees9" parent="terrain/Little Trees" instance=ExtResource( 25 )]
+[node name="trees9" parent="terrain/Little Trees" instance=ExtResource( 26 )]
 transform = Transform( 0.798093, 0, 0.923961, 0, 1.22092, 0, -0.756772, 0, 0.653679, -43.1972, 20.8282, 63.5274 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="trees7" parent="terrain/Little Trees" instance=ExtResource( 25 )]
+[node name="trees7" parent="terrain/Little Trees" instance=ExtResource( 26 )]
 transform = Transform( -0.520006, 0, 1.26812, 0, 1.34051, 0, -1.26812, 0, -0.520006, -27.9075, 1.06268, 34.9248 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="trees8" parent="terrain/Little Trees" instance=ExtResource( 25 )]
+[node name="trees8" parent="terrain/Little Trees" instance=ExtResource( 26 )]
 transform = Transform( -0.370049, 0, -1.96955, 0, 0.647488, 0, 1.8654, 0, -1.09248, 12.7293, 1.88138, 35.1553 )
 _sections_unfolded = [ "Transform" ]
 
@@ -1566,185 +1701,185 @@ _sections_unfolded = [ "Transform" ]
 transform = Transform( 1.69, 0, 0, 0, 1.63, 0, 0, 0, 1.64, 0, 0, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="tree" parent="terrain/Big Trees" instance=ExtResource( 26 )]
+[node name="tree" parent="terrain/Big Trees" instance=ExtResource( 27 )]
 transform = Transform( 0.941968, 0, 0.325771, 0, 1, 0, -0.345938, 0, 0.941968, -8.87574, 5.90166, -37.3527 )
 
-[node name="tree2" parent="terrain/Big Trees" instance=ExtResource( 26 )]
+[node name="tree2" parent="terrain/Big Trees" instance=ExtResource( 27 )]
 transform = Transform( 0.887781, 0, 0.0832991, 0, 1, 0, -0.110114, 0, 0.902055, 36.7123, 4.67467, -31.8245 )
 
-[node name="tree3" parent="terrain/Big Trees" instance=ExtResource( 26 )]
+[node name="tree3" parent="terrain/Big Trees" instance=ExtResource( 27 )]
 transform = Transform( -0.702343, 0, 0.690778, 0, 1, 0, -0.733541, 0, -0.702343, -1.18343, 0.993684, 25.4522 )
 
-[node name="fallen_tree" parent="terrain/Big Trees" instance=ExtResource( 27 )]
+[node name="fallen_tree" parent="terrain/Big Trees" instance=ExtResource( 28 )]
 transform = Transform( 0.0871558, 0, -0.966722, 0, 1, 0, 1.02657, 0, 0.0871558, 26.035, 1.88741, 30.94 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Medium Trees" type="Spatial" parent="terrain"]
 editor/display_folded = true
 
-[node name="tree" parent="terrain/Medium Trees" instance=ExtResource( 28 )]
+[node name="tree" parent="terrain/Medium Trees" instance=ExtResource( 29 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
 
-[node name="tree17" parent="terrain/Medium Trees" instance=ExtResource( 28 )]
+[node name="tree17" parent="terrain/Medium Trees" instance=ExtResource( 29 )]
 transform = Transform( 0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, -55, -2, 6 )
 
-[node name="tree18" parent="terrain/Medium Trees" instance=ExtResource( 28 )]
+[node name="tree18" parent="terrain/Medium Trees" instance=ExtResource( 29 )]
 transform = Transform( 0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, -61, 9, 32 )
 
-[node name="tree11" parent="terrain/Medium Trees" instance=ExtResource( 28 )]
+[node name="tree11" parent="terrain/Medium Trees" instance=ExtResource( 29 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 43, -2, -13 )
 
-[node name="tree12" parent="terrain/Medium Trees" instance=ExtResource( 28 )]
+[node name="tree12" parent="terrain/Medium Trees" instance=ExtResource( 29 )]
 transform = Transform( -0.008648, 0.0612788, -0.998401, -0.0497311, 1.09658, 0.0561556, 0.898583, 0.0612788, -0.00650071, 11, -5, -15 )
 
-[node name="tree13" parent="terrain/Medium Trees" instance=ExtResource( 28 )]
+[node name="tree13" parent="terrain/Medium Trees" instance=ExtResource( 29 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -4.76837e-07, -40 )
 
-[node name="tree14" parent="terrain/Medium Trees" instance=ExtResource( 28 )]
+[node name="tree14" parent="terrain/Medium Trees" instance=ExtResource( 29 )]
 transform = Transform( -0.0871558, 0, 0.996195, 0, 1, 0, -0.996195, 0, -0.0871558, -42, 8, -57 )
 
-[node name="tree15" parent="terrain/Medium Trees" instance=ExtResource( 28 )]
+[node name="tree15" parent="terrain/Medium Trees" instance=ExtResource( 29 )]
 transform = Transform( 0.937727, 0.0211316, 0.346729, -0.0617142, 0.992404, 0.106423, -0.341846, -0.121194, 0.931908, 21, -3, -41 )
 
-[node name="tree16" parent="terrain/Medium Trees" instance=ExtResource( 28 )]
+[node name="tree16" parent="terrain/Medium Trees" instance=ExtResource( 29 )]
 transform = Transform( 0.263306, -0.157629, 0.951747, -0.0912733, 0.978065, 0.187239, -0.960385, -0.13617, 0.243143, 62, -3, -43 )
 
-[node name="tree9" parent="terrain/Medium Trees" instance=ExtResource( 28 )]
+[node name="tree9" parent="terrain/Medium Trees" instance=ExtResource( 29 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56, 4, 13 )
 
-[node name="tree10" parent="terrain/Medium Trees" instance=ExtResource( 28 )]
+[node name="tree10" parent="terrain/Medium Trees" instance=ExtResource( 29 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 8, 57 )
 
-[node name="tree7" parent="terrain/Medium Trees" instance=ExtResource( 28 )]
+[node name="tree7" parent="terrain/Medium Trees" instance=ExtResource( 29 )]
 transform = Transform( 0.984808, 0.17101, -0.0301537, -0.173648, 0.969846, -0.17101, 0, 0.173648, 0.984808, -73, 21, -39 )
 
-[node name="tree5" parent="terrain/Medium Trees" instance=ExtResource( 28 )]
+[node name="tree5" parent="terrain/Medium Trees" instance=ExtResource( 29 )]
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 29, 6.82931, -63 )
 
-[node name="tree8" parent="terrain/Medium Trees" instance=ExtResource( 28 )]
+[node name="tree8" parent="terrain/Medium Trees" instance=ExtResource( 29 )]
 transform = Transform( -0.0531996, -0.209235, -0.665876, -0.231256, 0.635371, -0.181173, 0.658552, 0.206214, -0.117412, 19, 8.82931, -53.3624 )
 
-[node name="tree6" parent="terrain/Medium Trees" instance=ExtResource( 28 )]
+[node name="tree6" parent="terrain/Medium Trees" instance=ExtResource( 29 )]
 transform = Transform( 0.207055, 0, 0.772741, 0, 0.8, 0, -0.772741, 0, 0.207055, 80, 9.80684, -59.6312 )
 
-[node name="tree3" parent="terrain/Medium Trees" instance=ExtResource( 28 )]
+[node name="tree3" parent="terrain/Medium Trees" instance=ExtResource( 29 )]
 transform = Transform( -0.906308, 0, 0.422618, 0, 1, 0, 0.422618, 0, 0.906308, -22, 2.94959, 56.0968 )
 
-[node name="tree4" parent="terrain/Medium Trees" instance=ExtResource( 28 )]
+[node name="tree4" parent="terrain/Medium Trees" instance=ExtResource( 29 )]
 transform = Transform( -0.544053, 0, 0.839051, 0, 1, 0, -0.839051, 0, -0.544053, 60, -1.78651, -16.3085 )
 
-[node name="tree2" parent="terrain/Medium Trees" instance=ExtResource( 28 )]
+[node name="tree2" parent="terrain/Medium Trees" instance=ExtResource( 29 )]
 transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, -0.866025, 0, 0.5, 52.0266, 3.79322, 37 )
 
 [node name="Tree4s" type="Spatial" parent="terrain"]
 transform = Transform( 0.138919, 0, 0.787846, 0, 0.8, 0, -0.787846, 0, 0.138919, -5.9248, -1.66627, 26.5008 )
 
-[node name="Tree4" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree4" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( 1.08253, 0, -0.625, 0, 1.25, 0, 0.625, 0, 1.08253, -14.1089, 20, -80.0156 )
 
-[node name="Tree10" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree10" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( 0.481053, -0.141083, 0.640835, 0.139524, 1.23101, 0.166278, -0.279288, 0.0248768, 0.0501795, 70.8307, 20, -94.9927 )
 
-[node name="Tree9" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree9" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( -1.21841, 0.18798, 0.206489, 0.166278, 1.23101, -0.139524, -0.224334, -0.10853, -1.22491, -17.8019, 20, -79.3644 )
 
-[node name="Tree5" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree5" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( -0.0589985, 0, 0.985403, 0, 1.3, 0, -1.3096, 0, 0.0589985, 26.1336, 0, 47.4326 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree11" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree11" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( 1.1066, 0, -0.613533, 0, 1.3, 0, 0.702825, 0, 0.773355, 103.907, 3.75, 13.4104 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree8" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree8" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( -1.29995, 0, 0.229216, 0, 1.3, 0, -0.169308, 0, -0.960187, 7.75183, -5, -28.0218 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree30" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree30" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( 0.644678, 0, -0.311709, 0, 1, 0, 0.272746, 0, 0.736775, -58.1863, 17.7276, -56.5624 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree17" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree17" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( -1.30976, 0, 0.144657, 0, 1.3, 0, -0.0553646, 0, -0.976511, 87.3303, 3.75, -23.0144 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree19" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree19" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( -1.30976, 0, 0.144657, 0, 1.3, 0, -0.0553646, 0, -0.976511, 79.6618, 7.5, -73.7028 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree20" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree20" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( -0.169307, 0, -0.960187, 0, 1.3, 0, 1.29995, 0, -0.229215, 50.0432, -2.5, -54.5181 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree21" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree21" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( 0.796597, 0, 0.716938, 0, 1.3, 0, -1.04113, 0, 0.6786, 8.69739, -2.5, -58.6513 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree22" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree22" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( 1.1066, 0, -0.613532, 0, 1.3, 0, 0.702824, 0, 0.773354, 97.6035, 0, 42.4462 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree23" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree23" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( 1.03892, 0, 0.516875, 0, 1.3, 0, -0.799483, 0, 0.841034, 59.4361, 11.25, 92.3318 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree24" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree24" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( -1.04113, 0, 0.6786, 0, 1.3, 0, -0.796595, 0, -0.716938, 63.2065, -3.75, 56.127 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree25" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree25" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( -1.04113, 0, 0.6786, 0, 1.3, 0, -0.796595, 0, -0.716938, 125.988, 10, 45.0569 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree26" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree26" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( -1.10464, 0, -0.441607, 0, 1.3, 0, 0.705893, 0, -0.882882, 114.106, 12.5, 92.8462 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree27" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree27" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( -1.10464, 0, -0.441607, 0, 1.3, 0, 0.705893, 0, -0.882882, -16.0896, 17.5, 103.11 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree28" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree28" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( -1.10464, 0, -0.441607, 0, 1.3, 0, 0.705893, 0, -0.882882, -58.0656, 16.25, -55.7642 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree29" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree29" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( -0.169306, 0, -0.960186, 0, 1.3, 0, 1.29994, 0, -0.229215, -41.4203, 10, 9.84206 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree18" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree18" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( 1.1066, 0, -0.613533, 0, 1.3, 0, 0.702825, 0, 0.773355, 91.1721, 10, -51.616 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree7" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree7" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( -1.1851, 0, 0.554495, 0, 1.25, 0, 0.559117, 0, 1.12277, -30.1271, 0, 30.6979 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree6" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree6" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( 1.3, 0, -5.81145e-08, 0, 1, 0, 5.81145e-08, 0, 1.3, 2.82479, 0, -5.57522 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree12" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree12" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 40.3289, 0, 27.1596 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree13" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree13" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( 1, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, 1, 16.8624, 0, 66.8373 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree31" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree31" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( 0.102919, -0.0435513, 0.993736, 0.251604, 0.967692, 0.0163518, -0.962343, 0.248345, 0.110552, -3.81781, 13.0423, 87.5148 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree14" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree14" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( 1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, -14.6324, 0, 39.3893 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree15" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree15" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( 1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 42.8532, 16.25, 99.0636 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree16" parent="terrain/Tree4s" instance=ExtResource( 29 )]
+[node name="Tree16" parent="terrain/Tree4s" instance=ExtResource( 30 )]
 transform = Transform( 1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 109.135, 18.75, -86.5154 )
 _sections_unfolded = [ "Transform" ]
 
@@ -1757,7 +1892,7 @@ collision_layer = 1
 collision_mask = 1
 constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
-script = ExtResource( 30 )
+script = ExtResource( 31 )
 ac_name = null
 dialog_source = "res://scripts/dialog/viewables.dlg"
 dialog_entry = "view_barrier"
@@ -1765,25 +1900,26 @@ action_type = "view"
 
 [node name="CollisionShape2" type="CollisionShape" parent="terrain/Wall"]
 transform = Transform( 0.931216, 0, 0.364469, 0, 1, 0, -0.364469, 0, 0.931216, 3.32575, 5.35812, 14.8245 )
-shape = SubResource( 14 )
+shape = SubResource( 15 )
 disabled = false
 
 [node name="CollisionShape" type="CollisionShape" parent="terrain/Wall"]
 transform = Transform( 0.992247, 0, 0.124286, 0, 1, 0, -0.124286, 0, 0.992247, 3.59854, 5.35812, -37.4151 )
-shape = SubResource( 15 )
+shape = SubResource( 16 )
 disabled = false
 
 [node name="CollisionShape3" type="CollisionShape" parent="terrain/Wall"]
 transform = Transform( 0.946717, 0, -0.322068, 0, 1, 0, 0.322068, 0, 0.946717, 1.59581, -1.4419, -10.6007 )
-shape = SubResource( 16 )
+shape = SubResource( 17 )
 disabled = false
 
 [node name="CollisionShape4" type="CollisionShape" parent="terrain/Wall"]
 transform = Transform( 0.573576, 0, 0.819152, 0, 1, 0, -0.819152, 0, 0.573576, -0.405708, 10.4745, -53.9099 )
-shape = SubResource( 17 )
+shape = SubResource( 18 )
 disabled = false
 
-[node name="Player" parent="." instance=ExtResource( 31 )]
+[node name="Player" parent="." instance=ExtResource( 32 )]
+editor/display_folded = true
 transform = Transform( -0.995008, 0, 0.0997888, 0, 1, 0, -0.0997888, 0, -0.995008, 16.7972, 7.6766, -16.7462 )
 
 [node name="Anim" type="AnimationPlayer" parent="Player"]
@@ -1792,19 +1928,22 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Funeral_Transport = SubResource( 18 )
-anims/Screen_FadeIn = SubResource( 19 )
-anims/Screen_Fadeout = SubResource( 20 )
-anims/TeaParty_Transport = SubResource( 21 )
+anims/Funeral_Transport = SubResource( 19 )
+anims/Screen_FadeIn = SubResource( 20 )
+anims/Screen_Fadeout = SubResource( 21 )
+anims/TeaParty_Transport = SubResource( 22 )
 blend_times = [  ]
 
-[node name="deer" parent="." instance=ExtResource( 32 )]
+[node name="portrait" parent="." instance=ExtResource( 33 )]
+transform = Transform( 0.954407, 0.121485, -0.272671, -0.0282321, 0.946082, 0.322695, 0.297172, -0.300284, 0.906377, 26.0909, 18.6469, -92.4419 )
+
+[node name="deer" parent="." instance=ExtResource( 34 )]
 transform = Transform( -0.95516, 0, -0.296092, 0, 1, 0, 0.296092, 0, -0.95516, 0, 1.75336, -27.67 )
 
 [node name="viewables" type="Node" parent="."]
-script = ExtResource( 33 )
+script = ExtResource( 35 )
 __meta__ = {
-"_editor_icon": ExtResource( 34 )
+"_editor_icon": ExtResource( 36 )
 }
 source_path = "res://scripts/dialog/viewables.dlg"
 

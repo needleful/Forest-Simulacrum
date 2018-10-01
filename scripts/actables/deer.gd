@@ -26,7 +26,7 @@ func on_enter():
 			b.dialog_entry = "Questions"
 	elif G.phase == G.HOUSE:
 		if b.talked && G.has_item("saw"):
-			
+			pass
 
 func on_phase_change(old_phase, new_phase):
 	$body.talked = false
