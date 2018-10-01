@@ -23,7 +23,7 @@ margin = 0.04
 radius = 0.696106
 height = 0.661797
 
-[node name="deer" instance=ExtResource( 1 )]
+[node name="deer" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 _sections_unfolded = [ "Matrix", "Transform" ]
 
@@ -52,15 +52,15 @@ data = {
 "position": Vector2( 324, 25 ),
 "type": "mix"
 }, {
-"id": "out",
-"position": Vector2( 542, 97 ),
-"type": "output"
-}, {
 "animation": null,
 "filter": [  ],
 "id": "anim",
 "position": Vector2( 71, 54 ),
 "type": "animation"
+}, {
+"id": "out",
+"position": Vector2( 542, 97 ),
+"type": "output"
 }, {
 "animation": null,
 "filter": [  ],

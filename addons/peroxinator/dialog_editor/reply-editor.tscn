@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://addons/peroxinator/dialog_editor/reply_editor.gd" type="Script" id=1]
-[ext_resource path="res://addons/peroxinator/dialog_editor/icons/remove.svg" type="Texture" id=2]
+[ext_resource path="res://addons/peroxinator/dialog_editor/icons/replies/Circle.svg" type="Texture" id=2]
+[ext_resource path="res://addons/peroxinator/dialog_editor/icons/replies/Spade.svg" type="Texture" id=3]
+[ext_resource path="res://addons/peroxinator/dialog_editor/icons/replies/Club.svg" type="Texture" id=4]
+[ext_resource path="res://addons/peroxinator/dialog_editor/icons/replies/Heart.svg" type="Texture" id=5]
+[ext_resource path="res://addons/peroxinator/dialog_editor/icons/replies/Diamond.svg" type="Texture" id=6]
+[ext_resource path="res://addons/peroxinator/dialog_editor/icons/replies/Auto.svg" type="Texture" id=7]
+[ext_resource path="res://addons/peroxinator/dialog_editor/icons/remove.svg" type="Texture" id=8]
 
 [node name="reply-editor" type="HBoxContainer"]
 anchor_left = 0.0
@@ -41,8 +47,8 @@ shortcut = null
 group = null
 flat = false
 align = 0
-items = [  ]
-selected = -1
+items = [ "", ExtResource( 2 ), false, 0, null, "", ExtResource( 3 ), false, 1, null, "", ExtResource( 4 ), false, 2, null, "", ExtResource( 5 ), false, 3, null, "", ExtResource( 6 ), false, 4, null, "", ExtResource( 2 ), false, 0, null, "", ExtResource( 3 ), false, 1, null, "", ExtResource( 4 ), false, 2, null, "", ExtResource( 5 ), false, 3, null, "", ExtResource( 6 ), false, 4, null, "", ExtResource( 7 ), false, 5, null ]
+selected = 0
 
 [node name="text" type="TextEdit" parent="."]
 anchor_left = 0.0
@@ -98,7 +104,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-icon = ExtResource( 2 )
+icon = ExtResource( 8 )
 flat = false
 align = 1
 

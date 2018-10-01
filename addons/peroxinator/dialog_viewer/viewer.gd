@@ -101,7 +101,7 @@ func show_replies_or_exit():
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		for reply in replies:
 			#A hack for compositing multiple messages
-			if reply.text == "__AUTO_REPLY__":
+			if reply.type == "Auto":
 				on_reply(reply)
 				return
 			var button = Button.new()

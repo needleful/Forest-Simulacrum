@@ -10,15 +10,19 @@ var spade = load("res://addons/peroxinator/dialog_editor/icons/replies/Spade.svg
 var club = load("res://addons/peroxinator/dialog_editor/icons/replies/Club.svg")
 var heart = load("res://addons/peroxinator/dialog_editor/icons/replies/Heart.svg")
 var diamond = load("res://addons/peroxinator/dialog_editor/icons/replies/Diamond.svg")
+var auto = load("res://addons/peroxinator/dialog_editor/icons/replies/Auto.svg")
 
 func _ready():
+	t.clear()
 	t.add_icon_item(circle,"",0)
 	t.add_icon_item(spade,"",1)
 	t.add_icon_item(club,"",2)
 	t.add_icon_item(heart,"",3)
 	t.add_icon_item(diamond,"",4)
+	t.add_icon_item(auto, "", 5)
 	t.connect("item_selected", self, "change_type")
 	$text.connect("text_changed", self, "set_text")
+
 
 func bind_reply(reply):
 	self.reply = reply
@@ -38,6 +42,8 @@ func change_type(val:int):
 			type = "Heart"
 		4:
 			type = "Diamond"
+		5:
+			type = "Auto"
 	reply.type = type
 
 func set_type(val):
@@ -53,6 +59,8 @@ func set_type(val):
 			type=3
 		"Diamond":
 			type=4
+		"Auto":
+			type=5
 	t.select(type)
 
 func set_text():

@@ -1245,7 +1245,6 @@ disabled = false
 transform = Transform( 0.924875, 0.147194, -0.350629, -0.0282321, 0.946082, 0.322695, 0.379223, -0.288553, 0.879163, 2.33195, 1.08887, -2.66448 )
 
 [node name="terrain" parent="." instance=ExtResource( 20 )]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0345, 6.66627, -19.4719 )
 
 [node name="cheating" type="Node" parent="terrain"]
@@ -1268,7 +1267,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.891, 6.255, -4.97 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="roses" type="Node" parent="terrain"]
-editor/display_folded = true
 
 [node name="rose1" parent="terrain/roses" instance=ExtResource( 21 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 6.3343, 0 )
@@ -1284,6 +1282,12 @@ transform = Transform( -0.932135, 0, -0.36211, 0, 1, 0, 0.36211, 0, -0.932135, 1
 
 [node name="chamomile" parent="terrain/roses" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5559, 14.2207, -81 )
+
+[node name="rose4" parent="terrain/roses" instance=ExtResource( 21 )]
+transform = Transform( -0.995008, 0, 0.0997888, 0, 1, 0, -0.0997888, 0, -0.995008, -16.3681, 10.9776, -61.7877 )
+
+[node name="rose5" parent="terrain/roses" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 91.3877, 17.3008, -77.597 )
 
 [node name="Walls" type="Spatial" parent="terrain"]
 editor/display_folded = true
@@ -1781,9 +1785,6 @@ disabled = false
 
 [node name="Player" parent="." instance=ExtResource( 31 )]
 transform = Transform( -0.995008, 0, 0.0997888, 0, 1, 0, -0.0997888, 0, -0.995008, 16.7972, 7.6766, -16.7462 )
-move_lock_x = false
-move_lock_y = false
-move_lock_z = false
 
 [node name="Anim" type="AnimationPlayer" parent="Player"]
 root_node = NodePath("..")

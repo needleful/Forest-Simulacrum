@@ -10,17 +10,31 @@ var text:String setget set_text
 
 const message_slot_color = Color(1,1,1,0.7)
 const reply_slot_color = Color(1, 0.4, 0.6, 0.7)
+const auto_slot_color = Color(0.2, 1, 0.5, 0.7)
+
+var loaded = false
 
 class Reply:
 	var text:String
 	var next:GraphNode
 	var type:String = "Circle" setget set_type
 	var _label:Label
+	var _slot:int
+	var _parent:GraphNode
+	
+	func _init(parent):
+		_parent = parent
 	
 	func set_type(val):
 		if _label != null:
 			_label.text = val
 		type = val
+		if _parent.loaded:
+			var sl_color:Color = reply_slot_color
+			if type == "Auto":
+				sl_color = auto_slot_color
+			_parent.set_slot(_slot, false, TYPE_NIL, 
+				Color.black, true, TYPE_STRING, sl_color)
 
 var replies:Array = []
 
@@ -37,7 +51,7 @@ func set_node_data(nd:Dictionary):
 func set_replies(nd:Dictionary, dlg_nodes:Dictionary):
 	var re = ge(nd,"replies")
 	for r in re:
-		var reply:Reply = Reply.new()
+		var reply:Reply = Reply.new(self)
 		reply.text = ge(r, "text")
 		var next_id = ge(r, "id")
 		if dlg_nodes.has(next_id):
@@ -45,6 +59,7 @@ func set_replies(nd:Dictionary, dlg_nodes:Dictionary):
 		reply.type = ge(r, "type")
 		replies.push_back(reply)
 	update_replies()
+	loaded = true
 
 func set_id(val):
 	if val != null and val != "":
@@ -68,14 +83,20 @@ func update_replies():
 func add_reply_slots(reply, slot=-1):
 	if slot < 0:
 		slot = replies.size()+1
+	reply._slot = slot
 	var r = Label.new()
+	if reply.text == "__AUTO_REPLY__":
+		reply.type = "Auto"
 	r.align = Label.ALIGN_RIGHT
 	r.text = reply.type
 	r.hint_tooltip = reply.text
 	add_child(r)
 	reply._label = r
+	var sl_color = reply_slot_color
+	if reply.type == "Auto":
+		sl_color = auto_slot_color
 	set_slot(slot, false, TYPE_NIL, 
-		Color.black, true, TYPE_STRING, reply_slot_color)
+		Color.black, true, TYPE_STRING, sl_color)
 
 func remove_reply(reply:Reply):
 	var idx = replies.find(reply)
