@@ -3,8 +3,10 @@
 [ext_resource path="res://assets/models/foliage/tree2.dae" type="PackedScene" id=1]
 [ext_resource path="res://scripts/actables/tree.gd" type="Script" id=2]
 [ext_resource path="res://addons/gradient_shader/gradient.tres" type="Material" id=3]
-[ext_resource path="res://assets/models/foliage/Material.material" type="Material" id=4]
+[ext_resource path="res://assets/models/Material.material" type="Material" id=4]
 [ext_resource path="res://scripts/actables/item.gd" type="Script" id=5]
+
+
 
 [sub_resource type="ArrayMesh" id=1]
 
