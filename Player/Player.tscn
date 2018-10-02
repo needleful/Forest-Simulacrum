@@ -71,6 +71,7 @@ editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="camera" type="Camera" parent="head"]
+editor/display_folded = true
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.22461, 0.29847 )
 keep_aspect = 1
 cull_mask = 1048573
@@ -106,7 +107,17 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.26225e-08, 0, -0.258772 )
 enabled = true
 exclude_parent = true
 cast_to = Vector3( 0, 0, -3 )
-collision_mask = 3
+collision_mask = 2
+collide_with_areas = false
+collide_with_bodies = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="view_cast" type="RayCast" parent="head/camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.24641e-08, 0, -0.256959 )
+enabled = false
+exclude_parent = true
+cast_to = Vector3( 0, 0, -3 )
+collision_mask = 1
 collide_with_areas = false
 collide_with_bodies = true
 

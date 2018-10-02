@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Birthday_Girl_Full.ogg-9a7134052360beb385a0b43adc179
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

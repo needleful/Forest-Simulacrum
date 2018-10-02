@@ -10,7 +10,11 @@ var grab_icon : Texture = load("res://assets/icons/grab.svg")
 var view_icon : Texture = load("res://assets/icons/view.svg")
 var saw_icon : Texture = load("res://assets/icons/saw.svg")
 
+var sound:Array
+
 func _ready():
+	sound.push_back(load("res://assets/sounds/pickup-a.wav"))
+	sound.push_back(load("res://assets/sounds/pickup-e.wav"))
 	hide()
 	
 func bind_player(p):
@@ -42,6 +46,10 @@ func act():
 	selected.connect("exit", self, "act_exit", [], CONNECT_ONESHOT)
 	player.can_move = false
 	selected.act()
+	if selected.action_type == "take":
+		var i = randi() & 1
+		$Sounds.stream = sound[i]
+		$Sounds.play(0)
 
 func act_exit():
 	player.can_move = true

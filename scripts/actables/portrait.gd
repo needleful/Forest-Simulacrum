@@ -12,3 +12,16 @@ func on_entry():
 			b.dialog_entry = "Knowledge"
 		elif b.talked:
 			b.dialog_entry = "Talked"
+	if G.phase == G.HOUSE:
+		if G.has_item("wrath"):
+			b.dialog_entry = "Doom"
+		elif G.has_item("saw"):
+			b.dialog_entry = "Building"
+
+func on_phase_change(old_phase, new_phase):
+	b.talked = false
+	b.dialog_entry = "Home"
+	if new_phase == G.HOUSE:
+		b.dialog_source = $dlg_phase_2.source_path
+	else:
+		print_debug("Unknown phase: ", new_phase)

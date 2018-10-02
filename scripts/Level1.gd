@@ -61,7 +61,7 @@ func event_tea_party():
 	add_child(tea_party)
 
 func event_get_saw():
-	G.add_item("Saw")
+	G.add_item("saw")
 	get_tree().call_group("Tree_Small", "set_active", true)
 
 func event_build_house():
@@ -79,4 +79,11 @@ func event_build_house():
 		anim.queue("Nightfall")
 	elif house_phase == 3 && G.has_item("tea"):
 		anim.queue("TeaParty_To_House")
-		
+
+func event_doom():
+	G.add_item("wrath")
+	anim.queue("Doom")
+
+func event_un_doom():
+	G.remove_item("wrath")
+	anim.play_backwards("Doom")

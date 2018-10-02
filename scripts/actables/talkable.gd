@@ -89,4 +89,7 @@ func dlg_entry(args):
 func dlg_give(args):
 	for item in args:
 		G.add_item(item)
-	
+
+func dlg_remove(args):
+	for item in args:
+		G.remove_item(item)

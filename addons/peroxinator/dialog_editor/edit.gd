@@ -54,7 +54,7 @@ func delete_reply(reply):
 		selected.remove_reply(reply)
 
 func add_reply():
-	selected.add_reply(selected.Reply.new())
+	selected.add_reply(selected.Reply.new(selected))
 	var r = selected.replies
 	if r.size() == 0:
 		var reply 

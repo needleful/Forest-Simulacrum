@@ -4,7 +4,6 @@
 [ext_resource path="res://scripts/ui/Action_Context.gd" type="Script" id=2]
 [ext_resource path="res://assets/icons/talk.svg" type="Texture" id=3]
 
-
 [node name="action_context" type="CenterContainer"]
 material = ExtResource( 1 )
 anchor_left = 0.0
@@ -40,4 +39,13 @@ size_flags_vertical = 1
 texture = ExtResource( 3 )
 stretch_mode = 0
 _sections_unfolded = [ "Material" ]
+
+[node name="Sounds" type="AudioStreamPlayer" parent="."]
+stream = null
+volume_db = -40.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+mix_target = 0
+bus = "Master"
 

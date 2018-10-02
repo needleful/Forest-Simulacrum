@@ -21,10 +21,10 @@ var cam_angle = 0
 var in_air = false
 
 #Camera Sway
-const cam_speed_base = Vector3(.8, .9, .8)
+const cam_speed_base = Vector3(1, 1, 1)
 const cam_speed_shift = Vector3(.3, 0.3, .3)
-const cam_span_base = Vector3(0.04, 0.06, .04) 
-const cam_span_shift = Vector3(0.05, 0.04, .03)
+const cam_span_base = Vector3(0.03, 0.05, .02) 
+const cam_span_shift = Vector3(0.02, 0.03, .01)
 
 var rnd_cam_speed : Vector3
 var rnd_cam_span : Vector3
@@ -39,12 +39,13 @@ func _ready() -> void:
 	ac.bind_player(self)
 
 func _physics_process(delta) -> void:
-	if ac.enabled and ac_cast.is_colliding():
-		var c: Object = ac_cast.get_collider()
-		if (!ac.has_selected or c != ac.selected) and c.has_method("act"):
-			ac.select(c)
-	elif ac.enabled:
-		ac.deselect()
+	if ac.enabled:
+		if ac_cast.is_colliding():
+			var c: Object = ac_cast.get_collider()
+			if (!ac.has_selected or c != ac.selected) and not $head/camera/view_cast.is_colliding():
+				ac.select(c)
+		else:
+			ac.deselect()
 	var direction: Vector3 
 	if can_move:
 		direction = G.inp.get_direction($head.global_transform.basis)
