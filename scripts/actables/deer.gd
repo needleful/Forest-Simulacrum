@@ -54,9 +54,7 @@ func on_phase_change(old_phase, new_phase):
 		G.HOUSE:
 			b.talked = false
 			b.dialog_source = $dlg_phase_2.source_path
-			if G.has_item("forbidden_knowledge"):
-				b.dialog_entry = "TeaTime-Portrait"
-			elif G.has_item("tea"):
+			if G.has_item("tea"):
 				b.dialog_entry = "TeaTime"
 			else:
 				b.dialog_entry = "Home"

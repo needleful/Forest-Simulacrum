@@ -24,6 +24,9 @@ var scrollbox : ScrollContainer
 var timer = Timer.new()
 var dialog_tree : DialogTree
 
+#This one's basically a dynamic Strategy Pattern object
+var resolver
+
 var mouse_capture
 
 # State for rendering
@@ -100,6 +103,12 @@ func show_replies_or_exit():
 		set_state(DLG_VIEW_REPLIES)
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		for reply in replies:
+			var cond = true
+			for c in reply.conditions:
+				var res = is_true(c)
+				cond = cond and res
+			if !cond:
+				continue
 			#A hack for compositing multiple messages
 			if reply.type == "Auto":
 				on_reply(reply)
@@ -155,3 +164,9 @@ func set_source(src:String):
 	
 func send_command(c):
 	emit_signal("dialog_command", c.command, c.args)
+
+func is_true(c: DialogTree.Command):
+	if resolver != null && resolver.has_method("dlg_"+c.command):
+		return resolver.call("dlg_"+c.command, c.args)
+	else:
+		return true

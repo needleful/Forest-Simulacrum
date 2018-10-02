@@ -19,8 +19,6 @@ func _ready():
 	$house/area.connect("area_entered", self, "on_house_entry")
 	$house/area.connect("area_exited", self, "on_house_exit")
 	G.connect("registered_event", self, "on_registered_event")
-	G.ui = $ui
-	G.inp = $ui/input_handler
 	#Removing the house for building it later
 	var house = $house_building
 	for i in range(1,4):

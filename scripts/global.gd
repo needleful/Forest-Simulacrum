@@ -38,3 +38,9 @@ func register_event(event_name: String):
 func change_phase(next_phase):
 	emit_signal("phase_change", phase, next_phase)
 	phase = next_phase
+
+func dlg_has(args)->bool:
+	for arg in args:
+		if !has_item(arg):
+			return false
+	return true
