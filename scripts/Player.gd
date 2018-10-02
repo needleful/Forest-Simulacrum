@@ -42,8 +42,11 @@ func _physics_process(delta) -> void:
 	if ac.enabled:
 		if ac_cast.is_colliding():
 			var c: Object = ac_cast.get_collider()
-			if (!ac.has_selected or c != ac.selected) and not $head/camera/view_cast.is_colliding():
-				ac.select(c)
+			if c.has_method("act") && c.active:
+				if !ac.has_selected or c != ac.selected:
+					ac.select(c)
+			else:
+				ac.deselect()
 		else:
 			ac.deselect()
 	var direction: Vector3 

@@ -67,11 +67,9 @@ disabled = false
 _sections_unfolded = [ "Transform", "shape" ]
 
 [node name="head" type="Spatial" parent="."]
-editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="camera" type="Camera" parent="head"]
-editor/display_folded = true
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.22461, 0.29847 )
 keep_aspect = 1
 cull_mask = 1048573
@@ -88,7 +86,6 @@ far = 2642.72
 
 [node name="debug_marker" type="MeshInstance" parent="head/camera"]
 transform = Transform( -0.0929918, 0, -8.12961e-09, 0, 0.0929918, 0, 8.12961e-09, 0, -0.0929918, -2.85304e-07, 0, -3.2635 )
-visible = false
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -107,19 +104,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.26225e-08, 0, -0.258772 )
 enabled = true
 exclude_parent = true
 cast_to = Vector3( 0, 0, -3 )
-collision_mask = 2
+collision_mask = 3
 collide_with_areas = false
 collide_with_bodies = true
 _sections_unfolded = [ "Transform" ]
-
-[node name="view_cast" type="RayCast" parent="head/camera"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.24641e-08, 0, -0.256959 )
-enabled = false
-exclude_parent = true
-cast_to = Vector3( 0, 0, -3 )
-collision_mask = 1
-collide_with_areas = false
-collide_with_bodies = true
 
 [node name="Body" type="CollisionShape" parent="."]
 editor/display_folded = true
