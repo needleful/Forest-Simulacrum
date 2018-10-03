@@ -63,6 +63,14 @@ func event_get_saw():
 	get_tree().call_group("Tree_Small", "set_active", true)
 
 func event_build_house():
+	$Player/Anim.queue("Screen_Fadeout")
+	$Player/Anim.queue("House_Transport")
+	if house_phase == 3 && G.has_item("tea"):
+		anim.queue("TeaParty_To_House")
+	$Player/Anim.queue("Build_House")
+	$Player/Anim.queue("Screen_FadeIn")
+
+func build_house():
 	if house_phase+1 > house_parts.size():
 		return
 	var house = $house_building
@@ -73,10 +81,14 @@ func event_build_house():
 		old_phase.remove_child(rem)
 	house.add_child(phase)
 	house_phase += 1
+	if house_phase == 1:
+		get_tree().call_group("Tree_Small", "set_active", false)
+		get_tree().call_group("Tree_Large", "set_active", true)
 	if house_phase == 2:
+		get_tree().call_group("Tree_Large", "set_active", false)
+		get_tree().call_group("Tree_Master", "set_active", true)
+	elif house_phase == 3:
 		anim.queue("Nightfall")
-	elif house_phase == 3 && G.has_item("tea"):
-		anim.queue("TeaParty_To_House")
 
 func event_doom():
 	G.add_item("wrath")

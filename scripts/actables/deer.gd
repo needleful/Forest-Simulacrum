@@ -11,7 +11,7 @@ var house_phase=1
 var house_requirements = [
 	{"Tree_Small":5},
 	{"Tree_Large":8},
-	{"Tree_Master":1}
+	{"Final_Wood":1}
 ]
 
 func _ready():
@@ -36,6 +36,8 @@ func on_enter():
 	elif G.phase == G.HOUSE:
 		if G.has_item("wrath"):
 			b.dialog_entry = "Doom"
+		elif house_phase > 3:
+			b.dialog_entry = "House_Complete"
 		elif b.met(house_requirements[house_phase-1]):
 			b.dialog_entry = "House_%d_Build" % house_phase
 		elif G.has_item("saw"):

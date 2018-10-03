@@ -86,6 +86,7 @@ far = 2642.72
 
 [node name="debug_marker" type="MeshInstance" parent="head/camera"]
 transform = Transform( -0.0929918, 0, -8.12961e-09, 0, 0.0929918, 0, 8.12961e-09, 0, -0.0929918, -2.85304e-07, 0, -3.2635 )
+visible = false
 layers = 1
 material_override = null
 cast_shadow = 1

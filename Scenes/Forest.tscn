@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://scripts/Level1.gd" type="Script" id=1]
 [ext_resource path="res://ui/ui.tscn" type="PackedScene" id=2]
@@ -318,7 +318,7 @@ tracks/4/keys = {
 "values": [ 33.0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 
 length = 90.0
 loop = false
@@ -384,7 +384,7 @@ tracks/4/keys = {
 "values": [ Color( 1, 0.913725, 0.752941, 1 ), Color( 0.584314, 0.372549, 0.584314, 1 ), Color( 0.121569, 0.12549, 0.254902, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 
 length = 0.5
 loop = false
@@ -414,7 +414,7 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 
 length = 5.0
 loop = false
@@ -468,12 +468,12 @@ tracks/3/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="BoxShape" id=9]
+[sub_resource type="BoxShape" id=8]
 
 margin = 0.04
 extents = Vector3( 3.57506, 2.47061, 3.54228 )
 
-[sub_resource type="CubeMesh" id=10]
+[sub_resource type="CubeMesh" id=9]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 flip_faces = false
@@ -481,6 +481,11 @@ size = Vector3( 2, 2, 2 )
 subdivide_width = 0
 subdivide_height = 0
 subdivide_depth = 0
+
+[sub_resource type="ConvexPolygonShape" id=10]
+
+margin = 0.04
+points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1 )
 
 [sub_resource type="ConvexPolygonShape" id=11]
 
@@ -497,12 +502,7 @@ points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1,
 margin = 0.04
 points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1 )
 
-[sub_resource type="ConvexPolygonShape" id=14]
-
-margin = 0.04
-points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1 )
-
-[sub_resource type="CubeMesh" id=15]
+[sub_resource type="CubeMesh" id=14]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 flip_faces = false
@@ -511,32 +511,53 @@ subdivide_width = 0
 subdivide_height = 0
 subdivide_depth = 0
 
-[sub_resource type="ConvexPolygonShape" id=16]
+[sub_resource type="ConvexPolygonShape" id=15]
 
 margin = 0.04
 points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1 )
 
-[sub_resource type="BoxShape" id=17]
+[sub_resource type="BoxShape" id=16]
 
 margin = 0.04
 extents = Vector3( 1, 17.1834, 15.5802 )
 
-[sub_resource type="BoxShape" id=18]
+[sub_resource type="BoxShape" id=17]
 
 margin = 0.04
 extents = Vector3( 1, 15.9394, 16.3976 )
 
-[sub_resource type="BoxShape" id=19]
+[sub_resource type="BoxShape" id=18]
 
 margin = 0.04
 extents = Vector3( 1, 22.9052, 12.2687 )
 
-[sub_resource type="BoxShape" id=20]
+[sub_resource type="BoxShape" id=19]
 
 margin = 0.04
 extents = Vector3( 1, 8.7924, 7.394 )
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=25]
+
+resource_name = "Build_House"
+length = 0.25
+loop = false
+step = 0.1
+tracks/0/type = "method"
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "build_house"
+} ]
+}
+
+[sub_resource type="Animation" id=20]
 
 length = 0.5
 loop = false
@@ -604,7 +625,7 @@ tracks/4/keys = {
 "values": [ Vector3( 0, -162.777, 0 ), Vector3( 0, 143.927, 0 ) ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=21]
 
 resource_name = "House_Transport"
 length = 0.5
@@ -659,7 +680,7 @@ tracks/3/keys = {
 "values": [ Vector3( 0, -162.777, 0 ), Vector3( 0, -162.777, 0 ) ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=22]
 
 length = 1.5
 loop = false
@@ -677,7 +698,7 @@ tracks/0/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=23]
 
 length = 1.5
 loop = false
@@ -695,7 +716,7 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=24]
 
 length = 0.5
 loop = false
@@ -781,9 +802,9 @@ playback_speed = 1.0
 anims/Doom = SubResource( 2 )
 anims/Doom_Death = SubResource( 3 )
 anims/FuneralSunset = SubResource( 4 )
-anims/Nightfall = SubResource( 6 )
-anims/TeaParty_To_House = SubResource( 7 )
-anims/TeaTime_Fadeout = SubResource( 8 )
+anims/Nightfall = SubResource( 5 )
+anims/TeaParty_To_House = SubResource( 6 )
+anims/TeaTime_Fadeout = SubResource( 7 )
 blend_times = [  ]
 
 [node name="GradientProperties" type="Node" parent="."]
@@ -1112,7 +1133,7 @@ _sections_unfolded = [ "Collision", "Reverb Bus" ]
 
 [node name="House" type="CollisionShape" parent="house/area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95159, 0 )
-shape = SubResource( 9 )
+shape = SubResource( 8 )
 disabled = false
 
 [node name="Stairs_Front" type="Spatial" parent="house"]
@@ -1130,7 +1151,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 10 )
+mesh = SubResource( 9 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 21 )
 _sections_unfolded = [ "Material", "Transform" ]
@@ -1144,7 +1165,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="house/Stairs_Front/MeshInstance5/StaticBody"]
-shape = SubResource( 11 )
+shape = SubResource( 10 )
 disabled = false
 
 [node name="MeshInstance6" type="MeshInstance" parent="house/Stairs_Front"]
@@ -1159,7 +1180,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 10 )
+mesh = SubResource( 9 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 21 )
 _sections_unfolded = [ "Material", "Transform" ]
@@ -1173,7 +1194,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="house/Stairs_Front/MeshInstance6/StaticBody"]
-shape = SubResource( 12 )
+shape = SubResource( 11 )
 disabled = false
 
 [node name="MeshInstance7" type="MeshInstance" parent="house/Stairs_Front"]
@@ -1188,7 +1209,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 10 )
+mesh = SubResource( 9 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 21 )
 _sections_unfolded = [ "Material", "Transform" ]
@@ -1202,7 +1223,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="house/Stairs_Front/MeshInstance7/StaticBody"]
-shape = SubResource( 13 )
+shape = SubResource( 12 )
 disabled = false
 
 [node name="MeshInstance8" type="MeshInstance" parent="house/Stairs_Front"]
@@ -1217,7 +1238,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 10 )
+mesh = SubResource( 9 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 21 )
 _sections_unfolded = [ "Material", "Transform" ]
@@ -1231,7 +1252,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="house/Stairs_Front/MeshInstance8/StaticBody"]
-shape = SubResource( 14 )
+shape = SubResource( 13 )
 disabled = false
 
 [node name="Stairs_Porch" type="Spatial" parent="house"]
@@ -1249,7 +1270,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 10 )
+mesh = SubResource( 9 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 21 )
 _sections_unfolded = [ "Material", "Transform" ]
@@ -1263,7 +1284,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="house/Stairs_Porch/MeshInstance11/StaticBody"]
-shape = SubResource( 11 )
+shape = SubResource( 10 )
 disabled = false
 
 [node name="MeshInstance12" type="MeshInstance" parent="house/Stairs_Porch"]
@@ -1278,7 +1299,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 10 )
+mesh = SubResource( 9 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 21 )
 _sections_unfolded = [ "Material", "Transform" ]
@@ -1292,7 +1313,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="house/Stairs_Porch/MeshInstance12/StaticBody"]
-shape = SubResource( 12 )
+shape = SubResource( 11 )
 disabled = false
 
 [node name="MeshInstance9" type="MeshInstance" parent="house/Stairs_Porch"]
@@ -1307,7 +1328,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 10 )
+mesh = SubResource( 9 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 21 )
 _sections_unfolded = [ "Material", "Transform" ]
@@ -1321,7 +1342,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="house/Stairs_Porch/MeshInstance9/StaticBody"]
-shape = SubResource( 13 )
+shape = SubResource( 12 )
 disabled = false
 
 [node name="MeshInstance10" type="MeshInstance" parent="house/Stairs_Porch"]
@@ -1336,7 +1357,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 10 )
+mesh = SubResource( 9 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 21 )
 _sections_unfolded = [ "Material", "Transform" ]
@@ -1350,7 +1371,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="house/Stairs_Porch/MeshInstance10/StaticBody"]
-shape = SubResource( 14 )
+shape = SubResource( 13 )
 disabled = false
 
 [node name="MeshInstance13" type="MeshInstance" parent="house/Stairs_Porch"]
@@ -1365,7 +1386,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 10 )
+mesh = SubResource( 9 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 21 )
 _sections_unfolded = [ "Material", "Transform" ]
@@ -1379,7 +1400,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="house/Stairs_Porch/MeshInstance13/StaticBody"]
-shape = SubResource( 14 )
+shape = SubResource( 13 )
 disabled = false
 
 [node name="MeshInstance14" type="MeshInstance" parent="house/Stairs_Porch"]
@@ -1394,7 +1415,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 10 )
+mesh = SubResource( 9 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 21 )
 _sections_unfolded = [ "Material", "Transform" ]
@@ -1408,7 +1429,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="house/Stairs_Porch/MeshInstance14/StaticBody"]
-shape = SubResource( 14 )
+shape = SubResource( 13 )
 disabled = false
 
 [node name="Porch" type="MeshInstance" parent="house"]
@@ -1423,7 +1444,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 15 )
+mesh = SubResource( 14 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 21 )
 _sections_unfolded = [ "Material", "Transform" ]
@@ -1437,7 +1458,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="house/Porch/StaticBody"]
-shape = SubResource( 16 )
+shape = SubResource( 15 )
 disabled = false
 
 [node name="terrain" parent="." instance=ExtResource( 22 )]
@@ -1964,27 +1985,26 @@ action_type = "view"
 
 [node name="CollisionShape2" type="CollisionShape" parent="terrain/Wall"]
 transform = Transform( 0.931216, 0, 0.364469, 0, 1, 0, -0.364469, 0, 0.931216, 3.32575, 5.35812, 14.8245 )
-shape = SubResource( 17 )
+shape = SubResource( 16 )
 disabled = false
 
 [node name="CollisionShape" type="CollisionShape" parent="terrain/Wall"]
 transform = Transform( 0.992247, 0, 0.124286, 0, 1, 0, -0.124286, 0, 0.992247, 3.59854, 5.35812, -37.4151 )
-shape = SubResource( 18 )
+shape = SubResource( 17 )
 disabled = false
 
 [node name="CollisionShape3" type="CollisionShape" parent="terrain/Wall"]
 transform = Transform( 0.946717, 0, -0.322068, 0, 1, 0, 0.322068, 0, 0.946717, 1.59581, -1.4419, -10.6007 )
-shape = SubResource( 19 )
+shape = SubResource( 18 )
 disabled = false
 
 [node name="CollisionShape4" type="CollisionShape" parent="terrain/Wall"]
 transform = Transform( 0.573576, 0, 0.819152, 0, 1, 0, -0.819152, 0, 0.573576, -0.405708, 10.4745, -53.9099 )
-shape = SubResource( 20 )
+shape = SubResource( 19 )
 disabled = false
 
 [node name="Player" parent="." instance=ExtResource( 33 )]
-transform = Transform( 0.977356, 0, -0.211596, 0, 1, 0, 0.211596, 0, 0.977356, 45.6967, 8.75851, -3.83054 )
-_sections_unfolded = [ "Transform" ]
+transform = Transform( -0.995008, 0, 0.0997888, 0, 1, 0, -0.0997888, 0, -0.995008, 16.7972, 7.6766, -16.7462 )
 
 [node name="Anim" type="AnimationPlayer" parent="Player"]
 root_node = NodePath("..")
@@ -1992,18 +2012,19 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Funeral_Transport = SubResource( 21 )
-anims/House_Transport = SubResource( 22 )
-anims/Screen_FadeIn = SubResource( 23 )
-anims/Screen_Fadeout = SubResource( 24 )
-anims/TeaParty_Transport = SubResource( 25 )
+anims/Build_House = SubResource( 25 )
+anims/Funeral_Transport = SubResource( 20 )
+anims/House_Transport = SubResource( 21 )
+anims/Screen_FadeIn = SubResource( 22 )
+anims/Screen_Fadeout = SubResource( 23 )
+anims/TeaParty_Transport = SubResource( 24 )
 blend_times = [  ]
 
 [node name="portrait" parent="." instance=ExtResource( 34 )]
 transform = Transform( 0.954407, 0.121485, -0.272671, -0.0282321, 0.946082, 0.322695, 0.297172, -0.300284, 0.906377, 26.0909, 18.6469, -92.4419 )
 
 [node name="deer" parent="." instance=ExtResource( 35 )]
-transform = Transform( -0.95516, 0, -0.296092, 0, 1, 0, 0.296092, 0, -0.95516, 42.3928, 6.9395, -4.27938 )
+transform = Transform( -0.95516, 0, -0.296092, 0, 1, 0, 0.296092, 0, -0.95516, 0, 1.75336, -27.67 )
 
 [node name="viewables" type="Node" parent="."]
 script = ExtResource( 36 )
