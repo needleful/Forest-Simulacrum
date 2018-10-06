@@ -14,6 +14,8 @@ func on_entry():
 		elif b.talked:
 			b.dialog_entry = "Talked"
 	if G.phase == G.HOUSE:
+		if G.has_item("sin"):
+			b.dialog_entry = "Death"
 		if G.has_item("wrath"):
 			b.dialog_entry = "Doom"
 		elif G.has_item("saw"):

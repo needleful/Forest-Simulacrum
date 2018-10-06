@@ -82,7 +82,6 @@ func _physics_process(delta) -> void:
 	if !in_air:
 		translate(Vector3(0,vcorrection*delta*height_rate,0))
 
-
 func _process(delta) -> void:
 	look(G.inp.get_camera_movement())
 	#Random camera movement
@@ -108,3 +107,8 @@ func reset_camera():
 	$head.rotation_degrees.y = 0
 	cam_angle = 0
 	$head/camera.rotation_degrees.x = 0
+
+func force_act(n:NodePath):
+	var body = get_node(n).b
+	ac.select(body)
+	ac.act()

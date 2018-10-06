@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Birthday_Girl_Short.wav-399180663bb714d3a4e004f36b59cd7b.sample"
+
+[deps]
+
+source_file="res://assets/music/Birthday_Girl_Short.wav"
+dest_files=[ "res://.import/Birthday_Girl_Short.wav-399180663bb714d3a4e004f36b59cd7b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

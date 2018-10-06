@@ -98,7 +98,7 @@ func on_timeout():
 func show_replies_or_exit():
 	var replies = dialog_tree.get_replies(text_id)
 	if replies == null || replies.size() == 0:
-		dlg_exit()
+		exit()
 	else:
 		set_state(DLG_VIEW_REPLIES)
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -127,12 +127,11 @@ func on_reply(reply):
 	for child in reply_box.get_children():
 		child.queue_free()
 	if text_id == null or text_id == '':
-		print_debug("Exiting dialog...")
-		dlg_exit()
+		exit()
 	else:
 		update_text()
 
-func dlg_exit():
+func exit():
 	set_process_input(false)
 	hide()
 	timer.stop()

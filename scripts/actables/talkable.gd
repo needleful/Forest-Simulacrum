@@ -56,6 +56,7 @@ func on_view_state_changed(prev, next):
 		G.inp.set_process_input(true)
 
 func on_command(op:String, args:Array):
+	print("c: ",op, args)
 	if has_method("dlg_" + op):
 		call_deferred("dlg_" + op, args)
 	else:

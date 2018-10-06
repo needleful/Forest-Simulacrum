@@ -97,3 +97,16 @@ func event_doom():
 func event_un_doom():
 	G.remove_item("wrath")
 	anim.play_backwards("Doom")
+
+func event_doom_death():
+	G.remove_item("wrath")
+	G.remove_item("rope")
+	G.add_item("sin")
+	$Player/Anim.queue("Screen_Fadeout")
+	$Player/Anim.queue("Doom_Death_Transport")
+	$Player/Anim.queue("Screen_FadeIn")
+
+func event_doom_end():
+	anim.play("Doom_Death")
+func event_end():
+	get_tree().change_scene("res://Scenes/Credits.tscn")

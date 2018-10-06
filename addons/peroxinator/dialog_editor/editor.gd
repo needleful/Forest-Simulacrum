@@ -48,6 +48,7 @@ func _exit_tree():
 	clear_graph()
 
 func clear_graph():
+	e.clear()
 	dlg_nodes.clear()
 	g.clear_connections()
 	for c in g.get_children():
@@ -165,4 +166,8 @@ func save_to_file(src=dialog_source):
 	for key in dlg_nodes.keys():
 		dict[key] = dlg_nodes[key].export_data()
 	f.store_string(to_json(dict))
-	call_deferred("set_dialog_source", src)
+	var id = edited_dlg.id
+	set_dialog_source(src)
+	if dlg_nodes.has(id):
+		eselect(dlg_nodes[id])
+	

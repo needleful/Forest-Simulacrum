@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/Credits.gd" type="Script" id=1]
-[ext_resource path="res://assets/music/Birthday_Girl_Full.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/music/Birthday_Girl_Short.wav" type="AudioStream" id=2]
 [ext_resource path="res://ui/main_credits.tres" type="Theme" id=3]
 
 [sub_resource type="Animation" id=1]
 
 resource_name = "EndTimes"
-length = 12.3
+length = 13.2
 loop = false
 step = 0.1
 tracks/0/type = "method"
@@ -17,7 +17,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ 0.0 ],
@@ -31,10 +31,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 5.5, 7.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 1, 6.4, 8.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ -1, 0, -1 ]
+"values": [ 0, -1, 0, -1 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Mask:color")
@@ -43,7 +43,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 3.6, 5.2, 5.7, 6.6, 10.6, 12.2 ),
+"times": PoolRealArray( 1, 4.6, 6.2, 6.7, 7.6, 11.6, 13.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
@@ -55,10 +55,22 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 5.6 ),
+"times": PoolRealArray( 1, 6.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ "Forest Simulacrum", "a needleful game" ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Music:stream")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
 }
 
 [node name="Credits" type="Control"]
@@ -130,9 +142,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 189.0
+margin_left = 172.0
 margin_top = 260.0
-margin_right = 835.0
+margin_right = 851.0
 margin_bottom = 340.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -140,7 +152,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "a needleful game"
+text = "Forest Simulacrum"
 percent_visible = 0.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -157,7 +169,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0, 0, 0, 0.3 )
+color = Color( 0, 0, 0, 0 )
 _sections_unfolded = [ "Size Flags" ]
 
 [connection signal="finished" from="Music" to="." method="_on_Music_finished"]

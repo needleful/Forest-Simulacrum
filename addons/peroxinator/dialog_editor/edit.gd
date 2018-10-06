@@ -63,4 +63,15 @@ func add_reply():
 	$v/replies.add_child(red)
 	red.bind_reply(reply)
 	red.connect("reply_deleted", self, "delete_reply")
+
+func clear():
+	selected = null
+	for c in $v/replies.get_children():
+		c.disconnect("reply_deleted", self, "delete_reply")
+		if c is HBoxContainer:
+			$v/replies.remove_child(c)
+	$v/id_text.disconnect("text_changed", selected, "set_id")
+	$v/dialog.text = ""
+	$v/id_text.text = ""
+	
 	

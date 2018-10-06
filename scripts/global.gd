@@ -20,6 +20,8 @@ func has_item(item, count=1) -> bool:
 	return inventory.has(item) && inventory[item] >= count
 	
 func remove_item(item, number = 1) -> void:
+	if !inventory.has(item):
+		return
 	inventory[item] -= number
 	if inventory[item] <= 0:
 		inventory.erase(item)
