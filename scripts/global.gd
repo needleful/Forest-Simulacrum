@@ -33,7 +33,6 @@ func add_item(item, count = 1) -> void:
 		inventory[item] += count
 		
 func register_event(event_name: String):
-	print_debug("Event registered: ", event_name)
 	events.push_back(event_name)
 	emit_signal("registered_event", event_name)
 	

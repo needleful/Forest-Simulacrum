@@ -60,7 +60,7 @@ group = null
 text = "File"
 flat = true
 align = 1
-items = [ "Open File..", null, 0, false, false, -1, 0, null, "", false, "Save", null, 0, false, false, -1, 0, null, "", false, "Save As..", null, 0, false, false, -1, 0, null, "", false, "Open File..", null, 0, false, false, -1, 0, null, "", false, "Save", null, 0, false, false, -1, 0, null, "", false, "Save As..", null, 0, false, false, -1, 0, null, "", false, "Open File..", null, 0, false, false, -1, 0, null, "", false, "Save", null, 0, false, false, -1, 0, null, "", false, "Save As..", null, 0, false, false, -1, 0, null, "", false ]
+items = [ "Open File..", null, 0, false, false, -1, 0, null, "", false, "Save", null, 0, false, false, -1, 0, null, "", false, "Save As..", null, 0, false, false, -1, 0, null, "", false ]
 
 [node name="split" type="HSplitContainer" parent="."]
 anchor_left = 0.0
@@ -96,14 +96,13 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 right_disconnects = true
-scroll_offset = Vector2( 0, 0 )
+scroll_offset = Vector2( -12, 0 )
 snap_distance = 20
 use_snap = true
 zoom = 1.0
 _sections_unfolded = [ "Grow Direction" ]
 
 [node name="edit" type="PanelContainer" parent="split"]
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -152,7 +151,6 @@ mouse_filter = 0
 mouse_default_cursor_shape = 1
 size_flags_horizontal = 1
 size_flags_vertical = 1
-text = "Random Text"
 secret_character = "*"
 focus_mode = 2
 context_menu_enabled = true
@@ -291,15 +289,38 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="foot" type="HBoxContainer" parent="split/edit/v"]
-editor/display_folded = true
+[node name="final" type="CheckBox" parent="split/edit/v"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 270.0
 margin_right = 150.0
-margin_bottom = 290.0
+margin_bottom = 294.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Final Version"
+flat = false
+align = 0
+
+[node name="foot" type="HBoxContainer" parent="split/edit/v"]
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 298.0
+margin_right = 150.0
+margin_bottom = 318.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1

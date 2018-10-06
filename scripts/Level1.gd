@@ -25,13 +25,11 @@ func _ready():
 		var phase = house.get_node("phase_"+str(i))
 		house.remove_child(phase)
 		house_parts.push_back(phase)
-	
+
 func on_house_entry(body):
-	print_debug("Entered house")
 	$Music.stream_paused = true
 
 func on_house_exit(body):
-	print_debug("Exited house")
 	$Music.stream_paused = false
 
 func on_registered_event(name):
@@ -108,5 +106,6 @@ func event_doom_death():
 
 func event_doom_end():
 	anim.play("Doom_Death")
+
 func event_end():
 	get_tree().change_scene("res://Scenes/Credits.tscn")

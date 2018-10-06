@@ -1,14 +1,13 @@
 extends Spatial
 
 onready var G = get_node("/root/global")
+onready var W = get_node("/root/World")
 onready var b:Talkable = $body
 
 var required_items = {'Flower':4}
 var optional_items = {'Flower':4, 'Chamomile':1}
 
 onready var anim = $AnimationPlayer
-
-var house_phase=1
 
 var house_requirements = [
 	{"Tree_Small":5},
@@ -38,18 +37,17 @@ func on_enter():
 	elif G.phase == G.HOUSE:
 		if G.has_item("wrath"):
 			b.dialog_entry = "Doom"
-		elif house_phase > 3:
+		elif W.house_phase > 2:
 			b.dialog_entry = "House_Complete"
-		elif b.met(house_requirements[house_phase-1]):
-			b.dialog_entry = "House_%d_Build" % house_phase
+		elif b.met(house_requirements[W.house_phase]):
+			b.dialog_entry = "House_%d_Build" % (W.house_phase+1)
 		elif G.has_item("saw"):
 			if b.talked:
-				b.dialog_entry = "House_%d_Questions" % house_phase
+				b.dialog_entry = "House_%d_Questions" % (W.house_phase+1)
 			else:
-				b.dialog_entry = "House_%d_Harvest" % house_phase
+				b.dialog_entry = "House_%d_Harvest" % (W.house_phase+1)
 func on_exit():
-	if G.phase == G.HOUSE and b.dialog_entry == "House_%d_Build" % house_phase:
-		house_phase += 1
+	if G.phase == G.HOUSE and b.dialog_entry == "House_%d_Build" % (W.house_phase+1):
 		b.talked = false
 
 func on_phase_change(old_phase, new_phase):

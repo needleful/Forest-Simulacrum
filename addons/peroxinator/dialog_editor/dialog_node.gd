@@ -7,8 +7,8 @@ signal reply_connect(from_slot, to)
 
 var id:String setget set_id
 var text:String setget set_text
+var final:bool setget finalize
 
-const message_slot_color = Color(1,1,1,0.7)
 const reply_slot_color = Color(1, 0.4, 0.6, 0.7)
 const auto_slot_color = Color(0.2, 1, 0.5, 0.7)
 
@@ -38,15 +38,20 @@ class Reply:
 
 var replies:Array = []
 
-func _ready():
-	set_slot(0, true, TYPE_STRING, 
-		message_slot_color, true, TYPE_NIL, Color(0,0,0,0))
-
 func set_node_data(nd:Dictionary):
 	offset.x = ge(nd, "_editor_x")
 	offset.y = ge(nd, "_editor_y")
 	self.id = ge(nd, "id")
 	self.text = ge(nd, "text")
+	if nd.has("final"):
+		self.final = nd["final"]
+	else:
+		self.final = false
+	var message_slot_color = Color(1,1,1,0.7)
+	if final:
+		message_slot_color = Color(0.7,0.5, 0, 0.7)
+	set_slot(0, true, TYPE_STRING, 
+		message_slot_color, true, TYPE_NIL, Color(0,0,0,0))
 
 func set_replies(nd:Dictionary, dlg_nodes:Dictionary):
 	var re = ge(nd,"replies")
@@ -69,6 +74,14 @@ func set_id(val):
 
 func set_text(val):
 	text = val
+
+func finalize(val):
+	final = val
+	var message_slot_color = Color(1,1,1,0.7)
+	if final:
+		message_slot_color = Color(0.7,0.5, 0, 0.7)
+	set_slot(0, true, TYPE_STRING, 
+		message_slot_color, true, TYPE_NIL, Color(0,0,0,0))
 
 func add_reply(reply):
 	add_reply_slots(reply)
@@ -141,6 +154,7 @@ func export_data():
 		_editor_y = offset.y,
 		id = self.id,
 		text = self.text,
+		final = self.final,
 		replies = []
 	}
 	for reply in replies:
