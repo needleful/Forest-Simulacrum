@@ -3,6 +3,7 @@ extends Spatial
 onready var b = $Panel/body
 func _ready():
 	b.connect("enter", self, "on_entry")
+	G.connect("phase_change", self, "on_phase_change")
 	
 onready var G = get_node("/root/global")
 

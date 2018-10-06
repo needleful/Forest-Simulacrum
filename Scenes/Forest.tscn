@@ -32,11 +32,12 @@
 [ext_resource path="res://Scenes/foliage/tree3.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Scenes/foliage/tree4.tscn" type="PackedScene" id=31]
 [ext_resource path="res://scripts/actables/talkable.gd" type="Script" id=32]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=33]
+[ext_resource path="res://characters/Player.tscn" type="PackedScene" id=33]
 [ext_resource path="res://characters/portrait.tscn" type="PackedScene" id=34]
 [ext_resource path="res://characters/deer.tscn" type="PackedScene" id=35]
 [ext_resource path="res://addons/peroxinator/dialog_source.gd" type="Script" id=36]
 [ext_resource path="res://addons/peroxinator/dialog_viewer/node_icon.png" type="Texture" id=37]
+
 
 [sub_resource type="Environment" id=1]
 
@@ -188,7 +189,7 @@ tracks/4/keys = {
 [sub_resource type="Animation" id=3]
 
 resource_name = "Doom_Death"
-length = 22.0
+length = 24.0
 loop = false
 step = 0.1
 tracks/0/type = "value"
@@ -198,7 +199,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 10.4, 17.7 ),
+"times": PoolRealArray( 0, 10.4, 18 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 0.811765, 0.968627, 0.690196, 1 ), Color( 0.34902, 0.8, 0, 1 ), Color( 0, 0, 0, 1 ) ]
@@ -210,7 +211,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 9, 16.6 ),
+"times": PoolRealArray( 0, 9, 17 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 0.733333, 0.109804, 0.329412, 1 ), Color( 0.282353, 0.00392157, 0.00392157, 1 ), Color( 0, 0, 0, 1 ) ]
@@ -246,10 +247,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 16.8, 20 ),
+"times": PoolRealArray( 0, 20, 24 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0.913725, 0.584314, 0.584314, 1 ), Color( 0.776471, 0.00784314, 0.00784314, 1 ), Color( 0, 0, 0, 1 ) ]
+"values": [ Color( 0.964706, 1, 0.937255, 1 ), Color( 0.776471, 0.00784314, 0.00784314, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -536,7 +537,7 @@ extents = Vector3( 1, 22.9052, 12.2687 )
 margin = 0.04
 extents = Vector3( 1, 8.7924, 7.394 )
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=20]
 
 resource_name = "Build_House"
 length = 0.25
@@ -557,7 +558,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=21]
 
 length = 0.5
 loop = false
@@ -624,10 +625,33 @@ tracks/4/keys = {
 "update": 0,
 "values": [ Vector3( 0, -162.777, 0 ), Vector3( 0, 143.927, 0 ) ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("../portrait:translation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 26.0909, 18.6469, -92.4419 ), Vector3( 22.218, 7.856, 10.047 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../portrait:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -18.826, -16.7432, -1.70926 ), Vector3( -18.82, -16.743, -1.709 ) ]
+}
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=22]
 
-resource_name = "House_Transport"
 length = 0.5
 loop = false
 step = 0.1
@@ -679,8 +703,22 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector3( 0, -162.777, 0 ), Vector3( 0, -162.777, 0 ) ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "reset_camera"
+} ]
+}
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=23]
 
 length = 1.5
 loop = false
@@ -698,7 +736,7 @@ tracks/0/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=24]
 
 length = 1.5
 loop = false
@@ -716,7 +754,7 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=25]
 
 length = 0.5
 loop = false
@@ -782,6 +820,30 @@ tracks/4/keys = {
 "args": [  ],
 "method": "reset_camera"
 } ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../portrait:translation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 26.0909, 18.6469, -92.4419 ), Vector3( 22.218, 7.856, 10.047 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../portrait:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -18.826, -16.7432, -1.70926 ), Vector3( -18.82, -16.743, -1.709 ) ]
 }
 
 [node name="World" type="Spatial"]
@@ -858,7 +920,6 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.29
 transform = Transform( -0.139202, 0.239878, -0.960771, 0.432893, 0.887343, 0.158825, 0.890633, -0.393802, -0.227362, -0.249858, 1.02426, 0.13402 )
 
 [node name="house_building" type="Spatial" parent="."]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 6.70512, 9 )
 
 [node name="phase_1" parent="house_building" instance=ExtResource( 12 )]
@@ -916,7 +977,6 @@ transform = Transform( -0.999761, 0, 0.0218741, 0, 1, 0, -0.0218741, 0, -0.99976
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21536, 1.43049, 2 )
 
 [node name="phase_3" type="Spatial" parent="house_building"]
-editor/display_folded = true
 
 [node name="house_floor" parent="house_building/phase_3" instance=ExtResource( 12 )]
 transform = Transform( -0.0356363, 0, 0.999365, 0, 1, 0, -0.999365, 0, -0.0356363, -5.10861, 0.00179291, 5.04754 )
@@ -1068,7 +1128,6 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.1348
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3419, 10.2949, 1 )
 
 [node name="house_wall" parent="house_building/phase_3" instance=ExtResource( 15 )]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43981, 1.29488, -5.21688 )
 
 [node name="house_wall2" parent="house_building/phase_3/house_wall" instance=ExtResource( 15 )]
@@ -2004,7 +2063,8 @@ shape = SubResource( 19 )
 disabled = false
 
 [node name="Player" parent="." instance=ExtResource( 33 )]
-transform = Transform( -0.995008, 0, 0.0997888, 0, 1, 0, -0.0997888, 0, -0.995008, 16.7972, 7.6766, -16.7462 )
+editor/display_folded = true
+transform = Transform( -0.995008, 0, 0.0997889, 0, 1, 0, -0.0997889, 0, -0.995008, 16.7972, 7.6766, -16.7462 )
 
 [node name="Anim" type="AnimationPlayer" parent="Player"]
 root_node = NodePath("..")
@@ -2012,16 +2072,17 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Build_House = SubResource( 25 )
-anims/Funeral_Transport = SubResource( 20 )
-anims/House_Transport = SubResource( 21 )
-anims/Screen_FadeIn = SubResource( 22 )
-anims/Screen_Fadeout = SubResource( 23 )
-anims/TeaParty_Transport = SubResource( 24 )
+anims/Build_House = SubResource( 20 )
+anims/Funeral_Transport = SubResource( 21 )
+anims/House_Transport = SubResource( 22 )
+anims/Screen_FadeIn = SubResource( 23 )
+anims/Screen_Fadeout = SubResource( 24 )
+anims/TeaParty_Transport = SubResource( 25 )
 blend_times = [  ]
 
 [node name="portrait" parent="." instance=ExtResource( 34 )]
-transform = Transform( 0.954407, 0.121485, -0.272671, -0.0282321, 0.946082, 0.322695, 0.297172, -0.300284, 0.906377, 26.0909, 18.6469, -92.4419 )
+transform = Transform( 0.954406, 0.121485, -0.272671, -0.0282321, 0.946082, 0.322695, 0.297172, -0.300284, 0.906377, 26.0909, 18.6469, -92.4419 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="deer" parent="." instance=ExtResource( 35 )]
 transform = Transform( -0.95516, 0, -0.296092, 0, 1, 0, 0.296092, 0, -0.95516, 0, 1.75336, -27.67 )

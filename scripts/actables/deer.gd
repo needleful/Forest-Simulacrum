@@ -6,6 +6,8 @@ onready var b:Talkable = $body
 var required_items = {'Flower':4}
 var optional_items = {'Flower':4, 'Chamomile':1}
 
+onready var anim = $AnimationPlayer
+
 var house_phase=1
 
 var house_requirements = [
