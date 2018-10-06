@@ -100,9 +100,9 @@ func event_doom_death():
 	G.remove_item("wrath")
 	G.remove_item("rope")
 	G.add_item("sin")
-	$Player/Anim.queue("Screen_Fadeout")
+	$Player/Anim.queue("Screen_SmashFadeOut")
 	$Player/Anim.queue("Doom_Death_Transport")
-	$Player/Anim.queue("Screen_FadeIn")
+	$Player/Anim.queue("Screen_SmashFadeIn")
 
 func event_doom_end():
 	anim.play("Doom_Death")

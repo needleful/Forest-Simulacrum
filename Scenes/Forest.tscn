@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://scripts/Level1.gd" type="Script" id=1]
 [ext_resource path="res://ui/ui.tscn" type="PackedScene" id=2]
@@ -863,6 +863,44 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=28]
+
+resource_name = "Screen_SmashFadeIn"
+length = 0.8
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../ui:fadeout_alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=27]
+
+resource_name = "Screen_SmashFadeOut"
+length = 0.25
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../ui:fadeout_alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -4.47035e-08 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
 }
 
 [sub_resource type="Animation" id=26]
@@ -2188,7 +2226,6 @@ shape = SubResource( 19 )
 disabled = false
 
 [node name="Player" parent="." instance=ExtResource( 35 )]
-editor/display_folded = true
 transform = Transform( -0.995008, 0, 0.0997888, 0, 1, 0, -0.0997888, 0, -0.995008, 16.7972, 7.6766, -16.7462 )
 
 [node name="Anim" type="AnimationPlayer" parent="Player"]
@@ -2203,6 +2240,8 @@ anims/Funeral_Transport = SubResource( 22 )
 anims/House_Transport = SubResource( 23 )
 anims/Screen_FadeIn = SubResource( 24 )
 anims/Screen_Fadeout = SubResource( 25 )
+anims/Screen_SmashFadeIn = SubResource( 28 )
+anims/Screen_SmashFadeOut = SubResource( 27 )
 anims/TeaParty_Transport = SubResource( 26 )
 blend_times = [  ]
 
