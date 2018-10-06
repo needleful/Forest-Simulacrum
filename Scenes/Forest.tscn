@@ -558,7 +558,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=21]
 
 resource_name = "Doom_Death_Transport"
 length = 0.5
@@ -653,8 +653,22 @@ tracks/6/keys = {
 "method": "force_act"
 } ]
 }
+tracks/7/type = "method"
+tracks/7/path = NodePath("../terrain/tree_master/noose")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "show"
+} ]
+}
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=22]
 
 length = 0.5
 loop = false
@@ -746,7 +760,7 @@ tracks/6/keys = {
 "values": [ Vector3( -18.826, -16.7432, -1.70926 ), Vector3( -18.82, -16.743, -1.709 ) ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=23]
 
 length = 0.5
 loop = false
@@ -814,7 +828,7 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=24]
 
 length = 1.5
 loop = false
@@ -832,7 +846,7 @@ tracks/0/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=25]
 
 length = 1.5
 loop = false
@@ -850,7 +864,7 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=26]
 
 length = 0.5
 loop = false
@@ -1854,12 +1868,12 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 82, 28,
 _sections_unfolded = [ "Transform" ]
 
 [node name="tree_master" parent="terrain" instance=ExtResource( 26 )]
-editor/display_folded = true
 transform = Transform( 1.65424, 0, 1.12405, 0, 2, 0, -1.12405, 0, 1.65424, 12.2866, 0.15419, 25.5864 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="noose" parent="terrain/tree_master" instance=ExtResource( 27 )]
 transform = Transform( 0.00235936, 0, 0.454994, 0, 0.455, 0, -0.454994, 0, 0.00235936, 0.162546, 3.78392, -3.02169 )
+visible = false
 
 [node name="Little Trees" parent="terrain" instance=ExtResource( 28 )]
 editor/display_folded = true
@@ -2166,6 +2180,7 @@ shape = SubResource( 19 )
 disabled = false
 
 [node name="Player" parent="." instance=ExtResource( 34 )]
+editor/display_folded = true
 transform = Transform( -0.995008, 0, 0.0997888, 0, 1, 0, -0.0997888, 0, -0.995008, 16.7972, 7.6766, -16.7462 )
 
 [node name="Anim" type="AnimationPlayer" parent="Player"]
@@ -2175,12 +2190,12 @@ playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/Build_House = SubResource( 20 )
-anims/Doom_Death_Transport = SubResource( 26 )
-anims/Funeral_Transport = SubResource( 21 )
-anims/House_Transport = SubResource( 22 )
-anims/Screen_FadeIn = SubResource( 23 )
-anims/Screen_Fadeout = SubResource( 24 )
-anims/TeaParty_Transport = SubResource( 25 )
+anims/Doom_Death_Transport = SubResource( 21 )
+anims/Funeral_Transport = SubResource( 22 )
+anims/House_Transport = SubResource( 23 )
+anims/Screen_FadeIn = SubResource( 24 )
+anims/Screen_Fadeout = SubResource( 25 )
+anims/TeaParty_Transport = SubResource( 26 )
 blend_times = [  ]
 
 [node name="portrait" parent="." instance=ExtResource( 35 )]
