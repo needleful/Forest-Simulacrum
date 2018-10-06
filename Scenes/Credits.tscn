@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scripts/Credits.gd" type="Script" id=1]
-[ext_resource path="res://assets/music/Birthday_Girl_Short.wav" type="AudioStream" id=2]
-[ext_resource path="res://ui/main_credits.tres" type="Theme" id=3]
+[ext_resource path="res://ui/credits_minor.tres" type="Theme" id=1]
+[ext_resource path="res://scripts/Credits.gd" type="Script" id=2]
+[ext_resource path="res://assets/music/Birthday_Girl_Short.wav" type="AudioStream" id=3]
+[ext_resource path="res://ui/main_credits.tres" type="Theme" id=4]
 
 [sub_resource type="Animation" id=1]
 
 resource_name = "EndTimes"
-length = 13.2
+length = 14.4
 loop = false
 step = 0.1
 tracks/0/type = "method"
@@ -17,7 +18,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 2.1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ 0.0 ],
@@ -31,10 +32,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1, 6.4, 8.1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 2.1, 7.5, 9.2, 14.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, -1, 0, -1 ]
+"values": [ 0, -1, 0, -1, 0 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Mask:color")
@@ -43,10 +44,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 1, 4.6, 6.2, 6.7, 7.6, 11.6, 13.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 2.1, 5.7, 7.3, 7.8, 8.7, 12.7, 14.3, 14.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("MainText/Label:text")
@@ -55,7 +56,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 1, 6.5 ),
+"times": PoolRealArray( 2.1, 7.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ "Forest Simulacrum", "a needleful game" ]
@@ -67,10 +68,29 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.0999999 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ) ]
+"values": [ ExtResource( 3 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "Roll"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("exit:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -2.23517e-08, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
 }
 
 [node name="Credits" type="Control"]
@@ -84,7 +104,9 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 1 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Theme" ]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_left = 0.0
@@ -103,15 +125,37 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0, 0, 0, 1 )
 _sections_unfolded = [ "Margin" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
+stream = ExtResource( 3 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 stream_paused = false
 mix_target = 0
 bus = "Master"
+
+[node name="exit" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_left = 55.0
+margin_top = -37.0
+margin_right = 194.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Press Escape to Exit"
+percent_visible = 4.47035e-08
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("..")
@@ -120,6 +164,7 @@ playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/EndTimes = SubResource( 1 )
+anims/Roll = SubResource( 2 )
 blend_times = [  ]
 
 [node name="MainText" type="CenterContainer" parent="."]
@@ -133,9 +178,12 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-theme = ExtResource( 3 )
+theme = ExtResource( 4 )
 use_top_left = false
 _sections_unfolded = [ "Theme" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Label" type="Label" parent="MainText"]
 anchor_left = 0.0
@@ -171,5 +219,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0, 0, 0, 0 )
 _sections_unfolded = [ "Size Flags" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [connection signal="finished" from="Music" to="." method="_on_Music_finished"]

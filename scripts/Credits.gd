@@ -7,6 +7,7 @@ func _input(event):
 func _ready():
 	set_process_input(true)
 	$AnimationPlayer.queue("EndTimes")
+	$AnimationPlayer.queue("Roll")
 
 func _on_Music_finished():
 	get_tree().quit()
