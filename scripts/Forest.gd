@@ -25,6 +25,9 @@ func _ready():
 		var phase = house.get_node("phase_"+str(i))
 		house.remove_child(phase)
 		house_parts.push_back(phase)
+	G.ui = $ui
+	G.inp = $ui.get_node("input_handler")
+	G.enable_options()
 
 func on_house_entry(body):
 	$Music.stream_paused = true

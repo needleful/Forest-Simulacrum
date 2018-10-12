@@ -17,7 +17,7 @@ const VIEWER = preload("viewer.tscn")
 const DialogTree = preload("res://addons/peroxinator/dialog_tree.gd")
 
 export(String) var entry = "Home"
-export var text_speed = 2.0 setget set_speed
+export var text_speed = 1 setget set_speed
 
 var viewer
 var reply_box : VBoxContainer
@@ -72,7 +72,6 @@ func _enter_tree():
 	textbox.get_parent().remove_child(textbox)
 	reply_box = viewer.get_node("margin/replies")
 	reply_box.get_parent().remove_child(reply_box)
-	
 	scrollbox = viewer.get_node("margin/scroll")
 	timer.connect("timeout", self, "on_timeout")
 
@@ -131,8 +130,13 @@ func show_replies_or_exit():
 			var button = Button.new()
 			button.theme = reply_box.theme
 			button.connect("pressed", self, "on_reply", [reply], CONNECT_ONESHOT)
+			button.connect("focus_entered", self, "focus_on_reply", [button])
 			button.text = reply.text
 			reply_box.add_child(button)
+
+func focus_on_reply(button:Control):
+	if controller_focus:
+		scrollbox.scroll_vertical = button.rect_position.y
 
 func on_reply(reply):
 	focused = false

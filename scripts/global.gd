@@ -12,51 +12,18 @@ var inp : InputController
 const options_file:String = "res://settings.var"
 
 var using_controller = false setget use_controller
+var controller_type = PAD_XBOX setget set_controller_type
 
-class Options:
-	var fullscreen:bool setget set_fullscreen
-	var controls: Dictionary
-	func _init(to_copy = null):
-		controls = {}
-		if to_copy:
-			fullscreen = to_copy.fullscreen
-			for key in to_copy.controls.keys():
-				controls[key] = to_copy.controls[key]
-		else:
-			fullscreen = OS.window_fullscreen
-		if controls.size() < InputMap.get_actions().size():
-			get_default_controls()
+var controller_name = "" setget set_controller_name
 
-	func to_dict()->Dictionary:
-		var d = {}
-		d['fullscreen'] = fullscreen
-		d['controls'] = controls
-		return d
+var options setget set_options
 
-	func from_dict(dict):
-		fullscreen = dict['fullscreen']
-#		controls = dict['controls']
-		if controls.empty():
-			get_default_controls()
-
-	func get_default_controls():
-		for action in InputMap.get_actions():
-			controls[action] = []
-			for event in InputMap.get_action_list(action):
-				controls[action].push_back(event)
-
-	func set_fullscreen(val):
-		fullscreen = val
-		OS.set_window_fullscreen(val)
-	
-	func apply():
-		set_fullscreen(fullscreen)
-		for ac in controls.keys():
-			InputMap.action_erase_events(ac)
-			for ev in controls[ac]:
-				InputMap.action_add_event(ac, ev)
-
-var options:Options
+enum ControllerType{
+	PAD_XBOX,
+	PAD_PLAYSTATION,
+	PAD_NINTENDO,
+	PAD_OTHER,
+}
 
 enum Phase{
 	FLOWERS,
@@ -67,7 +34,22 @@ var phase = FLOWERS
 var events: Array = []
 
 func _ready():
-	options = load_options()
+	print("Ready")
+	options = Options.new()
+
+func enable_options():
+	self.options = load_options()
+
+func set_options(val):
+	options.disconnect("set_sns_x", self, "set_sns_x")
+	options.disconnect("set_sns_y", self, "set_sns_y")
+	options.disconnect("set_mouse_sns_x", self, "set_mouse_sns_x")
+	options.disconnect("set_mouse_sns_y", self, "set_mouse_sns_y")
+	options = val
+	options.connect("set_sns_x", self, "set_sns_x")
+	options.connect("set_sns_y", self, "set_sns_y")
+	options.connect("set_mouse_sns_x", self, "set_mouse_sns_x")
+	options.connect("set_mouse_sns_y", self, "set_mouse_sns_y")
 	options.apply()
 
 func load_options():
@@ -100,6 +82,38 @@ func use_controller(use:bool):
 	using_controller = use
 	if ui:
 		ui.get_node("DialogViewer").controller_focus = use
+
+func set_controller_type(val):
+	controller_type = val
+
+func set_controller_name(name:String):
+	if name == controller_name:
+		return
+	if name.matchn("*XInput*") or name.matchn("*XBox*"):
+		set_controller_type(PAD_XBOX)
+	else:
+		set_controller_type(PAD_OTHER)
+	controller_name = name
+
+func set_sns_x(val):
+	if inp == null:
+		return
+	inp.sensitivity.x = val
+
+func set_sns_y(val):
+	if inp == null:
+		return
+	inp.sensitivity.y = val
+
+func set_mouse_sns_x(val):
+	if inp == null:
+		return
+	inp.mouse_sns.x = val
+
+func set_mouse_sns_y(val):
+	if inp == null:
+		return
+	inp.mouse_sns.y = val
 
 func has_item(item, count=1) -> bool:
 	return inventory.has(item) && inventory[item] >= count

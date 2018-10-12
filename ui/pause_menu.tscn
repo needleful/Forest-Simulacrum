@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/ui/pause_menu.gd" type="Script" id=1]
-[ext_resource path="res://scripts/ui/options.gd" type="Script" id=2]
-[ext_resource path="res://ui/toggle.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scripts/ui/controller_remap.gd" type="Script" id=4]
+[ext_resource path="res://scripts/ui/options_menu.gd" type="Script" id=2]
+[ext_resource path="res://scripts/ui/focus_grabber.gd" type="Script" id=3]
+[ext_resource path="res://ui/toggle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/ui/controller_remap.gd" type="Script" id=5]
 
 [node name="pause" type="Control"]
 pause_mode = 2
@@ -63,6 +64,7 @@ max_lines_visible = -1
 _sections_unfolded = [ "Material", "Theme", "material" ]
 
 [node name="buttons" type="VBoxContainer" parent="main_menu"]
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -153,15 +155,14 @@ align = 1
 _sections_unfolded = [ "Margin", "Material" ]
 
 [node name="options" type="Panel" parent="."]
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -225.0
-margin_top = -192.0
-margin_right = 225.0
-margin_bottom = 138.0
+margin_left = -275.0
+margin_top = -175.0
+margin_right = 275.0
+margin_bottom = 175.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -171,27 +172,6 @@ size_flags_vertical = 1
 script = ExtResource( 2 )
 _sections_unfolded = [ "Margin", "Rect" ]
 
-[node name="Label" type="Label" parent="options"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 410.0
-margin_bottom = 14.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Options"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Margin" ]
-
 [node name="vbox" type="VBoxContainer" parent="options"]
 anchor_left = 0.0
 anchor_top = 0.0
@@ -199,8 +179,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 43.0
-margin_right = 430.0
-margin_bottom = 310.0
+margin_right = 530.0
+margin_bottom = 330.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -208,15 +188,15 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 0
-_sections_unfolded = [ "Size Flags" ]
+_sections_unfolded = [ "Margin", "Size Flags" ]
 
 [node name="tab" type="TabContainer" parent="options/vbox"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 410.0
-margin_bottom = 243.0
+margin_right = 510.0
+margin_bottom = 263.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -227,82 +207,7 @@ tab_align = 0
 tabs_visible = true
 drag_to_rearrange_enabled = false
 
-[node name="controls" type="VBoxContainer" parent="options/vbox/tab"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 0
-_sections_unfolded = [ "Size Flags" ]
-
-[node name="actions" type="ScrollContainer" parent="options/vbox/tab/controls"]
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 402.0
-margin_bottom = 183.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-scroll_horizontal_enabled = true
-scroll_horizontal = 0
-scroll_vertical_enabled = true
-scroll_vertical = 0
-scroll_deadzone = 0
-_sections_unfolded = [ "Size Flags" ]
-
-[node name="vbox" type="VBoxContainer" parent="options/vbox/tab/controls/actions"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 402.0
-margin_bottom = 183.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 0
-_sections_unfolded = [ "Size Flags" ]
-
-[node name="buttons" type="HBoxContainer" parent="options/vbox/tab/controls"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 187.0
-margin_right = 402.0
-margin_bottom = 207.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
-
-[node name="advanced" parent="options/vbox/tab/controls/buttons" instance=ExtResource( 3 )]
-text = "Show Advanced Settings"
-label_text = "Show Advanced Settings"
-
-[node name="graphics" type="VBoxContainer" parent="options/vbox/tab"]
+[node name="Graphics" type="VBoxContainer" parent="options/vbox/tab"]
 editor/display_folded = true
 visible = false
 anchor_left = 0.0
@@ -320,9 +225,315 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
+script = ExtResource( 3 )
+focused_control = NodePath("../Graphics/Fullscreen")
 
-[node name="Fullscreen" parent="options/vbox/tab/graphics" instance=ExtResource( 3 )]
-label_text = "Fullscreen"
+[node name="Fullscreen" parent="options/vbox/tab/Graphics" instance=ExtResource( 4 )]
+margin_right = 502.0
+
+[node name="AntiAliasing" parent="options/vbox/tab/Graphics" instance=ExtResource( 4 )]
+margin_top = 24.0
+margin_right = 502.0
+margin_bottom = 44.0
+text = "Anti-aliasing"
+
+[node name="VSync" parent="options/vbox/tab/Graphics" instance=ExtResource( 4 )]
+margin_top = 48.0
+margin_right = 502.0
+margin_bottom = 68.0
+text = "VSync"
+
+[node name="Controls" type="VBoxContainer" parent="options/vbox/tab"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+script = ExtResource( 3 )
+focused_control = NodePath("sns_x/slide")
+
+[node name="Label" type="Label" parent="options/vbox/tab/Controls"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 502.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Controls"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="sns_x" type="HBoxContainer" parent="options/vbox/tab/Controls"]
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 18.0
+margin_right = 502.0
+margin_bottom = 34.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Label" type="Label" parent="options/vbox/tab/Controls/sns_x"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1.0
+margin_right = 180.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 180, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Sensitivity (Horizontal)"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="slide" type="HSlider" parent="options/vbox/tab/Controls/sns_x"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 184.0
+margin_right = 498.0
+margin_bottom = 16.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+min_value = 0.1
+max_value = 4.0
+step = 0.1
+page = 0.0
+value = 1.0
+exp_edit = false
+rounded = false
+allow_greater = false
+allow_lesser = false
+editable = true
+scrollable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+_sections_unfolded = [ "Rect" ]
+
+[node name="value" type="Label" parent="options/vbox/tab/Controls/sns_x"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 502.0
+margin_top = 1.0
+margin_right = 502.0
+margin_bottom = 15.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="sns_y" type="HBoxContainer" parent="options/vbox/tab/Controls"]
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 38.0
+margin_right = 502.0
+margin_bottom = 54.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Label" type="Label" parent="options/vbox/tab/Controls/sns_y"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1.0
+margin_right = 180.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 180, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Sensitivity (Vertical)"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="slide" type="HSlider" parent="options/vbox/tab/Controls/sns_y"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 184.0
+margin_right = 498.0
+margin_bottom = 16.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+min_value = 0.1
+max_value = 4.0
+step = 0.1
+page = 0.0
+value = 1.0
+exp_edit = false
+rounded = false
+allow_greater = false
+allow_lesser = false
+editable = true
+scrollable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="value" type="Label" parent="options/vbox/tab/Controls/sns_y"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 502.0
+margin_top = 1.0
+margin_right = 502.0
+margin_bottom = 15.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Buttons" type="VBoxContainer" parent="options/vbox/tab"]
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Size Flags" ]
+focused_control = NodePath("buttons/advanced")
+
+[node name="buttons" type="HBoxContainer" parent="options/vbox/tab/Buttons"]
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 402.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="advanced" parent="options/vbox/tab/Buttons/buttons" instance=ExtResource( 4 )]
+text = "Show Advanced Settings"
+
+[node name="actions" type="ScrollContainer" parent="options/vbox/tab/Buttons"]
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 24.0
+margin_right = 402.0
+margin_bottom = 207.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_horizontal_enabled = true
+scroll_horizontal = 0
+scroll_vertical_enabled = true
+scroll_vertical = 0
+scroll_deadzone = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="vbox" type="VBoxContainer" parent="options/vbox/tab/Buttons/actions"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 402.0
+margin_bottom = 183.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
 
 [node name="buttons" type="HBoxContainer" parent="options/vbox"]
 editor/display_folded = true
@@ -330,9 +541,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 247.0
-margin_right = 410.0
-margin_bottom = 267.0
+margin_top = 267.0
+margin_right = 510.0
+margin_bottom = 287.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -388,6 +599,7 @@ align = 1
 
 [node name="controller_remap" type="Popup" parent="options"]
 editor/display_folded = true
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -399,7 +611,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="Panel" type="PanelContainer" parent="options/controller_remap"]
 editor/display_folded = true
@@ -440,11 +652,36 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="Label" type="Label" parent="options"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 410.0
+margin_bottom = 34.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Options"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin" ]
+
 [connection signal="pressed" from="main_menu/buttons/resume" to="." method="_on_resume"]
 [connection signal="pressed" from="main_menu/buttons/options" to="." method="show_options"]
 [connection signal="pressed" from="main_menu/buttons/Exit" to="." method="_on_exit"]
 [connection signal="exit" from="options" to="." method="show_main_menu"]
-[connection signal="value_changed" from="options/vbox/tab/controls/buttons/advanced" to="options" method="_on_advanced_value_changed"]
-[connection signal="value_changed" from="options/vbox/tab/graphics/Fullscreen" to="options" method="_on_set_fullscreen"]
+[connection signal="value_changed" from="options/vbox/tab/Graphics/Fullscreen" to="options" method="_on_set_fullscreen"]
+[connection signal="value_changed" from="options/vbox/tab/Graphics/AntiAliasing" to="options" method="_on_anti_aliasing_toggled"]
+[connection signal="value_changed" from="options/vbox/tab/Graphics/VSync" to="options" method="_on_vsync_toggled"]
+[connection signal="value_changed" from="options/vbox/tab/Controls/sns_x/slide" to="options" method="_on_sns_x_changed"]
+[connection signal="value_changed" from="options/vbox/tab/Controls/sns_y/slide" to="options" method="_on_sns_y_changed"]
+[connection signal="value_changed" from="options/vbox/tab/Buttons/buttons/advanced" to="options" method="_on_advanced_value_changed"]
 [connection signal="pressed" from="options/vbox/buttons/cancel" to="options" method="_on_cancel_pressed"]
 [connection signal="pressed" from="options/vbox/buttons/apply" to="options" method="_on_apply_pressed"]

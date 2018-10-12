@@ -45,11 +45,11 @@ func act():
 	has_selected = false
 	selected.connect("exit", self, "act_exit", [], CONNECT_ONESHOT)
 	player.can_move = false
-	selected.act()
 	if selected.action_type == "take":
 		var i = randi() & 1
 		$Sounds.stream = sound[i]
 		$Sounds.play(0)
+	selected.act()
 
 func act_exit():
 	selected = null

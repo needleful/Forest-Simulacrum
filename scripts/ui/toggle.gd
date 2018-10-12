@@ -1,7 +1,6 @@
 extends Button
 
 signal value_changed(value)
-export(String) var label_text = "Toggle" setget set_label_text
 
 var tex_checked:Texture = load("res://addons/gradient_shader/ui/icons/checked.svg")
 var tex_unchecked:Texture = load("res://addons/gradient_shader/ui/icons/unchecked.svg")
@@ -18,6 +17,3 @@ func set_value(val):
 		$Icon.texture = tex_checked
 	else:
 		$Icon.texture = tex_unchecked
-
-func set_label_text(val):
-	text = val
