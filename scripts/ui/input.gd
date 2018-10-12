@@ -1,11 +1,15 @@
 extends Node
 
+signal pause(paused)
+
 var action_context
 
 var cam_invert:Vector2 = Vector2(-1,1)
 var cam_delta:Vector2 = Vector2(0,0)
 const mouse_sns:Vector2 = Vector2(0.007, 0.007)
 const analog_sns:Vector2 = Vector2(0.06, 0.04)
+
+var paused = false
 
 func _ready():
 	action_context = get_parent().get_node("action_context")
@@ -16,8 +20,10 @@ func _input(event:InputEvent) -> void:
 		cam_delta += event.relative*mouse_sns
 	elif event.is_action_pressed("gm_act") && action_context.has_selected:
 		action_context.act()
-	elif event.is_action_pressed("debug_event_phase_increment"):
-		get_node("/root/global").register_event("build_house")
+	elif event.is_action_pressed("gm_pause"):
+		paused = !paused
+		get_tree().paused = paused
+		emit_signal("pause", paused)
 
 func get_camera_movement()->Vector2:
 	var l = Input.get_action_strength("cam_left")

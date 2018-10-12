@@ -1,6 +1,6 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=69 format=2]
 
-[ext_resource path="res://scripts/Level1.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Forest.gd" type="Script" id=1]
 [ext_resource path="res://ui/ui.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/music/tea_time.wav" type="AudioStream" id=3]
 [ext_resource path="res://addons/gradient_shader/editor/node.gd" type="Script" id=4]
@@ -318,6 +318,37 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 33.0 ]
+}
+
+[sub_resource type="Animation" id=29]
+
+resource_name = "Music_Fadeout"
+length = 5.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Music:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -15.0, -80.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Music:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -865,7 +896,7 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=26]
 
 resource_name = "Screen_SmashFadeIn"
 length = 0.8
@@ -903,7 +934,7 @@ tracks/0/keys = {
 "values": [ 1.0 ]
 }
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=28]
 
 length = 0.5
 loop = false
@@ -1013,10 +1044,12 @@ playback_speed = 1.0
 anims/Doom = SubResource( 2 )
 anims/Doom_Death = SubResource( 3 )
 anims/FuneralSunset = SubResource( 4 )
+anims/Music_Fadeout = SubResource( 29 )
 anims/Nightfall = SubResource( 5 )
 anims/TeaParty_To_House = SubResource( 6 )
 anims/TeaTime_Fadeout = SubResource( 7 )
 blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
 
 [node name="GradientProperties" type="Node" parent="."]
 script = ExtResource( 4 )
@@ -1144,7 +1177,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.72519, 0, 4.79771 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.72519, 0, -0.0958681 )
 
 [node name="phase_3" type="Spatial" parent="house_building"]
-editor/display_folded = true
 
 [node name="house_floor" parent="house_building/phase_3" instance=ExtResource( 12 )]
 editor/display_folded = true
@@ -2240,9 +2272,9 @@ anims/Funeral_Transport = SubResource( 22 )
 anims/House_Transport = SubResource( 23 )
 anims/Screen_FadeIn = SubResource( 24 )
 anims/Screen_Fadeout = SubResource( 25 )
-anims/Screen_SmashFadeIn = SubResource( 28 )
+anims/Screen_SmashFadeIn = SubResource( 26 )
 anims/Screen_SmashFadeOut = SubResource( 27 )
-anims/TeaParty_Transport = SubResource( 26 )
+anims/TeaParty_Transport = SubResource( 28 )
 blend_times = [  ]
 
 [node name="portrait" parent="." instance=ExtResource( 36 )]

@@ -34,9 +34,6 @@ editor/display_folded = true
 material/0 = ExtResource( 3 )
 _sections_unfolded = [ "Material" ]
 
-[node name="AnimationPlayer" parent="." index="1"]
-editor/display_folded = true
-
 [node name="AnimationTreePlayer" type="AnimationTreePlayer" parent="AnimationPlayer" index="0"]
 playback_process_mode = 1
 master_player = NodePath("")
@@ -52,15 +49,15 @@ data = {
 "position": Vector2( 324, 25 ),
 "type": "mix"
 }, {
+"id": "out",
+"position": Vector2( 542, 97 ),
+"type": "output"
+}, {
 "animation": null,
 "filter": [  ],
 "id": "anim",
 "position": Vector2( 71, 54 ),
 "type": "animation"
-}, {
-"id": "out",
-"position": Vector2( 542, 97 ),
-"type": "output"
 }, {
 "animation": null,
 "filter": [  ],
@@ -84,7 +81,14 @@ __meta__ = {
 }
 source_path = "res://scripts/dialog/deer-2.dlg"
 
-[node name="body" type="KinematicBody" parent="." index="4"]
+[node name="dlg_phase_3" type="Node" parent="." index="4"]
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_icon": ExtResource( 5 )
+}
+source_path = "res://scripts/dialog/deer-3.dlg"
+
+[node name="body" type="KinematicBody" parent="." index="5"]
 transform = Transform( -3.93403e-08, 0, 0.9, 0, 0.9, 0, -0.9, 0, -3.93403e-08, 7.50299e-08, 0, -0.728998 )
 input_ray_pickable = true
 input_capture_on_drag = false

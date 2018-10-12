@@ -12,6 +12,7 @@ var inp : InputController
 enum Phase{
 	FLOWERS,
 	HOUSE,
+	BEDTIME,
 }
 var phase = FLOWERS
 var events: Array = []

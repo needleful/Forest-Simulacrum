@@ -5,8 +5,8 @@
 [ext_resource path="res://ui/Action_Context.tscn" type="PackedScene" id=3]
 [ext_resource path="res://addons/peroxinator/dialog_viewer/viewer.gd" type="Script" id=4]
 [ext_resource path="res://addons/peroxinator/dialog_viewer/node_icon.png" type="Texture" id=5]
-[ext_resource path="res://ui/pause_menu.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scripts/ui/input.gd" type="Script" id=7]
+[ext_resource path="res://scripts/ui/input.gd" type="Script" id=6]
+[ext_resource path="res://ui/pause_menu.tscn" type="PackedScene" id=7]
 
 [node name="ui" type="Control"]
 anchor_left = 0.0
@@ -74,17 +74,9 @@ size_flags_vertical = 1
 color = Color( 0, 0, 0, 1 )
 _sections_unfolded = [ "Margin" ]
 
-[node name="pause_menu" parent="." instance=ExtResource( 6 )]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -109.0
-margin_top = -132.0
-margin_right = 109.0
-margin_bottom = 68.0
-_sections_unfolded = [ "Anchor", "Margin", "Material", "Pause", "Theme" ]
-
 [node name="input_handler" type="Node" parent="."]
-script = ExtResource( 7 )
+script = ExtResource( 6 )
 
+[node name="pause" parent="." instance=ExtResource( 7 )]
+
+[connection signal="pause" from="input_handler" to="pause" method="set_pause"]

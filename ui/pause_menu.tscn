@@ -1,18 +1,15 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/ui/pause_menu.gd" type="Script" id=1]
-[ext_resource path="res://addons/gradient_shader/gradient2d.tres" type="Material" id=2]
-[ext_resource path="res://addons/gradient_shader/ui/icons/unchecked.svg" type="Texture" id=3]
+[ext_resource path="res://scripts/ui/options.gd" type="Script" id=2]
+[ext_resource path="res://ui/toggle.tscn" type="PackedScene" id=3]
 
-[node name="pause_menu" type="Panel"]
+[node name="pause" type="Control"]
 pause_mode = 2
-use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 216.0
-margin_bottom = 189.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -20,9 +17,29 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="main_menu" type="Panel" parent="."]
+pause_mode = 2
+editor/display_folded = true
+use_parent_material = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -108.0
+margin_top = -152.0
+margin_right = 108.0
+margin_bottom = 37.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
 _sections_unfolded = [ "Margin", "Material", "Pause", "Theme" ]
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="main_menu"]
 use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
@@ -44,7 +61,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Material", "Theme", "material" ]
 
-[node name="buttons" type="VBoxContainer" parent="."]
+[node name="buttons" type="VBoxContainer" parent="main_menu"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -62,7 +79,7 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Margin" ]
 
-[node name="resume" type="Button" parent="buttons"]
+[node name="resume" type="Button" parent="main_menu/buttons"]
 use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
@@ -86,8 +103,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Margin", "Material" ]
 
-[node name="Exit" type="Button" parent="buttons"]
-use_parent_material = true
+[node name="options" type="Button" parent="main_menu/buttons"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -106,19 +122,118 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Exit"
+text = "Options"
 flat = false
 align = 1
-_sections_unfolded = [ "Margin", "Material" ]
 
-[node name="Fullscreen" type="HBoxContainer" parent="buttons"]
+[node name="Exit" type="Button" parent="main_menu/buttons"]
+use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 48.0
 margin_right = 184.0
-margin_bottom = 73.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Exit"
+flat = false
+align = 1
+_sections_unfolded = [ "Margin", "Material" ]
+
+[node name="options" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -225.0
+margin_top = -192.0
+margin_right = 225.0
+margin_bottom = 138.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 2 )
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="Label" type="Label" parent="options"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 410.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Options"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin" ]
+
+[node name="vbox" type="VBoxContainer" parent="options"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 38.0
+margin_right = 430.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="tab" type="TabContainer" parent="options/vbox"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 410.0
+margin_bottom = 248.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tab_align = 0
+tabs_visible = true
+drag_to_rearrange_enabled = false
+
+[node name="controls" type="VBoxContainer" parent="options/vbox/tab"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -127,47 +242,142 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="Icon" type="TextureRect" parent="buttons/Fullscreen"]
-material = ExtResource( 2 )
+[node name="actions" type="ScrollContainer" parent="options/vbox/tab/controls"]
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -8.0
+margin_bottom = -36.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+scroll_horizontal_enabled = true
+scroll_horizontal = 0
+scroll_vertical_enabled = true
+scroll_vertical = 0
+scroll_deadzone = 0
+
+[node name="vbox" type="VBoxContainer" parent="options/vbox/tab/controls/actions"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 25.0
-margin_bottom = 25.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 3 )
-stretch_mode = 0
-_sections_unfolded = [ "Material" ]
+alignment = 0
 
-[node name="Button" type="Button" parent="buttons/Fullscreen"]
+[node name="buttons" type="HBoxContainer" parent="options/vbox/tab/controls"]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -8.0
+margin_bottom = -36.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="graphics" type="VBoxContainer" parent="options/vbox/tab"]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Fullscreen" parent="options/vbox/tab/graphics" instance=ExtResource( 3 )]
+label_text = "Fullscreen"
+
+[node name="buttons" type="HBoxContainer" parent="options/vbox"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 29.0
-margin_right = 184.0
-margin_bottom = 25.0
+margin_top = 252.0
+margin_right = 410.0
+margin_bottom = 272.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="cancel" type="Button" parent="options/vbox/buttons"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 54.0
+margin_bottom = 20.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
+size_flags_horizontal = 1
 size_flags_vertical = 1
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "FullScreen"
+text = "Cancel"
 flat = false
 align = 1
 
-[connection signal="pressed" from="buttons/resume" to="." method="_on_resume"]
-[connection signal="pressed" from="buttons/Exit" to="." method="_on_exit"]
-[connection signal="pressed" from="buttons/Fullscreen/Button" to="." method="_on_fullscreen_pressed"]
+[node name="apply" type="Button" parent="options/vbox/buttons"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 58.0
+margin_right = 106.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Apply"
+flat = false
+align = 1
+
+[connection signal="pressed" from="main_menu/buttons/resume" to="." method="_on_resume"]
+[connection signal="pressed" from="main_menu/buttons/options" to="." method="show_options"]
+[connection signal="pressed" from="main_menu/buttons/Exit" to="." method="_on_exit"]
+[connection signal="exit" from="options" to="." method="show_main_menu"]
+[connection signal="value_changed" from="options/vbox/tab/graphics/Fullscreen" to="options" method="_on_set_fullscreen"]
+[connection signal="pressed" from="options/vbox/buttons/cancel" to="options" method="_on_cancel_pressed"]
+[connection signal="pressed" from="options/vbox/buttons/apply" to="options" method="_on_apply_pressed"]

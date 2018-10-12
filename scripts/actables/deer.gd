@@ -46,6 +46,9 @@ func on_enter():
 				b.dialog_entry = "House_%d_Questions" % (W.house_phase+1)
 			else:
 				b.dialog_entry = "House_%d_Harvest" % (W.house_phase+1)
+	elif G.phase == G.BEDTIME:
+		pass
+
 func on_exit():
 	if G.phase == G.HOUSE and b.dialog_entry == "House_%d_Build" % (W.house_phase+1):
 		b.talked = false
@@ -60,6 +63,10 @@ func on_phase_change(old_phase, new_phase):
 				b.dialog_entry = "TeaTime"
 			else:
 				b.dialog_entry = "Home"
+		G.BEDTIME:
+			b.talked = false
+			b.dialog_source = $dlg_phase_3.source_path
+			b.dialog_entry = "BedTime"
 		_:
 			print_debug("Invalid phase transition: %s to %s",
 				[str(old_phase), str(new_phase)])
