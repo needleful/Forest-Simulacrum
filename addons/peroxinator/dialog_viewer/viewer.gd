@@ -8,6 +8,8 @@ enum ViewerState {
 	DLG_CLOSED
 }
 
+export(bool) var controller_focus = true
+
 signal view_state_changed(previous, next)
 signal dialog_command(command, args)
 
@@ -35,8 +37,10 @@ var current_text
 var page = 0
 var state = DLG_CLOSED setget set_state
 
+var focused = false
+
 func _input(event):
-	if Input.is_action_just_pressed("gm_act"):
+	if event.is_action_pressed("gm_act"):
 		match state:
 			DLG_WRITING:
 				textbox.visible_characters = textbox.get_total_character_count()
@@ -49,6 +53,16 @@ func _input(event):
 				else:
 					page += 1
 					update_text(false)
+	if state == DLG_VIEW_REPLIES && !focused && (
+		event.is_action_pressed("ui_down") ||
+		event.is_action_pressed("ui_down")
+	):
+		for b in reply_box.get_children():
+			if b is Button:
+				b.grab_focus()
+				break
+		focused = true
+		get_tree().set_input_as_handled()
 
 func _enter_tree():
 	viewer = VIEWER.instance()
@@ -101,7 +115,8 @@ func show_replies_or_exit():
 		exit()
 	else:
 		set_state(DLG_VIEW_REPLIES)
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		if !controller_focus:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		for reply in replies:
 			var cond = true
 			for c in reply.conditions:
@@ -120,6 +135,7 @@ func show_replies_or_exit():
 			reply_box.add_child(button)
 
 func on_reply(reply):
+	focused = false
 	text_id = reply.next
 	for c in reply.commands:
 		send_command(c)

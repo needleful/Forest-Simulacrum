@@ -3,114 +3,83 @@ extends Panel
 signal exit
 
 var action_editor = load("res://ui/action_editor.tscn")
+var prev_options
 
-const options_file:String = "res://settings.var"
+onready var G = get_node("/root/global")
+var old_focus:Control
 
 const action_names:Dictionary = {
-	"mv_left":"Move Left",
-	"mv_right":"Move Right",
-	"mv_forward":"Move Forward",
-	"mv_backward":"Move Backward",
+	"mv_left":"Left",
+	"mv_right":"Right",
+	"mv_forward":"Forward",
+	"mv_backward":"Backward",
 	"mv_jump": "Jump",
 	"gm_act":"Act",
 	"gm_pause":"Pause"
 }
 
-class Options:
-	var fullscreen:bool setget set_fullscreen
-	var controls: Dictionary
-	func _init(to_copy = null):
-		if to_copy:
-			fullscreen = to_copy.fullscreen
-			for key in to_copy.controls.keys():
-				controls[key] = to_copy.controls[key]
-		else:
-			fullscreen = OS.window_fullscreen
-			controls = {}
-		if controls.empty():
-			get_default_controls()
-
-	func to_dict()->Dictionary:
-		var d = {}
-		d['fullscreen'] = fullscreen
-		d['controls'] = controls
-		return d
-
-	func from_dict(dict):
-		fullscreen = dict['fullscreen']
-		controls = dict['controls']
-		if controls.empty():
-			get_default_controls()
-
-	func get_default_controls():
-		for action in InputMap.get_actions():
-			controls[action] = []
-			for event in InputMap.get_action_list(action):
-				controls[action].push_back(event)
-
-	func set_fullscreen(val):
-		fullscreen = val
-		OS.set_window_fullscreen(val)
-	
-	func apply():
-		set_fullscreen(fullscreen)
-		for ac in controls.keys():
-			InputMap.action_erase_events(ac)
-			for ev in controls[ac]:
-				InputMap.action_add_event(ac, ev)
-
-onready var options: Options = Options.new()
-var prev_options
-
 func _ready():
-	options = load_options()
-	options.apply()
-	for action in options.controls.keys():
-		if not action_names.has(action):
-			continue
-		var ac = action_editor.instance()
-		ac.get_node("Label").text = action_names[action]
-		$vbox/tab/controls/actions/vbox.add_child(ac)
+	prepare_display()
 
 func display():
+	prepare_display()
 	show()
-	prev_options = Options.new(options)
-	$vbox/tab/graphics/Fullscreen.set_value(options.fullscreen)
 
-func load_options()->Options:
-	var opt = Options.new()
-	var f = File.new()
-	var err = f.open(options_file, File.READ)
-	if err != OK:
-		print_debug("Failed to open options with code: ", err)
-		return Options.new()
-	else:
-		var s = f.get_as_text()
-		var o = parse_json(s)
-		if o == null || typeof(o)!= TYPE_DICTIONARY:
-			print_debug("Whoops, all berries! ", typeof(o))
+func prepare_display(advanced = false):
+	prev_options = G.Options.new(G.options)
+	$vbox/tab/graphics/Fullscreen.set_value(G.options.fullscreen)
+	for c in $vbox/tab/controls/actions/vbox.get_children():
+		if c is Control:
+			$vbox/tab/controls/actions/vbox.remove_child(c)
+	for action in G.options.controls.keys():
+		if not advanced && not action_names.has(action):
+			continue
+		var ac = action_editor.instance()
+		ac.set_action(action, G.options.controls[action])
+		if not advanced:
+			ac.label_text = action_names[action]
 		else:
-			opt.from_dict(o)
-		f.close()
-	return opt
+			ac.label_text = action
+		$vbox/tab/controls/actions/vbox.add_child(ac)
+		ac.connect("change_action_request", self, "change_action")
+		ac.connect("focus_requested", self, "scroll_to_action")
+		$controller_remap.connect("hide", self, "_on_remap_hide")
+	$vbox/buttons/apply.focus_neighbour_right = NodePath("vbox/buttons/cancel")
+	$vbox/buttons/cancel.focus_neighbour_left = NodePath("vbox/buttons/apply")
 
-func save_options(options:Options):
-	var f = File.new()
-	var err = f.open(options_file, File.WRITE)
-	if err != OK:
-		print_debug("Failed to save options with code: ", err)
-	else:
-		f.store_string(to_json(options.to_dict()))
-		f.close()
+func _on_remap_hide():
+	$vbox.show()
+	if old_focus:
+		old_focus.grab_focus()
+
+func change_action(action_control:Control):
+	old_focus = get_focus_owner()
+	$vbox.hide()
+	$controller_remap.request_input()
+	$controller_remap.connect(
+		"new_action", action_control, 
+		"set_new_action", [], CONNECT_ONESHOT)
+
+func scroll_to_action(action_control:Control):
+	var v = $vbox/tab/controls/actions.scroll_vertical
+	var r = action_control.rect_position
+	if G.using_controller && r.y < v:
+		$vbox/tab/controls/actions.scroll_vertical = r.y
+	if G.using_controller && r.y > v+90:
+		$vbox/tab/controls/actions.scroll_vertical += r.y-v - 85
+	$vbox/tab/controls/actions.scroll_horizontal = r.x
 
 func _on_set_fullscreen(val):
-	options.fullscreen = val
+	G.options.fullscreen = val
 
 func _on_cancel_pressed():
-	options = prev_options
-	options.apply()
+	G.options = prev_options
+	G.options.apply()
 	emit_signal("exit")
 
 func _on_apply_pressed():
-	save_options(options)
+	G.save_options(G.options)
 	emit_signal("exit")
+
+func _on_advanced_value_changed(value):
+	prepare_display(value)

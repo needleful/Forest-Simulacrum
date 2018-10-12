@@ -9,6 +9,7 @@
 [ext_resource path="res://ui/pause_menu.tscn" type="PackedScene" id=7]
 
 [node name="ui" type="Control"]
+pause_mode = 1
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -21,7 +22,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
-_sections_unfolded = [ "Material", "Theme", "material" ]
+_sections_unfolded = [ "Material", "Pause", "Theme", "material" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -52,6 +53,7 @@ _sections_unfolded = [ "theme" ]
 __meta__ = {
 "_editor_icon": ExtResource( 5 )
 }
+controller_focus = false
 entry = "Home"
 text_speed = 2.0
 
@@ -76,7 +78,7 @@ _sections_unfolded = [ "Margin" ]
 
 [node name="input_handler" type="Node" parent="."]
 script = ExtResource( 6 )
+_sections_unfolded = [ "Pause", "Script" ]
 
 [node name="pause" parent="." instance=ExtResource( 7 )]
 
-[connection signal="pause" from="input_handler" to="pause" method="set_pause"]

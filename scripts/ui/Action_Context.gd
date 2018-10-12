@@ -52,5 +52,7 @@ func act():
 		$Sounds.play(0)
 
 func act_exit():
+	selected = null
+	has_selected = false
 	player.can_move = true
 	enabled = true
