@@ -48,7 +48,7 @@ func get_camera_movement()->Vector2:
 	return cam
 
 func inp(x:float)->float:
-	return sign(x)*pow(abs(x), 1.2)
+	return sign(x)*pow(abs(x), 0.5)
 
 func is_jumping()->bool:
 	return Input.is_action_just_pressed("mv_jump")
