@@ -103,6 +103,10 @@ func look(movement) -> void:
 		$head/camera.rotate_x(cam_delta)
 		cam_angle += cam_delta
 
+func get_camera()->Camera:
+	var c:Camera = $head/camera
+	return c
+
 func reset_camera():
 	$head.rotation_degrees.y = 0
 	cam_angle = 0

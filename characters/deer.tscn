@@ -34,6 +34,9 @@ editor/display_folded = true
 material/0 = ExtResource( 3 )
 _sections_unfolded = [ "Material" ]
 
+[node name="AnimationPlayer" parent="." index="1"]
+editor/display_folded = true
+
 [node name="AnimationTreePlayer" type="AnimationTreePlayer" parent="AnimationPlayer" index="0"]
 playback_process_mode = 1
 master_player = NodePath("")
