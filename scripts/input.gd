@@ -50,9 +50,9 @@ class AnalogUiInputStatus:
 		else:
 			var required_delta
 			match clicks:
-				1,2:
+				1:
 					required_delta = 600
-				3,4,5:
+				2,3,4:
 					required_delta = 200
 				_:
 					required_delta = 90
