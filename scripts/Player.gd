@@ -18,6 +18,8 @@ var velocity = Vector3(0,0,0)
 var paused = false
 var can_move = true
 var cam_angle = 0
+var saw_angle = Vector3(0,0,0)
+var saw_x = 0
 var in_air = false
 
 #Camera Sway
@@ -25,6 +27,7 @@ const cam_speed_base = Vector3(1, 1, 1)
 const cam_speed_shift = Vector3(.3, 0.3, .3)
 const cam_span_base = Vector3(0.03, 0.05, .02) 
 const cam_span_shift = Vector3(0.02, 0.03, .01)
+onready var cam_base = $head/camera.translation
 
 var rnd_cam_speed : Vector3
 var rnd_cam_span : Vector3
@@ -49,19 +52,19 @@ func _physics_process(delta) -> void:
 				ac.deselect()
 		else:
 			ac.deselect()
-	var direction: Vector3 
+	var direction: Vector2
 	if can_move:
-		direction = G.inp.get_direction($head.global_transform.basis)
+		direction = G.inp.get_direction()
 	else:
-		direction = Vector3(0,0,0)
-
-	#: apply input
-	direction*=speed
-	direction.y = velocity.y
-	var a = accel if direction.dot(velocity) > 0 else deaccel
+		direction = Vector2(0,0)
 	
-	velocity = velocity.linear_interpolate(direction,a*delta)
-	velocity.y = direction.y
+	#: apply input
+	var b = $head.global_transform.basis
+	var vel = (b.z*direction.x + b.x*direction.y)*speed
+	vel.y = velocity.y
+	var a = accel if vel.dot(velocity) > 0 else deaccel
+	
+	velocity = velocity.linear_interpolate(vel,a*delta)
 	
 	var vcorrection : float = 0
 	if $Body/Leggy.is_colliding():
@@ -78,6 +81,12 @@ func _physics_process(delta) -> void:
 		if G.inp.is_jumping():
 			velocity.y = jump_vel
 			in_air = true
+	if $head/saw.visible:
+		$head/saw.rotate_z(direction.y*delta*0.3+velocity.y*delta*0.2)
+		saw_angle.z += direction.y*delta*0.3+velocity.y*delta*0.2
+		$head/saw.rotate_x(velocity.y*delta*0.3)
+		saw_x += velocity.y*delta*0.3
+	
 	velocity = move_and_slide(velocity,Vector3())
 	if !in_air:
 		translate(Vector3(0,vcorrection*delta*height_rate,0))
@@ -91,10 +100,17 @@ func _process(delta) -> void:
 			rnd_cam_timer[i] = 0
 			rnd_cam_span[i] = cam_span_base[i] + randf()*2*cam_span_shift[i]-cam_span_shift[i]
 			rnd_cam_speed[i] = cam_speed_base[i] + randf()*2*cam_speed_shift[i]-cam_speed_shift[i]
-	$head.set_translation(
+	$head/camera.set_translation(cam_base +
 		Vector3(sin(rnd_cam_timer.x)*rnd_cam_span.x, 
 		sin(rnd_cam_timer.y)*rnd_cam_span.y, 
 		sin(rnd_cam_timer.z))*rnd_cam_span.z)
+	if $head/saw.visible:
+		$head/saw.rotate_y(-saw_angle.y*delta*4)
+		saw_angle.y -= saw_angle.y*delta*4
+		$head/saw.rotate_z(-saw_angle.z*delta*5)
+		saw_angle.z -= saw_angle.z*delta*5
+		$head/saw.rotate_x(-saw_x*delta*3)
+		saw_x -= saw_x*delta*3
 
 func look(movement) -> void:
 	$head.rotate_y(movement.x)
@@ -102,6 +118,14 @@ func look(movement) -> void:
 	if cam_delta+cam_angle < PI/2 && cam_delta+cam_angle > -PI/2:
 		$head/camera.rotate_x(cam_delta)
 		cam_angle += cam_delta
+		if $head/saw.visible:
+			saw_angle.x = cam_delta/2
+			$head/saw.rotate_x(cam_delta/2)
+	if $head/saw.visible:
+		saw_angle.y -= movement.x/3
+		saw_angle.z += movement.x/5
+		$head/saw.rotate_y(-movement.x/3)
+		$head/saw.rotate_z(movement.x/5)
 
 func get_camera()->Camera:
 	var c:Camera = $head/camera
@@ -116,3 +140,9 @@ func force_act(n:NodePath):
 	var body = get_node(n).b
 	ac.select(body)
 	ac.act()
+
+func show_saw(show):
+	if show:
+		$head/saw.show()
+	else:
+		$head/saw.hide()

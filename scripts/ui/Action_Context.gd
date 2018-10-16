@@ -13,10 +13,15 @@ var saw_icon : Texture = load("res://assets/icons/saw.svg")
 var sound:Array
 
 func _ready():
+	$"/root/input".connect("act", self, "on_act_pressed")
 	sound.push_back(load("res://assets/sounds/pickup-a.wav"))
 	sound.push_back(load("res://assets/sounds/pickup-e.wav"))
 	hide()
-	
+
+func on_act_pressed():
+	if has_selected:
+		act()
+
 func bind_player(p):
 	player = p
 	

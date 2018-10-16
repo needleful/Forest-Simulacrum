@@ -1,15 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://addons/gradient_shader/ui_theme.theme" type="Theme" id=1]
 [ext_resource path="res://scripts/ui/ui.gd" type="Script" id=2]
-[ext_resource path="res://scripts/ui/input.gd" type="Script" id=3]
-[ext_resource path="res://addons/gradient_shader/gradient2d.tres" type="Material" id=4]
-[ext_resource path="res://addons/peroxinator/dialog_editor/icons/add.svg" type="Texture" id=5]
-[ext_resource path="res://addons/peroxinator/dialog_editor/icons/remove.svg" type="Texture" id=6]
-[ext_resource path="res://ui/Action_Context.tscn" type="PackedScene" id=7]
-[ext_resource path="res://addons/peroxinator/dialog_viewer/viewer.gd" type="Script" id=8]
-[ext_resource path="res://addons/peroxinator/dialog_viewer/node_icon.png" type="Texture" id=9]
-[ext_resource path="res://ui/pause_menu.tscn" type="PackedScene" id=10]
+[ext_resource path="res://ui/Action_Context.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/peroxinator/dialog_viewer/viewer.gd" type="Script" id=4]
+[ext_resource path="res://addons/peroxinator/dialog_viewer/node_icon.png" type="Texture" id=5]
+[ext_resource path="res://ui/pause_menu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/gradient_shader/gradient2d.tres" type="Material" id=7]
+[ext_resource path="res://addons/peroxinator/dialog_editor/icons/add.svg" type="Texture" id=8]
+[ext_resource path="res://addons/peroxinator/dialog_editor/icons/remove.svg" type="Texture" id=9]
 
 [node name="ui" type="Control"]
 pause_mode = 1
@@ -31,78 +30,7 @@ __meta__ = {
 }
 fadeout_alpha = 0.0
 
-[node name="input_handler" type="Control" parent="."]
-pause_mode = 2
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 1.0
-anchor_right = 0.0
-anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-script = ExtResource( 3 )
-_sections_unfolded = [ "Pause", "Script" ]
-
-[node name="analog" type="Panel" parent="input_handler"]
-anchor_left = 0.0
-anchor_top = 1.0
-anchor_right = 0.0
-anchor_bottom = 1.0
-margin_left = 41.0
-margin_top = -167.0
-margin_right = 161.0
-margin_bottom = -47.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-
-[node name="processed" type="TextureRect" parent="input_handler/analog"]
-material = ExtResource( 4 )
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -60.0
-margin_top = -58.0
-margin_right = 60.0
-margin_bottom = 58.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 5 )
-stretch_mode = 0
-
-[node name="raw" type="TextureRect" parent="input_handler/analog"]
-material = ExtResource( 4 )
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -60.0
-margin_top = -58.0
-margin_right = 60.0
-margin_bottom = 58.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 6 )
-stretch_mode = 0
-_sections_unfolded = [ "Material" ]
-
-[node name="action_context" parent="." instance=ExtResource( 7 )]
+[node name="action_context" parent="." instance=ExtResource( 3 )]
 pause_mode = 1
 use_parent_material = true
 _sections_unfolded = [ "Custom Constants", "Custom Fonts", "Material", "Pause", "Theme", "custom_fonts/font" ]
@@ -124,10 +52,10 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 8 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "Pause", "theme" ]
 __meta__ = {
-"_editor_icon": ExtResource( 9 )
+"_editor_icon": ExtResource( 5 )
 }
 controller_focus = false
 entry = "Home"
@@ -152,6 +80,76 @@ size_flags_vertical = 1
 color = Color( 0, 0, 0, 1 )
 _sections_unfolded = [ "Margin" ]
 
-[node name="pause" parent="." instance=ExtResource( 10 )]
+[node name="pause" parent="." instance=ExtResource( 6 )]
+
+[node name="input_viewer" type="Control" parent="."]
+pause_mode = 2
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Pause", "Script" ]
+
+[node name="analog" type="Panel" parent="input_viewer"]
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_left = 41.0
+margin_top = -167.0
+margin_right = 161.0
+margin_bottom = -47.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="processed" type="TextureRect" parent="input_viewer/analog"]
+material = ExtResource( 7 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -60.0
+margin_top = -58.0
+margin_right = 60.0
+margin_bottom = 58.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 8 )
+stretch_mode = 0
+
+[node name="raw" type="TextureRect" parent="input_viewer/analog"]
+material = ExtResource( 7 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -60.0
+margin_top = -58.0
+margin_right = 60.0
+margin_bottom = 58.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 9 )
+stretch_mode = 0
+_sections_unfolded = [ "Material" ]
 
 [connection signal="pause" from="pause" to="DialogViewer" method="_on_pause"]

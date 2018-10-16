@@ -20,8 +20,6 @@ const action_names:Dictionary = {
 
 func _ready():
 	$controller_remap.connect("hide", self, "_on_remap_hide")
-	$vbox/tab.set_tab_title(2, "Advanced Controls")
-	prepare_display()
 
 func display():
 	prepare_display()
@@ -33,10 +31,10 @@ func prepare_display(advanced = false):
 	$vbox/tab/Graphics/Fullscreen.set_value(G.options.fullscreen)
 	$vbox/tab/Graphics/AntiAliasing.set_value(G.options.anti_aliasing)
 	$vbox/tab/Graphics/VSync.set_value(G.options.vsync)
-	if G.using_controller:
+	if G.inp.using_controller:
 		$vbox/tab/Controls/sns_x/slide.value = G.options.sensitivity_x
 		$vbox/tab/Controls/sns_y/slide.value = G.options.sensitivity_y
-		$vbox/tab/Controls/Label.text = "Controller: "+G.controller_name
+		$vbox/tab/Controls/Label.text = "Controller: "+G.inp.controller_name
 	else:
 		$vbox/tab/Controls/sns_x/slide.value = G.options.mouse_sns_x
 		$vbox/tab/Controls/sns_y/slide.value = G.options.mouse_sns_y
@@ -49,7 +47,7 @@ func prepare_display(advanced = false):
 		if not advanced && not action_names.has(action):
 			continue
 		var ac = action_editor.instance()
-		ac.set_action(action, G.options.controls[action])
+		ac.set_action(action, G.options.controls[action], G)
 		if not advanced:
 			ac.label_text = action_names[action]
 		else:
@@ -76,9 +74,9 @@ func change_action(action_control:Control):
 func scroll_to_action(action_control:Control):
 	var v = $vbox/tab/Buttons/actions.scroll_vertical
 	var r = action_control.rect_position
-	if G.using_controller && r.y < v:
+	if G.inp.using_controller && r.y < v:
 		$vbox/tab/Buttons/actions.scroll_vertical = r.y
-	if G.using_controller && r.y > v+90:
+	if G.inp.using_controller && r.y > v+90:
 		$vbox/tab/Buttons/actions.scroll_vertical += r.y-v - 85
 	$vbox/tab/Buttons/actions.scroll_horizontal = r.x
 
@@ -103,13 +101,13 @@ func _on_advanced_value_changed(value):
 	prepare_display(value)
 
 func _on_sns_x_changed(value):
-	if G.using_controller:
+	if G.inp.using_controller:
 		G.options.sensitivity_x = value
 	else:
 		G.options.mouse_sns_x = value
 
 func _on_sns_y_changed(value):
-	if G.using_controller:
+	if G.inp.using_controller:
 		G.options.sensitivity_y = value
 	else:
 		G.options.mouse_sns_y = value

@@ -1,4 +1,8 @@
 extends Node
+class_name InputProcessor
+
+signal use_controller(using)
+signal act
 
 #Settings
 var sensitivity:Vector2 = Vector2(1,1)
@@ -9,6 +13,17 @@ var cam_invert:Vector2 = Vector2(-1,1)
 #Constants
 const mouse_factor:Vector2 = Vector2(0.007, 0.007)
 const analog_sns:Vector2 = Vector2(0.05, 0.05)
+
+#Controller info
+var using_controller = false setget use_controller
+var controller_name = "" setget set_controller_name
+var controller_type = PAD_XBOX setget set_controller_type
+enum ControllerType{
+	PAD_XBOX,
+	PAD_PLAYSTATION,
+	PAD_NINTENDO,
+	PAD_OTHER,
+}
 
 #Aggregate Input
 var cam_delta:Vector2 = Vector2(0,0)
@@ -53,6 +68,9 @@ class AnalogUiInputStatus:
 	func reset():
 		clicks = 0
 
+var analog_status_raw:Vector2
+var analog_status_processed:Vector2
+
 var to_reset = false
 var dt:float=  0
 
@@ -63,26 +81,24 @@ var analog_ui_dirs = [
 	AnalogUiInputStatus.new("ui_right_analog"),
 ]
 
-onready var G = get_node("/root/global")
-onready var action_context = get_parent().get_node("action_context")
-onready var ui:Control = get_parent()
-
 func _ready():
+	pause_mode = Node.PAUSE_MODE_PROCESS
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	set_process(true)
 
 func _input(event:InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		cam_delta += event.relative*mouse_factor*mouse_sns
-	elif event.is_action_pressed("gm_act") && action_context.has_selected:
-		action_context.act()
+	elif event.is_action_pressed("gm_act"):
+		emit_signal("act")
 	var c = event is InputEventJoypadButton or event is InputEventJoypadMotion
-	if not event is InputEventAction and G.using_controller != c:
-		G.using_controller = c
+	#InputEventAction is considered neutral
+	if not event is InputEventAction and using_controller != c:
+		self.using_controller = c
 		if c:
 			var s = Input.get_joy_name(event.device)
 			print("New Input Device: ",s)
-			G.controller_name = s
+			self.controller_name = s
 
 func _process(delta):
 	process_analog_input(delta)
@@ -94,12 +110,13 @@ func process_analog_input(delta):
 			var a = InputEventAction.new()
 			a.action = dir.digital_name
 			a.pressed = true
-			Input.parse_input_event(a)
+			get_tree().input_event(a)
+			
 			var a2 = InputEventAction.new()
 			a2.action = dir.digital_name
 			a2.pressed = false
-			Input.parse_input_event(a2)
 			to_reset = true
+			get_tree().input_event(a2)
 		reset_actions = reset_actions and Input.get_action_strength(dir.action_name) < 0.05
 			
 	if to_reset and reset_actions:
@@ -115,10 +132,10 @@ func get_camera_movement(delta)->Vector2:
 	var b = Input.get_action_strength("cam_down")
 	var cam: Vector2 = Vector2(inp(r-l), inp(b-f))
 	cam_velocity = cam_velocity.linear_interpolate(cam, cam_acceleration*delta)
-	$analog/raw.rect_position = Vector2(48,48) + 60*Vector2(r-l, b-f)
 	cam = cam_velocity
 	cam *= sensitivity
-	$analog/processed.rect_position = Vector2(48,48) + 60*cam
+	analog_status_raw = Vector2(r-l, b-f)
+	analog_status_processed = cam
 	cam *= analog_sns
 	cam += cam_delta
 	cam *= cam_invert
@@ -132,9 +149,27 @@ func inp(x:float)->float:
 func is_jumping()->bool:
 	return Input.is_action_just_pressed("mv_jump")
 
-func get_direction(basis:Basis)->Vector3:
+func get_direction()->Vector2:
 	var l = Input.get_action_strength("mv_left")
 	var r = Input.get_action_strength("mv_right")
 	var f = Input.get_action_strength("mv_forward")
 	var b = Input.get_action_strength("mv_backward")
-	return basis.x*(l-r)+basis.z*(f-b)
+	return Vector2((f-b),(l-r))
+
+func use_controller(use:bool):
+	using_controller = use
+	emit_signal("use_controller", use)
+
+func set_controller_type(val):
+	controller_type = val
+
+func set_controller_name(name:String):
+	if name == controller_name:
+		return
+	if name.matchn("*XInput*") or name.matchn("*XBox*"):
+		set_controller_type(PAD_XBOX)
+	elif name.matchn("*DualShock*"):
+		set_controller_type(PAD_PLAYSTATION)
+	else:
+		set_controller_type(PAD_OTHER)
+	controller_name = name

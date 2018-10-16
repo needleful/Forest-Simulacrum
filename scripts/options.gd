@@ -1,4 +1,4 @@
-extends Node
+extends Object
 class_name Options
 
 signal set_sns_x(val)
@@ -62,11 +62,7 @@ static func get_event_name(event:InputEvent, G:Node) -> String:
 			name += "-"
 		return name
 	elif event is InputEventJoypadButton:
-		var idx
-		if G:
-			idx = G.controller_type%3
-		else:
-			idx = 0
+		var idx = G.inp.controller_type%3
 		return "["+ button_index_names[event.button_index][idx]+"]"
 	elif event is InputEventMouseButton:
 		var m = ""

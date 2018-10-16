@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://items/saw.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CapsuleMesh" id=1]
 
@@ -87,6 +88,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="debug_marker" type="MeshInstance" parent="head/camera"]
 transform = Transform( -0.0929918, 0, -8.12961e-09, 0, 0.0929918, 0, 8.12961e-09, 0, -0.0929918, -2.85304e-07, 0, -3.2635 )
+visible = false
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -108,6 +110,11 @@ cast_to = Vector3( 0, 0, -3 )
 collision_mask = 3
 collide_with_areas = false
 collide_with_bodies = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="saw" parent="head" instance=ExtResource( 2 )]
+transform = Transform( -0.132894, 0.0271987, 0.481248, -0.162113, 0.467601, -0.0711941, -0.453937, -0.174956, -0.115464, -0.681466, 0.771349, 0.364075 )
+visible = false
 _sections_unfolded = [ "Transform" ]
 
 [node name="Body" type="CollisionShape" parent="."]

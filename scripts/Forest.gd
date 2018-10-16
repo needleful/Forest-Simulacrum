@@ -25,8 +25,6 @@ func _ready():
 		var phase = house.get_node("phase_"+str(i))
 		house.remove_child(phase)
 		house_parts.push_back(phase)
-	G.ui = $ui
-	G.inp = $ui.get_node("input_handler")
 	G.enable_options()
 
 func on_house_entry(body):
@@ -61,6 +59,7 @@ func event_tea_party():
 
 func event_get_saw():
 	G.add_item("saw")
+	$Player.show_saw(true)
 	get_tree().call_group("Tree_Small", "set_active", true)
 
 func event_build_house():
@@ -84,6 +83,7 @@ func event_house_continue():
 		anim.queue("Music_Fadeout")
 		anim.queue("Nightfall")
 		G.remove_item("saw")
+		$Player.show_saw(false)
 		G.phase = G.BEDTIME
 
 func build_house():

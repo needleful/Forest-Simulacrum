@@ -9,6 +9,7 @@
 
 [node name="pause" type="Control"]
 pause_mode = 2
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -290,7 +291,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 script = ExtResource( 3 )
-focused_control = NodePath("")
+focused_control = NodePath("sns_x")
 
 [node name="Label" type="Label" parent="options/vbox/tab/Controls"]
 anchor_left = 0.0
@@ -402,7 +403,6 @@ alignment = 0
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="buttons" type="HBoxContainer" parent="options/vbox"]
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -462,6 +462,26 @@ group = null
 text = "Apply"
 flat = false
 align = 1
+
+[node name="tooltip" type="Label" parent="options/vbox/buttons"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 110.0
+margin_top = 3.0
+margin_right = 363.0
+margin_bottom = 17.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Press shoulder buttons to navigate tabs"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="controller_remap" type="Popup" parent="options"]
 editor/display_folded = true

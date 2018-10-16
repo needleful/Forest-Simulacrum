@@ -20,6 +20,11 @@ _global_script_classes=[ {
 "path": "res://addons/peroxinator/dialog_tree.gd"
 }, {
 "base": "Node",
+"class": "InputProcessor",
+"language": "GDScript",
+"path": "res://scripts/input.gd"
+}, {
+"base": "Object",
 "class": "Options",
 "language": "GDScript",
 "path": "res://scripts/options.gd"
@@ -32,6 +37,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "DialogSource": "",
 "DialogTree": "",
+"InputProcessor": "",
 "Options": "",
 "Talkable": ""
 }
@@ -46,6 +52,7 @@ config/icon="res://assets/needleful.png"
 
 [autoload]
 
+input="*res://scripts/input.gd"
 global="*res://scripts/global.gd"
 
 [display]

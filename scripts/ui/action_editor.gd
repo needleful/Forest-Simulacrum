@@ -9,9 +9,10 @@ var buttons:Array = []
 
 var label_text setget set_label_text
 var index_to_change:int
-onready var G = get_node("/root/global")
+var G:Node
 
-func set_action(action:String, events:Array):
+func set_action(action:String, events:Array, G:Node):
+	self.G = G
 	self.action = action
 	self.events = events
 	var action_count = 0

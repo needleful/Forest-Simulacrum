@@ -6,24 +6,11 @@ signal phase_change(old_phase, new_phase)
 var inventory: Dictionary = {}
 var ui: Control
 
-const InputController = preload("res://scripts/ui/input.gd")
-var inp : InputController
+onready var inp = get_node("/root/input")
 
 const options_file:String = "res://settings.var"
 
-var using_controller = false setget use_controller
-var controller_type = PAD_XBOX setget set_controller_type
-
-var controller_name = "" setget set_controller_name
-
 var options setget set_options
-
-enum ControllerType{
-	PAD_XBOX,
-	PAD_PLAYSTATION,
-	PAD_NINTENDO,
-	PAD_OTHER,
-}
 
 enum Phase{
 	FLOWERS,
@@ -35,6 +22,8 @@ var events: Array = []
 
 func _ready():
 	print("Ready")
+	if inp == null:
+		print("inp is NULL")
 	options = Options.new()
 
 func enable_options():
@@ -77,23 +66,6 @@ func save_options(options):
 	else:
 		f.store_string(to_json(options.to_dict()))
 		f.close()
-
-func use_controller(use:bool):
-	using_controller = use
-	if ui:
-		ui.get_node("DialogViewer").controller_focus = use
-
-func set_controller_type(val):
-	controller_type = val
-
-func set_controller_name(name:String):
-	if name == controller_name:
-		return
-	if name.matchn("*XInput*") or name.matchn("*XBox*"):
-		set_controller_type(PAD_XBOX)
-	else:
-		set_controller_type(PAD_OTHER)
-	controller_name = name
 
 func set_sns_x(val):
 	if inp == null:

@@ -31,3 +31,6 @@ func set_min(val:float):
 	min_value = val
 	if $slide:
 		$slide.min_value = val
+
+func grab_focus():
+	$slide.grab_focus()
