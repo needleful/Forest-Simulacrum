@@ -83,7 +83,7 @@ func _physics_process(delta) -> void:
 		translate(Vector3(0,vcorrection*delta*height_rate,0))
 
 func _process(delta) -> void:
-	look(G.inp.get_camera_movement())
+	look(G.inp.get_camera_movement(delta))
 	#Random camera movement
 	rnd_cam_timer += delta*rnd_cam_speed
 	for i in range(3):

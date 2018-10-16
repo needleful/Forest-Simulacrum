@@ -40,6 +40,9 @@ func deselect():
 	hide()
 	
 func act():
+	#Don't act when paused
+	if get_tree().paused:
+		return
 	hide()
 	enabled = false
 	has_selected = false

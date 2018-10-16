@@ -107,11 +107,9 @@ func _on_sns_x_changed(value):
 		G.options.sensitivity_x = value
 	else:
 		G.options.mouse_sns_x = value
-	$vbox/tab/Controls/sns_x/value.text = "%.02f" % value
 
 func _on_sns_y_changed(value):
 	if G.using_controller:
 		G.options.sensitivity_y = value
 	else:
 		G.options.mouse_sns_y = value
-	$vbox/tab/Controls/sns_y/value.text = "%.02f" % value

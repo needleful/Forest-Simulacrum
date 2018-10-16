@@ -38,6 +38,7 @@ var page = 0
 var state = DLG_CLOSED setget set_state
 
 var focused = false
+var last_focused:Control
 
 func _input(event):
 	if event.is_action_pressed("gm_act"):
@@ -55,7 +56,7 @@ func _input(event):
 					update_text(false)
 	if state == DLG_VIEW_REPLIES && !focused && (
 		event.is_action_pressed("ui_down") ||
-		event.is_action_pressed("ui_down")
+		event.is_action_pressed("ui_up")
 	):
 		for b in reply_box.get_children():
 			if b is Button:
@@ -183,6 +184,9 @@ func set_source(src:String):
 	
 func send_command(c):
 	emit_signal("dialog_command", c.command, c.args)
+
+func _on_pause(paused:bool):
+	focused = false
 
 func is_true(c: DialogTree.Command):
 	if resolver != null && resolver.has_method("dlg_"+c.command):
