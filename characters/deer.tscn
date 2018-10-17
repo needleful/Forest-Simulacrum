@@ -52,15 +52,15 @@ data = {
 "position": Vector2( 324, 25 ),
 "type": "mix"
 }, {
-"id": "out",
-"position": Vector2( 542, 97 ),
-"type": "output"
-}, {
 "animation": null,
 "filter": [  ],
 "id": "anim",
 "position": Vector2( 71, 54 ),
 "type": "animation"
+}, {
+"id": "out",
+"position": Vector2( 542, 97 ),
+"type": "output"
 }, {
 "animation": null,
 "filter": [  ],

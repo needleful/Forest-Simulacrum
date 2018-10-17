@@ -11,8 +11,8 @@ var mouse_sns = Vector2(1,1)
 var cam_invert:Vector2 = Vector2(-1,1)
 
 #Constants
-const mouse_factor:Vector2 = Vector2(0.007, 0.007)
-const analog_sns:Vector2 = Vector2(0.05, 0.05)
+const mouse_factor:Vector2 = Vector2(1, 1)
+const analog_sns:Vector2 = Vector2(4, 4)
 
 #Controller info
 var using_controller = false setget use_controller
@@ -62,7 +62,6 @@ class AnalogUiInputStatus:
 		if to_click:
 			clicks += 1
 			last_click_time = now
-			print("Click ",digital_name, clicks)
 		return to_click
 	
 	func reset():
@@ -120,7 +119,6 @@ func process_analog_input(delta):
 		reset_actions = reset_actions and Input.get_action_strength(dir.action_name) < 0.05
 			
 	if to_reset and reset_actions:
-		print("\t reset")
 		for dir in analog_ui_dirs:
 			dir.reset()
 		to_reset = false
@@ -141,7 +139,7 @@ func get_camera_movement(delta)->Vector2:
 	cam *= cam_invert
 	cam_delta.x = 0
 	cam_delta.y = 0
-	return cam
+	return cam*delta
 
 func inp(x:float)->float:
 	return sign(x)*pow(abs(x), 0.5)
@@ -170,6 +168,20 @@ func set_controller_name(name:String):
 		set_controller_type(PAD_XBOX)
 	elif name.matchn("*DualShock*"):
 		set_controller_type(PAD_PLAYSTATION)
+	elif name.matchn("*Nintendo*"):
+		set_controller_type(PAD_NINTENDO)
 	else:
 		set_controller_type(PAD_OTHER)
 	controller_name = name
+
+func get_action_input(action:String):
+	var events = InputMap.get_action_list(action)
+	if events == null or events.empty():
+		return "???"
+	else:
+		for event in events:
+			if using_controller == (
+				event is InputEventJoypadButton 
+				or event is InputEventJoypadMotion
+			):
+				return Options.get_event_name(event, get_node("/root/global"))

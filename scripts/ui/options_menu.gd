@@ -18,10 +18,29 @@ const action_names:Dictionary = {
 	"gm_pause":"Pause"
 }
 
+func _input(event):
+	if !visible:
+		return
+	else:
+		if event.is_action_pressed("ui_page_down"):
+			move_tab(1)
+		elif event.is_action_pressed("ui_page_up"):
+			move_tab(-1)
+		elif event.is_action_pressed("ui_cancel"):
+			_on_cancel_pressed()
+
+func move_tab(amount:int):
+	var t = $vbox/tab
+	var c = t.current_tab+amount
+	if c < t.get_tab_count() and c >= 0:
+		t.current_tab = c
+		t.get_current_tab_control().get_focus()
+
 func _ready():
 	$controller_remap.connect("hide", self, "_on_remap_hide")
 
 func display():
+	set_process_input(true)
 	prepare_display()
 	show()
 
@@ -32,12 +51,12 @@ func prepare_display(advanced = false):
 	$vbox/tab/Graphics/AntiAliasing.set_value(G.options.anti_aliasing)
 	$vbox/tab/Graphics/VSync.set_value(G.options.vsync)
 	if G.inp.using_controller:
-		$vbox/tab/Controls/sns_x/slide.value = G.options.sensitivity_x
-		$vbox/tab/Controls/sns_y/slide.value = G.options.sensitivity_y
+		$vbox/tab/Controls/sns_x.value = G.options.sensitivity_x
+		$vbox/tab/Controls/sns_y.value = G.options.sensitivity_y
 		$vbox/tab/Controls/Label.text = "Controller: "+G.inp.controller_name
 	else:
-		$vbox/tab/Controls/sns_x/slide.value = G.options.mouse_sns_x
-		$vbox/tab/Controls/sns_y/slide.value = G.options.mouse_sns_y
+		$vbox/tab/Controls/sns_x.value = G.options.mouse_sns_x
+		$vbox/tab/Controls/sns_y.value = G.options.mouse_sns_y
 		$vbox/tab/Controls/Label.text = "Keyboard and Mouse"
 
 	for c in $vbox/tab/Buttons/actions/vbox.get_children():
@@ -55,8 +74,14 @@ func prepare_display(advanced = false):
 		$vbox/tab/Buttons/actions/vbox.add_child(ac)
 		ac.connect("change_action_request", self, "change_action")
 		ac.connect("focus_requested", self, "scroll_to_action")
+	
 	$vbox/buttons/apply.focus_neighbour_right = NodePath("vbox/buttons/cancel")
 	$vbox/buttons/cancel.focus_neighbour_left = NodePath("vbox/buttons/apply")
+	
+	$vbox/top/tooltip.text = "%s/%s - Move between pages" % [
+		G.inp.get_action_input("ui_page_up"),
+		G.inp.get_action_input("ui_page_down")
+	]
 
 func _on_remap_hide():
 	$vbox.show()
@@ -91,10 +116,14 @@ func _on_anti_aliasing_toggled(value):
 
 func _on_cancel_pressed():
 	G.options = prev_options
-	emit_signal("exit")
+	exit()
 
 func _on_apply_pressed():
 	G.save_options(G.options)
+	exit()
+
+func exit():
+	set_process_input(false)
 	emit_signal("exit")
 
 func _on_advanced_value_changed(value):

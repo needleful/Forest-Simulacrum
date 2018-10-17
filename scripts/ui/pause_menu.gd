@@ -14,17 +14,6 @@ func _input(event):
 		if G.inp.using_controller:
 			G.inp.controller_name = Input.get_joy_name(event.device)
 		self.paused = !paused
-	elif $options.visible:
-		var t = $options/vbox/tab
-		var c = t.current_tab
-		if event.is_action_pressed("ui_page_down"):
-			if c+1 < t.get_tab_count():
-				t.current_tab = c+1
-				t.get_current_tab_control().get_focus()
-		elif event.is_action_pressed("ui_page_up"):
-			if c > 0:
-				t.current_tab = c-1
-				t.get_current_tab_control().get_focus()
 
 func _ready():
 	set_process_input(true)

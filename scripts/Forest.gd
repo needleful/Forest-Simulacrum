@@ -9,6 +9,8 @@ onready var anim: AnimationPlayer = $AnimationPlayer
 var house_phase:int = 0
 var house_parts:Array = []
 
+var prev_music_state:bool = false
+
 func _ready():
 	funeral = $funeral
 	tea_party = $tea_party
@@ -28,10 +30,18 @@ func _ready():
 	G.enable_options()
 
 func on_house_entry(body):
-	$Music.stream_paused = true
+	_on_portrait_talk_enter()
 
 func on_house_exit(body):
-	$Music.stream_paused = false
+	_on_portrait_talk_exit()
+
+func _on_portrait_talk_enter():
+	prev_music_state = $Music.stream_paused
+	$Music.stream_paused = true
+
+func _on_portrait_talk_exit():
+	$Music.stream_paused = prev_music_state
+
 
 func on_registered_event(name):
 	if !has_method("event_"+name):

@@ -17,7 +17,6 @@ var sensitivity_y:float setget set_sns_y
 var mouse_sns_x:float setget set_mouse_sns_x
 var mouse_sns_y:float setget set_mouse_sns_y
 
-
 const unbound_event = "---"
 
 # Button indexes, with XBox, Playstation, and Nintendo names
@@ -85,6 +84,10 @@ func _init(to_copy = null):
 		vsync = to_copy.vsync
 		for key in to_copy.controls.keys():
 			controls[key] = to_copy.controls[key]
+		sensitivity_x = to_copy.sensitivity_x
+		sensitivity_y = to_copy.sensitivity_y
+		mouse_sns_x = to_copy.mouse_sns_x
+		mouse_sns_y = to_copy.mouse_sns_y
 	else:
 		fullscreen = OS.window_fullscreen
 		vsync = OS.vsync_enabled

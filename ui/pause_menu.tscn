@@ -9,7 +9,6 @@
 
 [node name="pause" type="Control"]
 pause_mode = 2
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -184,12 +183,12 @@ __meta__ = {
 [node name="vbox" type="VBoxContainer" parent="options"]
 anchor_left = 0.0
 anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 20.0
-margin_top = 40.0
-margin_right = 530.0
-margin_bottom = 327.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -199,13 +198,68 @@ size_flags_vertical = 3
 alignment = 0
 _sections_unfolded = [ "Margin", "Size Flags" ]
 
-[node name="tab" type="TabContainer" parent="options/vbox"]
+[node name="top" type="HBoxContainer" parent="options/vbox"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 510.0
-margin_bottom = 263.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Label" type="Label" parent="options/vbox/top"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 253.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "Options"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="tooltip" type="Label" parent="options/vbox/top"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 257.0
+margin_right = 510.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Press shoulder buttons to navigate tabs"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="tab" type="TabContainer" parent="options/vbox"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 18.0
+margin_right = 510.0
+margin_bottom = 286.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -273,7 +327,6 @@ margin_bottom = 44.0
 text = "VSync"
 
 [node name="Controls" type="VBoxContainer" parent="options/vbox/tab"]
-editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -315,6 +368,7 @@ max_lines_visible = -1
 label_text = "Horizontal Sensitivity"
 max_value = 10.0
 min_value = 0.1
+value = null
 
 [node name="sns_y" parent="options/vbox/tab/Controls" instance=ExtResource( 5 )]
 margin_top = 38.0
@@ -322,6 +376,7 @@ margin_bottom = 54.0
 label_text = "Vertical Sensitivity"
 max_value = 10.0
 min_value = 0.1
+value = null
 
 [node name="Buttons" type="VBoxContainer" parent="options/vbox/tab"]
 editor/display_folded = true
@@ -403,13 +458,14 @@ alignment = 0
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="buttons" type="HBoxContainer" parent="options/vbox"]
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 267.0
+margin_top = 290.0
 margin_right = 510.0
-margin_bottom = 287.0
+margin_bottom = 310.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -462,26 +518,6 @@ group = null
 text = "Apply"
 flat = false
 align = 1
-
-[node name="tooltip" type="Label" parent="options/vbox/buttons"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 110.0
-margin_top = 3.0
-margin_right = 363.0
-margin_bottom = 17.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Press shoulder buttons to navigate tabs"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="controller_remap" type="Popup" parent="options"]
 editor/display_folded = true
@@ -537,27 +573,6 @@ align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-
-[node name="Label" type="Label" parent="options"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 410.0
-margin_bottom = 34.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Options"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Margin" ]
 
 [connection signal="pressed" from="main_menu/buttons/resume" to="." method="_on_resume"]
 [connection signal="pressed" from="main_menu/buttons/options" to="." method="show_options"]

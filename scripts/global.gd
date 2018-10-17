@@ -17,7 +17,7 @@ enum Phase{
 	HOUSE,
 	BEDTIME,
 }
-var phase = FLOWERS
+var phase = FLOWERS setget change_phase
 var events: Array = []
 
 func _ready():
@@ -30,6 +30,8 @@ func enable_options():
 	self.options = load_options()
 
 func set_options(val):
+	if val == null:
+		return
 	options.disconnect("set_sns_x", self, "set_sns_x")
 	options.disconnect("set_sns_y", self, "set_sns_y")
 	options.disconnect("set_mouse_sns_x", self, "set_mouse_sns_x")

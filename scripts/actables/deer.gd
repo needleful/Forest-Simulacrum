@@ -25,7 +25,6 @@ func _ready():
 	b.connect("exit", self,  "on_exit")
 	G.connect("phase_change", self, "on_phase_change")
 
-
 func on_enter():
 	if G.phase == G.FLOWERS:
 		if b.met(optional_items):
@@ -47,7 +46,8 @@ func on_enter():
 			else:
 				b.dialog_entry = "House_%d_Harvest" % (W.house_phase+1)
 	elif G.phase == G.BEDTIME:
-		pass
+		if !b.talked:
+			b.dialog_entry = "BedTime"
 
 func on_exit():
 	if G.phase == G.HOUSE and b.dialog_entry == "House_%d_Build" % (W.house_phase+1):
