@@ -42,7 +42,6 @@ func _on_portrait_talk_enter():
 func _on_portrait_talk_exit():
 	$Music.stream_paused = prev_music_state
 
-
 func on_registered_event(name):
 	if !has_method("event_"+name):
 		print_debug("Unknown event: ", name)

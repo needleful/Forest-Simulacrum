@@ -11,6 +11,7 @@ func _ready():
 	get_node("/root/global").ui = self
 	$DialogViewer.resolver = get_node("/root/global")
 	get_node("/root/input").connect("use_controller", self, "on_use_controller")
+	on_use_controller(input.using_controller)
 
 func _process(delta):
 	$input_viewer/analog/raw.rect_position = (
@@ -29,4 +30,5 @@ func set_fade(val):
 		fade.visible = true
 
 func on_use_controller(use):
+	print("Using controller: ", "Yes" if use else "No")
 	$DialogViewer.controller_focus = use

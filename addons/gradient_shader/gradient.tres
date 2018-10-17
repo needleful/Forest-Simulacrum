@@ -7,11 +7,11 @@
 
 render_priority = 0
 shader = ExtResource( 1 )
-shader_param/color_light = Color( 1, 1, 1, 1 )
-shader_param/color_dark = Color( 0, 0, 0, 1 )
+shader_param/color_light = Color( 0.996078, 0.972549, 0.843137, 1 )
+shader_param/color_dark = Color( 0.129412, 0.105882, 0.894118, 1 )
 shader_param/noise_weight = 0.015
-shader_param/y_top = 1
-shader_param/y_scale = 1
+shader_param/y_top = 33.0
+shader_param/y_scale = 33.4
 shader_param/noise = ExtResource( 2 )
 _sections_unfolded = [ "Resource", "Shader Param", "shader_param" ]
 

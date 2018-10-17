@@ -124,14 +124,10 @@ func from_dict(dict):
 	if dict.has('controls'):
 		for key in dict['controls'].keys():
 			var arr = []
-			print(key)
 			for name in dict['controls'][key]:
-				print("\t",name)
 				var e:InputEvent = get_event_from_string(name)
 				if e != null:
 					arr.push_back(e)
-				else:
-					print("\t  Bad!! ")
 			if !arr.empty():
 				controls[key] = arr
 	if controls.empty():

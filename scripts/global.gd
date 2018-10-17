@@ -118,3 +118,11 @@ func dlg_has(args)->bool:
 		if !has_item(arg):
 			return false
 	return true
+
+func dlg_not(args)->bool:
+	var m = "dlg_" + str(args[0])
+	if !has_method(m):
+		return false
+	else:
+		args.remove(0)
+		return not call(m, args)

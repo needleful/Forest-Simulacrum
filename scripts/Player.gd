@@ -135,6 +135,11 @@ func reset_camera():
 	$head.rotation_degrees.y = 0
 	cam_angle = 0
 	$head/camera.rotation_degrees.x = 0
+	$head/saw.rotate_x(-saw_angle.x - saw_x)
+	$head/saw.rotate_y(-saw_angle.y)
+	$head/saw.rotate_z(-saw_angle.z)
+	saw_angle = Vector3(0,0,0)
+	saw_x = 0
 
 func force_act(n:NodePath):
 	var body = get_node(n).b

@@ -8,7 +8,7 @@ enum ViewerState {
 	DLG_CLOSED
 }
 
-export(bool) var controller_focus = true
+export(bool) var controller_focus = false
 
 signal view_state_changed(previous, next)
 signal dialog_command(command, args)
