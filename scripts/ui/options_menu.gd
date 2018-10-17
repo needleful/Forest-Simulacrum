@@ -13,7 +13,7 @@ const action_names:Dictionary = {
 	"mv_right":"Right",
 	"mv_forward":"Forward",
 	"mv_backward":"Backward",
-	"mv_jump": "Jump",
+	"jump": "Jump",
 	"gm_act":"Act",
 	"gm_pause":"Pause"
 }
@@ -26,7 +26,7 @@ func _input(event):
 			move_tab(1)
 		elif event.is_action_pressed("ui_page_up"):
 			move_tab(-1)
-		elif event.is_action_pressed("ui_cancel"):
+		elif event.is_action_pressed("ui_back"):
 			_on_cancel_pressed()
 
 func move_tab(amount:int):
@@ -37,6 +37,8 @@ func move_tab(amount:int):
 		t.get_current_tab_control().get_focus()
 
 func _ready():
+	$vbox/buttons/apply.focus_neighbour_right = NodePath("vbox/buttons/reset_all")
+	$vbox/buttons/reset_all.focus_neighbour_left = NodePath("vbox/buttons/apply")
 	$controller_remap.connect("hide", self, "_on_remap_hide")
 
 func display():
@@ -74,9 +76,6 @@ func prepare_display(advanced = false):
 		$vbox/tab/Buttons/actions/vbox.add_child(ac)
 		ac.connect("change_action_request", self, "change_action")
 		ac.connect("focus_requested", self, "scroll_to_action")
-	
-	$vbox/buttons/apply.focus_neighbour_right = NodePath("vbox/buttons/cancel")
-	$vbox/buttons/cancel.focus_neighbour_left = NodePath("vbox/buttons/apply")
 	
 	$vbox/top/tooltip.text = "%s/%s - Move between pages" % [
 		G.inp.get_action_input("ui_page_up"),

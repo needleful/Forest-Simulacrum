@@ -17,7 +17,7 @@ func set_action(action:String, events:Array, G:Node):
 	self.events = events
 	var action_count = 0
 	for event in events:
-		var name = Options.get_event_name(event, G)
+		var name = Options.get_event_name(event, G.inp.controller_type)
 		if name == "":
 			name = "???"
 		add_event_button(name, action_count, event)
@@ -54,7 +54,7 @@ func set_new_action(event:InputEvent):
 	else:
 		events[index_to_change] = event
 		InputMap.action_add_event(action, event)
-		new_name = Options.get_event_name(event, G)
+		new_name = Options.get_event_name(event, G.inp.controller_type)
 	buttons[index_to_change].text = new_name
 
 func request_focus():
@@ -71,6 +71,6 @@ func find_existing_event(event:InputEvent)->int:
 	var idx:int = -1
 	for e in events:
 		idx += 1
-		if Options.get_event_name(e, G) == Options.get_event_name(event, G):
+		if Options.get_event_name(e, G.inp.controller_type) == Options.get_event_name(event, G.inp.controller_type):
 			return idx
 	return -1

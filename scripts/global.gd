@@ -43,10 +43,10 @@ func set_options(val):
 	options.connect("set_mouse_sns_y", self, "set_mouse_sns_y")
 	options.apply()
 
-func load_options():
+func load_options(file=options_file):
 	var opt = Options.new()
 	var f = File.new()
-	var err = f.open(options_file, File.READ)
+	var err = f.open(file, File.READ)
 	if err != OK:
 		print_debug("Failed to open options with code: ", err)
 		return Options.new()

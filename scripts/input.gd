@@ -145,7 +145,7 @@ func inp(x:float)->float:
 	return sign(x)*pow(abs(x), 0.5)
 
 func is_jumping()->bool:
-	return Input.is_action_just_pressed("mv_jump")
+	return Input.is_action_just_pressed("jump")
 
 func get_direction()->Vector2:
 	var l = Input.get_action_strength("mv_left")
@@ -184,4 +184,4 @@ func get_action_input(action:String):
 				event is InputEventJoypadButton 
 				or event is InputEventJoypadMotion
 			):
-				return Options.get_event_name(event, get_node("/root/global"))
+				return Options.get_event_name(event, controller_type)

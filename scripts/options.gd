@@ -41,7 +41,7 @@ const button_index_names = [
 
 var controls: Dictionary
 
-static func get_event_name(event:InputEvent, G:Node) -> String:
+static func get_event_name(event:InputEvent, controller_type:int) -> String:
 	if event is InputEventJoypadMotion:
 		var name = ""
 		match(event.axis):
@@ -61,7 +61,7 @@ static func get_event_name(event:InputEvent, G:Node) -> String:
 			name += "-"
 		return name
 	elif event is InputEventJoypadButton:
-		var idx = G.inp.controller_type%3
+		var idx = controller_type%3
 		return "["+ button_index_names[event.button_index][idx]+"]"
 	elif event is InputEventMouseButton:
 		var m = ""
@@ -77,27 +77,26 @@ static func get_event_name(event:InputEvent, G:Node) -> String:
 		return event.as_text()
 
 func _init(to_copy = null):
-	controls = {}
 	if to_copy:
 		fullscreen = to_copy.fullscreen
 		anti_aliasing = to_copy.anti_aliasing
 		vsync = to_copy.vsync
+		controls = {}
 		for key in to_copy.controls.keys():
 			controls[key] = to_copy.controls[key]
 		sensitivity_x = to_copy.sensitivity_x
 		sensitivity_y = to_copy.sensitivity_y
 		mouse_sns_x = to_copy.mouse_sns_x
 		mouse_sns_y = to_copy.mouse_sns_y
-	else:
-		fullscreen = OS.window_fullscreen
-		vsync = OS.vsync_enabled
-	if controls.size() < InputMap.get_actions().size():
-		get_default_controls()
 
 func to_dict()->Dictionary:
 	var d = {}
 	d['fullscreen'] = fullscreen
-	d['controls'] = controls
+	d['controls'] = {}
+	for a in controls.keys():
+		d['controls'][a] = []
+		for e in controls[a]:
+			d['controls'][a].push_back(get_string_from_event(e))
 	d['vsync'] = vsync
 	d['anti_aliasing'] = anti_aliasing
 	d['sensitivity_x'] = sensitivity_x
@@ -121,9 +120,64 @@ func from_dict(dict):
 		mouse_sns_x = dict['mouse_sns_x']
 	if dict.has('mouse_sns_y'):
 		mouse_sns_y = dict['mouse_sns_y']
-#		controls = dict['controls']
+	controls = {}
+	if dict.has('controls'):
+		for key in dict['controls'].keys():
+			var arr = []
+			print(key)
+			for name in dict['controls'][key]:
+				print("\t",name)
+				var e:InputEvent = get_event_from_string(name)
+				if e != null:
+					arr.push_back(e)
+				else:
+					print("\t  Bad!! ")
+			if !arr.empty():
+				controls[key] = arr
 	if controls.empty():
 		get_default_controls()
+
+static func get_string_from_event(event:InputEvent)->String:
+	var value:int
+	if event is InputEventKey:
+		value = event.scancode
+	elif event is InputEventJoypadButton:
+		value = event.button_index
+	elif event is InputEventJoypadMotion:
+		return "%s:%d:%f" % [event.get_class(), event.axis, event.axis_value]
+	elif event is InputEventMouseButton:
+		value = event.button_index
+	else:
+		return ""
+	return "%s:%d" % [event.get_class(), value]
+	
+static func get_event_from_string(name:String)->InputEvent:
+	if name.begins_with('['):
+		return null
+	var vals = name.split(":")
+	if vals.size() != 2 and vals.size() != 3:
+		return null
+	
+	var e:InputEvent
+	var value:int = int(vals[1])
+	match vals[0]:
+		"InputEventKey":
+			e = InputEventKey.new()
+			e.scancode = value
+			e.pressed = true
+		"InputEventJoypadButton":
+			e = InputEventJoypadButton.new()
+			e.button_index = value
+			e.pressed = true
+		"InputEventMouseButton":
+			e = InputEventMouseButton.new()
+			e.button_index = value
+			e.pressed = true
+		"InputEventJoypadMotion":
+			e = InputEventJoypadMotion.new()
+			e.axis = abs(value)
+			e.axis_value = int(vals[2])
+	return e
 
 func get_default_controls():
 	for action in InputMap.get_actions():
