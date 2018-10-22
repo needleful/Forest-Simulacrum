@@ -52,6 +52,28 @@ func _physics_process(delta) -> void:
 				ac.deselect()
 		else:
 			ac.deselect()
+
+func _process(delta) -> void:
+	look(G.inp.get_camera_movement(delta))
+	#Random camera movement
+	rnd_cam_timer += delta*rnd_cam_speed
+	for i in range(3):
+		if rnd_cam_timer[i] >= PI*2:
+			rnd_cam_timer[i] = 0
+			rnd_cam_span[i] = cam_span_base[i] + randf()*2*cam_span_shift[i]-cam_span_shift[i]
+			rnd_cam_speed[i] = cam_speed_base[i] + randf()*2*cam_speed_shift[i]-cam_speed_shift[i]
+	$head/camera.set_translation(cam_base +
+		Vector3(sin(rnd_cam_timer.x)*rnd_cam_span.x, 
+		sin(rnd_cam_timer.y)*rnd_cam_span.y, 
+		sin(rnd_cam_timer.z))*rnd_cam_span.z)
+	if $head/saw.visible:
+		$head/saw.rotate_y(-saw_angle.y*delta*4)
+		saw_angle.y -= saw_angle.y*delta*4
+		$head/saw.rotate_z(-saw_angle.z*delta*5)
+		saw_angle.z -= saw_angle.z*delta*5
+		$head/saw.rotate_x(-saw_x*delta*3)
+		saw_x -= saw_x*delta*3
+		
 	var direction: Vector2
 	if can_move:
 		direction = G.inp.get_direction()
@@ -90,27 +112,6 @@ func _physics_process(delta) -> void:
 	velocity = move_and_slide(velocity,Vector3())
 	if !in_air:
 		translate(Vector3(0,vcorrection*delta*height_rate,0))
-
-func _process(delta) -> void:
-	look(G.inp.get_camera_movement(delta))
-	#Random camera movement
-	rnd_cam_timer += delta*rnd_cam_speed
-	for i in range(3):
-		if rnd_cam_timer[i] >= PI*2:
-			rnd_cam_timer[i] = 0
-			rnd_cam_span[i] = cam_span_base[i] + randf()*2*cam_span_shift[i]-cam_span_shift[i]
-			rnd_cam_speed[i] = cam_speed_base[i] + randf()*2*cam_speed_shift[i]-cam_speed_shift[i]
-	$head/camera.set_translation(cam_base +
-		Vector3(sin(rnd_cam_timer.x)*rnd_cam_span.x, 
-		sin(rnd_cam_timer.y)*rnd_cam_span.y, 
-		sin(rnd_cam_timer.z))*rnd_cam_span.z)
-	if $head/saw.visible:
-		$head/saw.rotate_y(-saw_angle.y*delta*4)
-		saw_angle.y -= saw_angle.y*delta*4
-		$head/saw.rotate_z(-saw_angle.z*delta*5)
-		saw_angle.z -= saw_angle.z*delta*5
-		$head/saw.rotate_x(-saw_x*delta*3)
-		saw_x -= saw_x*delta*3
 
 func look(movement) -> void:
 	$head.rotate_y(movement.x)
