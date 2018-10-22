@@ -3,7 +3,7 @@
 ## NOTICE
 This game is CANCELLED!! 
 
-Actually it's just undergoing a hard pivot and will not be completed in its current state.  I went into this blind, and it shows in the lack of mechanical depth, the eclectic assets, and the ad-hoc (and incomplete) story.  But this was a valuable stepping-stone for the new design of the game, which sounds like something I'd actually want to play!
+Actually it's just undergoing a hard pivot and will not be completed in its current state.  I think it's a cute little walking sim, but it screams "Babby's first game", with the lack of mechanical depth, the eclectic assets, the ad-hoc (and incomplete) story, among other things.  But this was a valuable stepping-stone for the new design of the game, which sounds like something I'd actually want to play!
 
 ## THE ORIGINAL FUNNY TEXT
 
@@ -17,7 +17,9 @@ you will have to build Godot from source to run the project, because i am using 
 
 ## Epic-with-the-B-emoji game features
 
-- Controller support: this was harder than it sounds because godot™ does not out-of-the-box support navigating UIs with the analog sticks (read `scripts/input.gd` if you want to see my implementation of this!!! you will probably want to modify it to disable it when not in a UI because currently it spams input events when walking around!)
+- OST with Four original songs!
+
+- Controller support: this was harder than it sounds because godot™ does not out-of-the-box support navigating UIs with the analog sticks (read `scripts/input.gd` if you want to see my implementation of this!!! you will probably want to modify it to disable when not in a UI because currently it spams input events when walking around!)
 
 - Options Menu: You can bind the up button to X and it will work!!!  No volume controls and I will not add them!
 
