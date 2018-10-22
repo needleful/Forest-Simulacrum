@@ -13,7 +13,7 @@ do you like interactive pictures? do you want to make them and want to learn by 
 
 ## Requirements
 
-you will have to build Godot from source to run the project, because i am using some features that are not available in Godot 3.0!  when godot 3.1 is out i will stick to that so others can open it easier!  until that their [github is here](https://github.com/godotengine/godot) and the [tutorials for compiling are here](https://godot.readthedocs.io/en/3.0/development/compiling/index.html).  it is easy to build godot engine™ relative to other C++ projects, but I am a professional computer man so you may find it not very easy at all!!
+you will have to use the Godot 3.1 Alpha because I am using features not in Godot 3.0!
 
 ## Epic-with-the-B-emoji game features
 
