@@ -85,6 +85,7 @@ _sections_unfolded = [ "Margin" ]
 [node name="input_viewer" type="Control" parent="."]
 pause_mode = 2
 editor/display_folded = true
+visible = false
 anchor_left = 0.0
 anchor_top = 1.0
 anchor_right = 0.0

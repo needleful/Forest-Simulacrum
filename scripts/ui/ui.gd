@@ -32,3 +32,10 @@ func set_fade(val):
 func on_use_controller(use):
 	print("Using controller: ", "Yes" if use else "No")
 	$DialogViewer.controller_focus = use
+
+func _on_GradientProperties_update():
+	var f = get_focus_owner()
+	hide()
+	show()
+	if f != null:
+		f.grab_focus()

@@ -1,6 +1,8 @@
 tool
 extends Node
 
+signal update
+
 export var color_light = Color(1,1,1) setget set_light
 export var color_dark = Color(0,0,0) setget set_dark
 
@@ -62,6 +64,7 @@ func set_mid():
 	box_tab_bg.bg_color = color_mid
 	box_tab_bg.border_color = mid_dark
 	box_tab_fg.bg_color = mid_light
+	emit_signal("update")
 
 func set_scale(val):
 	material.set_shader_param("y_scale", scale)

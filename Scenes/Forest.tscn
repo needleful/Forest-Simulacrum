@@ -2362,3 +2362,4 @@ source_path = "res://scripts/dialog/viewables.dlg"
 
 [connection signal="talk_enter" from="portrait" to="." method="_on_portrait_talk_enter"]
 [connection signal="talk_exit" from="portrait" to="." method="_on_portrait_talk_exit"]
+[connection signal="update" from="GradientProperties" to="ui" method="_on_GradientProperties_update"]
