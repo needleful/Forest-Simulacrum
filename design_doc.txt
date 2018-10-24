@@ -1,5 +1,10 @@
 #Design Document
 
+### Todo
+Fix being able to highlight dialog options from the pause menu
+Implement equipment
+Design new mechanics
+
 ##Summary
 
 You're in a simulation called the Forest Simulacrum.  It's meant to be a peaceful, meditative area with simple tasks to keep your mind busy and relaxed.
@@ -16,6 +21,7 @@ I'm really digging the idea of having two distinct worlds of gameplay:
 		- Building mechanics?  Something meditative and easy that can be prolongued indefinitely.
 
 	- An complex lateral-thinking adventure game from the Portrait
+		- It should reflect some of the mechanics from the base game.
 
 ## The Forest
 
