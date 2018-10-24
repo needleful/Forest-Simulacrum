@@ -1,0 +1,26 @@
+#Design Document
+
+##Summary
+
+You're in a simulation called the Forest Simulacrum.  It's meant to be a peaceful, meditative area with simple tasks to keep your mind busy and relaxed.
+
+However, there are cracks in the simulation of your unconscious mind trying to wake you up.  But what is even left of the outside world?  Do you live in ignorant bliss, having escaped the outside, or do you face the horrors of the outside?
+
+It's actually a lot like the end of Toriel's introduction in Undertale, except you have the option to stay in the house forever, playing little games.
+
+##Gameplay Summary
+
+I'm really digging the idea of having two distinct worlds of gameplay:
+
+	- A large set of casual-style puzzles, supplemented with goofy smalltalk from the Deer.
+		- Building mechanics?  Something meditative and easy that can be prolongued indefinitely.
+
+	- An complex lateral-thinking adventure game from the Portrait
+
+## The Forest
+
+The forest serves as a hub world for the player, and it has the deer doing his antics, as well as the portrait hidden somewhere in the area.  What should be in the area?  Do we even need a forest?  I like the visual complexity.  Boxy environments are more difficult to parse with the artstyle.  And does the style do anything for the game?  It's distinct.  It makes more realistic things obvious and jarring.  Plus, the pastel colors could make it more calming.
+
+## The Code
+
+You recieve an item from the Portrait that locks the Deer in a glitched state when used on him.  This allows you to access areas that he will block you from entering otherwise, and you can then exit and manipulate the Forest.
