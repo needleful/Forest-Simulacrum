@@ -3,6 +3,7 @@ class_name InputProcessor
 
 signal use_controller(using)
 signal act
+signal pause(paused)
 
 #Settings
 var sensitivity:Vector2 = Vector2(1,1)
@@ -86,18 +87,21 @@ func _ready():
 	set_process(true)
 
 func _input(event:InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		cam_delta += event.relative*mouse_factor*mouse_sns
-	elif event.is_action_pressed("gm_act"):
-		emit_signal("act")
+	#Set the controller if a new input is detected
 	var c = event is InputEventJoypadButton or event is InputEventJoypadMotion
 	#InputEventAction is considered neutral
 	if not event is InputEventAction and using_controller != c:
 		self.using_controller = c
 		if c:
 			var s = Input.get_joy_name(event.device)
-			print("New Input Device: ",s)
 			self.controller_name = s
+	
+	if event is InputEventMouseMotion:
+		cam_delta += event.relative*mouse_factor*mouse_sns
+	elif event.is_action_pressed("gm_act"):
+		emit_signal("act")
+	elif event.is_action_pressed("gm_pause"):
+		emit_signal("pause", !get_tree().paused)
 
 func _process(delta):
 	process_analog_input(delta)
@@ -162,6 +166,7 @@ func set_controller_type(val):
 	controller_type = val
 
 func set_controller_name(name:String):
+	print("New Input Device: ", name)
 	if name == controller_name:
 		return
 	if name.matchn("*XInput*") or name.matchn("*XBox*"):

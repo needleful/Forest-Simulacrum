@@ -38,10 +38,9 @@ var page = 0
 var state = DLG_CLOSED setget set_state
 
 var focused = false
-var last_focused:Control
 
 func _input(event):
-	if event.is_action_pressed("gm_act"):
+	if event.is_action_pressed("gm_act") or event.is_action_pressed("ui_accept"):
 		match state:
 			DLG_WRITING:
 				textbox.visible_characters = textbox.get_total_character_count()
@@ -54,7 +53,7 @@ func _input(event):
 				else:
 					page += 1
 					update_text(false)
-	if state == DLG_VIEW_REPLIES && !focused && (
+	elif !focused && state == DLG_VIEW_REPLIES  && (
 		event.is_action_pressed("ui_down") ||
 		event.is_action_pressed("ui_up")
 	):
@@ -140,6 +139,7 @@ func focus_on_reply(button:Control):
 		scrollbox.scroll_vertical = button.rect_position.y
 
 func on_reply(reply):
+	print("\tReply chosen: ", reply.text)
 	focused = false
 	text_id = reply.next
 	for c in reply.commands:
@@ -185,8 +185,9 @@ func set_source(src:String):
 func send_command(c):
 	emit_signal("dialog_command", c.command, c.args)
 
-func _on_pause(paused:bool):
+func hide():
 	focused = false
+	.hide()
 
 func is_true(c: DialogTree.Command):
 	if resolver != null && resolver.has_method("dlg_"+c.command):

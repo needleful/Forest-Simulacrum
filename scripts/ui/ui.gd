@@ -5,13 +5,15 @@ export(float, 0.0, 1.0) var fadeout_alpha = 0.0 setget set_fade
 onready var fade = $ColorRect
 onready var input = get_node("/root/input")
 
+var dlg_was_visible = false
+
 func _ready():
-	set_process(true)
-	$pause.hide()
-	get_node("/root/global").ui = self
-	$DialogViewer.resolver = get_node("/root/global")
-	get_node("/root/input").connect("use_controller", self, "on_use_controller")
-	on_use_controller(input.using_controller)
+	set_process(false)
+	var g = get_node("/root/global")
+	g.ui = self
+	$DialogViewer.resolver = g
+	input.connect("use_controller", self, "_on_use_controller")
+	_on_use_controller(input.using_controller)
 
 func _process(delta):
 	$input_viewer/analog/raw.rect_position = (
@@ -29,8 +31,16 @@ func set_fade(val):
 	else:
 		fade.visible = true
 
-func on_use_controller(use):
-	print("Using controller: ", "Yes" if use else "No")
+func _on_pause(paused):
+	if paused:
+		dlg_was_visible = $DialogViewer.visible
+		$DialogViewer.set_process_input(false)
+		$DialogViewer.hide()
+	else:
+		$DialogViewer.visible = dlg_was_visible
+		$DialogViewer.set_process_input(dlg_was_visible)
+
+func _on_use_controller(use):
 	$DialogViewer.controller_focus = use
 
 func _on_GradientProperties_update():

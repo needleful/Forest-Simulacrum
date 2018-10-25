@@ -8,17 +8,9 @@ var paused:bool = false setget set_pause
 
 onready var G = get_node("/root/global")
 
-func _input(event):
-	if event.is_action_pressed("gm_pause"):
-		var c = event is InputEventJoypadButton
-		if c != G.inp.using_controller:
-			G.inp.using_controller = c
-		if G.inp.using_controller:
-			G.inp.controller_name = Input.get_joy_name(event.device)
-		self.paused = !paused
-
 func _ready():
-	set_process_input(true)
+	var input = $"/root/input"
+	input.connect("pause", self, "set_pause")
 
 func set_pause(p:bool):
 	paused = p

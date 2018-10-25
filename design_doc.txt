@@ -1,27 +1,35 @@
 #Design Document
 
-### Todo
-Fix being able to highlight dialog options from the pause menu
-Implement equipment
-Design new mechanics
+## Todo
+Bugs:
+- Fix being able to highlight dialog options from the pause menu
+Features:
+- Brainstorm new mechanics
+- Implement equipable items
 
 ##Summary
 
 You're in a simulation called the Forest Simulacrum.  It's meant to be a peaceful, meditative area with simple tasks to keep your mind busy and relaxed.
 
-However, there are cracks in the simulation of your unconscious mind trying to wake you up.  But what is even left of the outside world?  Do you live in ignorant bliss, having escaped the outside, or do you face the horrors of the outside?
+However, there are cracks in the simulation from your unconscious mind trying to wake you up.  But what is even left of the outside world?  What is left of you?  Will you live in ignorant bliss, having escaped the outside; or do you face the truth, and any horrors it may bring?
 
 It's actually a lot like the end of Toriel's introduction in Undertale, except you have the option to stay in the house forever, playing little games.
+
+## Scope
+
+I think the ideal length for this game is about two hours, maybe just one hour of main story content and an extra hour of messing around in the Forest.  This lessens the required depth of the minigames in the Forest, and the complexity of puzzles in the.. Code?  Subspace? The Portrait's world.
 
 ##Gameplay Summary
 
 I'm really digging the idea of having two distinct worlds of gameplay:
 
 	- A large set of casual-style puzzles, supplemented with goofy smalltalk from the Deer.
-		- Building mechanics?  Something meditative and easy that can be prolongued indefinitely.
+		- Building mechanics?  Something meditative and easy that can be prolongued indefinitely.  
+		- Doesn't necessarily need to be super fun, otherwise players may feel like they're losing something if they try to escape.
 
 	- An complex lateral-thinking adventure game from the Portrait
 		- It should reflect some of the mechanics from the base game.
+		- An interesting idea: the Forest games get glitched the more of the Portrait's story you complete.
 
 ## The Forest
 

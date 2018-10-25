@@ -11,7 +11,7 @@
 [ext_resource path="res://addons/peroxinator/dialog_editor/icons/remove.svg" type="Texture" id=9]
 
 [node name="ui" type="Control"]
-pause_mode = 1
+pause_mode = 2
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -59,9 +59,10 @@ __meta__ = {
 }
 controller_focus = false
 entry = "Home"
-text_speed = 2.0
+text_speed = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
+pause_mode = 1
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -78,9 +79,10 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0, 0, 0, 1 )
-_sections_unfolded = [ "Margin" ]
+_sections_unfolded = [ "Margin", "Pause" ]
 
 [node name="pause" parent="." instance=ExtResource( 6 )]
+visible = false
 
 [node name="input_viewer" type="Control" parent="."]
 pause_mode = 2
@@ -153,4 +155,4 @@ texture = ExtResource( 9 )
 stretch_mode = 0
 _sections_unfolded = [ "Material" ]
 
-[connection signal="pause" from="pause" to="DialogViewer" method="_on_pause"]
+[connection signal="pause" from="pause" to="." method="_on_pause"]
